@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace HASA
 {
@@ -23,6 +24,12 @@ namespace HASA
             insulation /= 1000;
 
             return 0.785 * (Math.Pow(od + 2 * insulation, 2) - Math.Pow(od, 2)) * 200;
+        }
+
+        public static void CopytToClipboard(string context)
+        {
+            Clipboard.Clear();
+            Clipboard.SetData(DataFormats.Text, context);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace HASA
             InitializeComponent();
         }
 
-        private void BtnCalcuteLoad_Click(object sender, EventArgs e)
+        private void BtnTotalLoad_Click(object sender, EventArgs e)
         {
             #region convert control value to number
             int dn1 = Convert.ToInt32(cbxDN1.Text);
@@ -65,15 +65,15 @@ namespace HASA
             txtTload3.Text = (int)tload3 + string.Empty;
         }
 
-
-        private void BtnCantilever_Click(object sender, EventArgs e)
+        private void BtnD6_Click(object sender, EventArgs e)
         {
             var p1 = Convert.ToInt32(txtTload1.Text) * 10 / 1000;
-            var p2 = Convert.ToInt32(txtTload2.Text) * 10 / 1000;
-            var p3 = Convert.ToInt32(txtTload3.Text) * 10 / 1000;
+            //var p2 = Convert.ToInt32(txtTload2.Text) * 10 / 1000;
+            //var p3 = Convert.ToInt32(txtTload3.Text) * 10 / 1000;
             var l1 = Convert.ToInt32(txtL1.Text);
-            var l2 = Convert.ToInt32(txtL2.Text);
-            var l3 = Convert.ToInt32(txtL3.Text);
+            //var l2 = Convert.ToInt32(txtL2.Text);
+            //var l3 = Convert.ToInt32(txtL3.Text);
+            var elevation = Convert.ToInt32(txtElevation_D6.Text);
 
             if (p1 <= 0)
             {
@@ -86,18 +86,19 @@ namespace HASA
                 return ;
             }
 
-            var dlg = new FrmD6(p1, l1);
+            var dlg = new FrmD6(p1, l1, elevation);
             dlg.ShowDialog();
         }
 
-        private void BtnShelf_Click(object sender, EventArgs e)
+        private void BtnD19_Click(object sender, EventArgs e)
         {
             var p1 = Convert.ToInt32(txtTload1.Text) * 10 / 1000;
-            var p2 = Convert.ToInt32(txtTload2.Text) * 10 / 1000;
-            var p3 = Convert.ToInt32(txtTload3.Text) * 10 / 1000;
+            //var p2 = Convert.ToInt32(txtTload2.Text) * 10 / 1000;
+            //var p3 = Convert.ToInt32(txtTload3.Text) * 10 / 1000;
             var l4 = Convert.ToInt32(txtL4.Text);
-            var l5 = Convert.ToInt32(txtL5.Text);
-            var l6 = Convert.ToInt32(txtL6.Text);
+            //var l5 = Convert.ToInt32(txtL5.Text);
+            //var l6 = Convert.ToInt32(txtL6.Text);
+            var elevation = Convert.ToInt32(txtElevation_D19.Text);
 
             if (p1 <= 0)
             {
@@ -110,46 +111,31 @@ namespace HASA
                 return;
             }
 
-            var dlg = new FrmD19(p1, l4);
+            var dlg = new FrmD19(p1, l4, elevation);
             dlg.ShowDialog();
         }
 
-        private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
+        private void BtnB2_1_Click(object sender, EventArgs e)
         {
-            var tab = sender as TabControl;
-            switch (tab.SelectedIndex)
-            {
-                case 0:
-                    AcceptButton = null;
-                    break;
-                case 1:
-                    AcceptButton = BtnB2;
-                    txtElevationI.Focus();
-                    break;
-                case 3:
-                    break;
-            }
-        }
+            Common.CopytToClipboard("AAA\tBBB");
 
-        private void BtnB2_Click(object sender, EventArgs e)
-        {
             //  开始计算前清空
             txtLug.Clear();
             txtRod.Clear();
             txtClamp.Clear();
             txtRodLength.Clear();
 
-            var el1 = int.Parse(txtElevationI.Text);
-            var el2 = int.Parse(txtElevationII.Text);
-            var force  = int.Parse(txtForce.Text);
-            var dn = cbxDN4.Text;
-            var hasInsulation = chkHasInsulation.Checked;
-            var isBritish = chkIsBritish.Checked;
+            var elevationI = int.Parse(txtElevationI_B2_1.Text);
+            var elevationII = int.Parse(txtElevationII_B2_1.Text);
+            var pipeLoad = int.Parse(txtPipeLoad_B2_1.Text);
+            var dn = cbxDN_B2_1.Text;
+            var hasInsulation = chkHasInsulation_B2_1.Checked;
+            var isBritish = chkIsBritish_B2_1.Checked;
 
             // 吊杆选型
-            var sql = $"SELECT * FROM a16 WHERE f > {force} LIMIT 0,1";
+            var sql = $"SELECT * FROM a16 WHERE f > {pipeLoad} LIMIT 0,1";
             var dt = SQLiteHelper.Read("HASA.db", sql);
-            var rodSeries = string.Empty +  dt.Rows[0]["series"];
+            var rodSeries = string.Empty + dt.Rows[0]["series"];
             int rodLength = 0;
             // 吊耳选型
             var lugSeries = $"A19({dt.Rows[0]["d"]})";
@@ -172,7 +158,7 @@ namespace HASA
                 sql = $"SELECT * FROM a5_1 WHERE series = '{ClampSeries}'";
                 dt = SQLiteHelper.Read("HASA.db", sql);
                 var f = Convert.ToInt32(dt.Rows[0]["f"]) / 2;
-                if (f > force)
+                if (f > pipeLoad)
                 {
                     // 基准型管夹
                     ClampLength = Convert.ToInt32(dt.Rows[0]["b"]) / 2;
@@ -200,16 +186,34 @@ namespace HASA
             }
 
             //计算吊杆长度
-            rodLength = el1 - el2 - lugLength - ClampLength;
-
+            rodLength = elevationI - elevationII - lugLength - ClampLength;
             txtLug.Text = lugSeries;
             txtRod.Text = rodSeries;
             txtClamp.Text = ClampSeries;
             txtRodLength.Text = rodLength + string.Empty;
 
+            var type = hasInsulation ? "II" : "I";
+            Common.CopytToClipboard($"B2-1\t{type}\t\t{pipeLoad}\t{elevationI}\t{elevationII}\t{rodLength}" +
+                $"\t\t\t\t\t\t\t1\t\t\t{lugSeries}\t{rodSeries}\t{ClampSeries}\t\t\t\t1,1,1");
         }
 
-        
+        private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var tab = sender as TabControl;
+            switch (tab.SelectedIndex)
+            {
+                case 0:
+                    AcceptButton = null;
+                    break;
+                case 1:
+                    AcceptButton = BtnB2_1;
+                    txtElevationI_B2_1.Focus();
+                    txtElevationI_B2_1.SelectAll();
+                    break;
+                case 3:
+                    break;
+            }
+        }
     }
 }
 

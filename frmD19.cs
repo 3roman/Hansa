@@ -6,8 +6,9 @@ namespace HASA
 {
     public partial class FrmD19 : Form
     {
-        private double distance;
-        private double force;
+        private int distance;
+        private int pipeLoad;
+        private int elevation;
 
         public FrmD19()
         {
@@ -15,21 +16,22 @@ namespace HASA
         }
 
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <param name="distance">单位为mm</param>
-        /// <param name="force">单位为KN</param>
-        public FrmD19(double force, double distance)
+        /// <param name="pipeLoad">单位为KN</param>
+        public FrmD19(int pipeLoad, int distance, int elevation)
         {
             this.distance = distance;
-            this.force = force;
+            this.pipeLoad = pipeLoad;
+            this.elevation = elevation;
 
             InitializeComponent();
         }
 
         private void FrmD19_Load(object sender, EventArgs e)
         {
-            var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "端焊", "侧焊" });
+            var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "侧焊", "端焊" });
             if (ret == DialogResult.OK)
             {
                 DataTableToListview(lstShelf, D19I());
@@ -65,13 +67,20 @@ namespace HASA
 
             var colName = DetermineColumn(distance);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > force
+                        where row.Field<double>(colName) > pipeLoad
                         select row;
-            return query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+
+            var temp = table.Rows[0]["steel"].ToString().Split(new char[]{'(', ')'});
+
+            Common.CopytToClipboard($"D19\tI\t\t{pipeLoad * 1000}\t{elevation}\t\t{distance + 300}" +
+                $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
+
+            return table;
         }
 
         /// <summary>
-        /// 侧焊三角撑
+        /// 端焊三角撑
         /// </summary>
         /// <returns></returns>
         private DataTable D19II()
@@ -79,9 +88,16 @@ namespace HASA
             var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d19 WHERE type='II'");
             var colName = DetermineColumn(distance);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > force
+                        where row.Field<double>(colName) > pipeLoad
                         select row;
-            return query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+
+            var temp = table.Rows[0]["steel"].ToString().Split(new char[] { '(', ')' });
+
+            Common.CopytToClipboard($"D19\tII\t\t{pipeLoad * 1000}\t{elevation}\t\t{distance + 150}" +
+                $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
+
+            return table;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

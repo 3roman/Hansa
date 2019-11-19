@@ -7,8 +7,9 @@ namespace HASA
 {
     public partial class FrmD6 : Form
     {
-        private double distance;
-        private double force;
+        private int distance;
+        private int pipeLoad;
+        private int elevation;
 
         public FrmD6()
         {
@@ -19,11 +20,12 @@ namespace HASA
         /// 
         /// </summary>
         /// <param name="distance">单位为mm</param>
-        /// <param name="force">单位为KN</param>
-        public FrmD6(double force, double distance)
+        /// <param name="pipeLoad">单位为KN</param>
+        public FrmD6(int pipeLoad, int distance, int elevation)
         {
             this.distance = distance;
-            this.force = force;
+            this.pipeLoad = pipeLoad;
+            this.elevation = elevation;
 
             InitializeComponent();
         }
@@ -122,7 +124,7 @@ namespace HASA
             //lvi.SubItems.Add("60");
             //lstD1.Items.Add(lvi);
             #endregion
-            var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "端焊", "侧焊" });
+            var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "侧焊", "端焊" });
             if (ret == DialogResult.OK)
             {
                 DataTableToListview(lstCantilever, D6I());
@@ -143,10 +145,14 @@ namespace HASA
             var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d6 WHERE type='I'");
             var colName = DetermineColumn(distance);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > force
+                        where row.Field<double>(colName) > pipeLoad
                         select row;
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            
+            Common.CopytToClipboard($"D6\tI\t\t{pipeLoad*1000}\t{elevation}\t\t{distance+300}" +
+                $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
-            return query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            return table;
         }
 
         /// <summary>
@@ -158,10 +164,15 @@ namespace HASA
             var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d6 WHERE type='II'");
             var colName = DetermineColumn(distance);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > force
+                        where row.Field<double>(colName) > pipeLoad
                         select row;
 
-            return query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+
+            Common.CopytToClipboard($"D6\tII\t\t{pipeLoad * 1000}\t{elevation}\t\t{distance + 150}" +
+                $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
+
+            return table;
         }
 
         private void BtnClose_Click(object sender, EventArgs e)
