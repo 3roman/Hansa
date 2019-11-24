@@ -1,32 +1,36 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace HASA
 {
-    class SQLiteHelper
+    internal static class SQLiteHelper
     {
         public static DataTable Read(string database, string sql)
         {
             DataTable dt = null;
             SQLiteDataAdapter adapter = null;
             SQLiteConnection conn = null;
+            DataSet ds = new DataSet();
 
             try
             {
                 conn = new SQLiteConnection($"Data Source={database}");
-                conn.Open();
                 adapter = new SQLiteDataAdapter(sql, conn);
-                var ds = new DataSet();
                 adapter.Fill(ds);
                 dt = ds.Tables[0];
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
-                conn.Close();
+                if (ConnectionState.Open == conn.State )
+                {
+                    conn.Close();
+                }
             }
 
             return dt;

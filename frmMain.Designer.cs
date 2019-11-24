@@ -75,27 +75,35 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pageHanger = new System.Windows.Forms.TabPage();
-            this.txtRodLength = new System.Windows.Forms.TextBox();
-            this.txtClamp = new System.Windows.Forms.TextBox();
-            this.txtRod = new System.Windows.Forms.TextBox();
-            this.txtLug = new System.Windows.Forms.TextBox();
+            this.chkCheckLoad_B2_1 = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rioBritishPipe_B2_1 = new System.Windows.Forms.RadioButton();
+            this.rioMetricPipe_B2_1 = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rioInsualationType2_B2_1 = new System.Windows.Forms.RadioButton();
+            this.rioInsualationType1_B2_1 = new System.Windows.Forms.RadioButton();
+            this.rioBaseType_B2_1 = new System.Windows.Forms.RadioButton();
+            this.txtRodLength_B2_1 = new System.Windows.Forms.TextBox();
+            this.txtClamp_B2_1 = new System.Windows.Forms.TextBox();
+            this.txtRod_B2_1 = new System.Windows.Forms.TextBox();
+            this.txtLug_B2_1 = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.cbxDN_B2_1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.BtnB2_1 = new System.Windows.Forms.Button();
-            this.chkIsBritish_B2_1 = new System.Windows.Forms.CheckBox();
             this.txtPipeLoad_B2_1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtElevationII_B2_1 = new System.Windows.Forms.TextBox();
+            this.txtEL2_B2_1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtElevationI_B2_1 = new System.Windows.Forms.TextBox();
+            this.txtEL1_B2_1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.chkHasInsulation_B2_1 = new System.Windows.Forms.CheckBox();
+            this.chkB1_1 = new System.Windows.Forms.CheckBox();
             this.tabMain.SuspendLayout();
             this.pageBracket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pageHanger.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -652,77 +660,166 @@
             // 
             // pageHanger
             // 
-            this.pageHanger.Controls.Add(this.txtRodLength);
-            this.pageHanger.Controls.Add(this.txtClamp);
-            this.pageHanger.Controls.Add(this.txtRod);
-            this.pageHanger.Controls.Add(this.txtLug);
+            this.pageHanger.Controls.Add(this.chkB1_1);
+            this.pageHanger.Controls.Add(this.chkCheckLoad_B2_1);
+            this.pageHanger.Controls.Add(this.groupBox2);
+            this.pageHanger.Controls.Add(this.groupBox1);
+            this.pageHanger.Controls.Add(this.txtRodLength_B2_1);
+            this.pageHanger.Controls.Add(this.txtClamp_B2_1);
+            this.pageHanger.Controls.Add(this.txtRod_B2_1);
+            this.pageHanger.Controls.Add(this.txtLug_B2_1);
             this.pageHanger.Controls.Add(this.pictureBox3);
             this.pageHanger.Controls.Add(this.cbxDN_B2_1);
             this.pageHanger.Controls.Add(this.label12);
             this.pageHanger.Controls.Add(this.BtnB2_1);
-            this.pageHanger.Controls.Add(this.chkIsBritish_B2_1);
             this.pageHanger.Controls.Add(this.txtPipeLoad_B2_1);
-            this.pageHanger.Controls.Add(this.label11);
-            this.pageHanger.Controls.Add(this.txtElevationII_B2_1);
+            this.pageHanger.Controls.Add(this.txtEL2_B2_1);
             this.pageHanger.Controls.Add(this.label10);
-            this.pageHanger.Controls.Add(this.txtElevationI_B2_1);
+            this.pageHanger.Controls.Add(this.txtEL1_B2_1);
             this.pageHanger.Controls.Add(this.label9);
-            this.pageHanger.Controls.Add(this.chkHasInsulation_B2_1);
             this.pageHanger.Location = new System.Drawing.Point(4, 22);
             this.pageHanger.Name = "pageHanger";
             this.pageHanger.Padding = new System.Windows.Forms.Padding(3);
             this.pageHanger.Size = new System.Drawing.Size(613, 353);
             this.pageHanger.TabIndex = 2;
-            this.pageHanger.Text = "刚性吊架(B2-1)";
+            this.pageHanger.Text = "吊耳式管吊(B2-1)";
             this.pageHanger.UseVisualStyleBackColor = true;
             // 
-            // txtRodLength
+            // chkCheckLoad_B2_1
             // 
-            this.txtRodLength.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtRodLength.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRodLength.Location = new System.Drawing.Point(21, 131);
-            this.txtRodLength.Name = "txtRodLength";
-            this.txtRodLength.ReadOnly = true;
-            this.txtRodLength.Size = new System.Drawing.Size(41, 21);
-            this.txtRodLength.TabIndex = 18;
-            this.txtRodLength.TabStop = false;
-            this.txtRodLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chkCheckLoad_B2_1.AutoSize = true;
+            this.chkCheckLoad_B2_1.Location = new System.Drawing.Point(262, 113);
+            this.chkCheckLoad_B2_1.Name = "chkCheckLoad_B2_1";
+            this.chkCheckLoad_B2_1.Size = new System.Drawing.Size(90, 16);
+            this.chkCheckLoad_B2_1.TabIndex = 21;
+            this.chkCheckLoad_B2_1.Text = "校验荷载(N)";
+            this.chkCheckLoad_B2_1.UseVisualStyleBackColor = true;
+            this.chkCheckLoad_B2_1.CheckedChanged += new System.EventHandler(this.ChkCheckLoad_B2_1_CheckedChanged);
             // 
-            // txtClamp
+            // groupBox2
             // 
-            this.txtClamp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtClamp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClamp.Location = new System.Drawing.Point(147, 229);
-            this.txtClamp.Name = "txtClamp";
-            this.txtClamp.ReadOnly = true;
-            this.txtClamp.Size = new System.Drawing.Size(62, 21);
-            this.txtClamp.TabIndex = 17;
-            this.txtClamp.TabStop = false;
-            this.txtClamp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.groupBox2.Controls.Add(this.rioBritishPipe_B2_1);
+            this.groupBox2.Controls.Add(this.rioMetricPipe_B2_1);
+            this.groupBox2.Location = new System.Drawing.Point(262, 202);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 50);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "管道系列";
             // 
-            // txtRod
+            // rioBritishPipe_B2_1
             // 
-            this.txtRod.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtRod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRod.Location = new System.Drawing.Point(147, 177);
-            this.txtRod.Name = "txtRod";
-            this.txtRod.ReadOnly = true;
-            this.txtRod.Size = new System.Drawing.Size(62, 21);
-            this.txtRod.TabIndex = 16;
-            this.txtRod.TabStop = false;
-            this.txtRod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.rioBritishPipe_B2_1.AutoSize = true;
+            this.rioBritishPipe_B2_1.Location = new System.Drawing.Point(71, 22);
+            this.rioBritishPipe_B2_1.Name = "rioBritishPipe_B2_1";
+            this.rioBritishPipe_B2_1.Size = new System.Drawing.Size(59, 16);
+            this.rioBritishPipe_B2_1.TabIndex = 1;
+            this.rioBritishPipe_B2_1.Text = "英制管";
+            this.rioBritishPipe_B2_1.UseVisualStyleBackColor = true;
             // 
-            // txtLug
+            // rioMetricPipe_B2_1
             // 
-            this.txtLug.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtLug.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLug.Location = new System.Drawing.Point(147, 56);
-            this.txtLug.Name = "txtLug";
-            this.txtLug.ReadOnly = true;
-            this.txtLug.Size = new System.Drawing.Size(62, 21);
-            this.txtLug.TabIndex = 14;
-            this.txtLug.TabStop = false;
-            this.txtLug.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.rioMetricPipe_B2_1.AutoSize = true;
+            this.rioMetricPipe_B2_1.Checked = true;
+            this.rioMetricPipe_B2_1.Location = new System.Drawing.Point(4, 22);
+            this.rioMetricPipe_B2_1.Name = "rioMetricPipe_B2_1";
+            this.rioMetricPipe_B2_1.Size = new System.Drawing.Size(59, 16);
+            this.rioMetricPipe_B2_1.TabIndex = 0;
+            this.rioMetricPipe_B2_1.TabStop = true;
+            this.rioMetricPipe_B2_1.Text = "公制管";
+            this.rioMetricPipe_B2_1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rioInsualationType2_B2_1);
+            this.groupBox1.Controls.Add(this.rioInsualationType1_B2_1);
+            this.groupBox1.Controls.Add(this.rioBaseType_B2_1);
+            this.groupBox1.Location = new System.Drawing.Point(262, 141);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 50);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "管夹型式";
+            // 
+            // rioInsualationType2_B2_1
+            // 
+            this.rioInsualationType2_B2_1.AutoSize = true;
+            this.rioInsualationType2_B2_1.Location = new System.Drawing.Point(138, 22);
+            this.rioInsualationType2_B2_1.Name = "rioInsualationType2_B2_1";
+            this.rioInsualationType2_B2_1.Size = new System.Drawing.Size(59, 16);
+            this.rioInsualationType2_B2_1.TabIndex = 2;
+            this.rioInsualationType2_B2_1.Text = "隔热型";
+            this.rioInsualationType2_B2_1.UseVisualStyleBackColor = true;
+            // 
+            // rioInsualationType1_B2_1
+            // 
+            this.rioInsualationType1_B2_1.AutoSize = true;
+            this.rioInsualationType1_B2_1.Location = new System.Drawing.Point(71, 22);
+            this.rioInsualationType1_B2_1.Name = "rioInsualationType1_B2_1";
+            this.rioInsualationType1_B2_1.Size = new System.Drawing.Size(59, 16);
+            this.rioInsualationType1_B2_1.TabIndex = 1;
+            this.rioInsualationType1_B2_1.Text = "保温型";
+            this.rioInsualationType1_B2_1.UseVisualStyleBackColor = true;
+            // 
+            // rioBaseType_B2_1
+            // 
+            this.rioBaseType_B2_1.AutoSize = true;
+            this.rioBaseType_B2_1.Checked = true;
+            this.rioBaseType_B2_1.Location = new System.Drawing.Point(4, 22);
+            this.rioBaseType_B2_1.Name = "rioBaseType_B2_1";
+            this.rioBaseType_B2_1.Size = new System.Drawing.Size(59, 16);
+            this.rioBaseType_B2_1.TabIndex = 0;
+            this.rioBaseType_B2_1.TabStop = true;
+            this.rioBaseType_B2_1.Text = "基准型";
+            this.rioBaseType_B2_1.UseVisualStyleBackColor = true;
+            // 
+            // txtRodLength_B2_1
+            // 
+            this.txtRodLength_B2_1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtRodLength_B2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRodLength_B2_1.Location = new System.Drawing.Point(21, 131);
+            this.txtRodLength_B2_1.Name = "txtRodLength_B2_1";
+            this.txtRodLength_B2_1.ReadOnly = true;
+            this.txtRodLength_B2_1.Size = new System.Drawing.Size(41, 21);
+            this.txtRodLength_B2_1.TabIndex = 18;
+            this.txtRodLength_B2_1.TabStop = false;
+            this.txtRodLength_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtClamp_B2_1
+            // 
+            this.txtClamp_B2_1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtClamp_B2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClamp_B2_1.Location = new System.Drawing.Point(147, 229);
+            this.txtClamp_B2_1.Name = "txtClamp_B2_1";
+            this.txtClamp_B2_1.ReadOnly = true;
+            this.txtClamp_B2_1.Size = new System.Drawing.Size(62, 21);
+            this.txtClamp_B2_1.TabIndex = 17;
+            this.txtClamp_B2_1.TabStop = false;
+            this.txtClamp_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtRod_B2_1
+            // 
+            this.txtRod_B2_1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtRod_B2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRod_B2_1.Location = new System.Drawing.Point(147, 177);
+            this.txtRod_B2_1.Name = "txtRod_B2_1";
+            this.txtRod_B2_1.ReadOnly = true;
+            this.txtRod_B2_1.Size = new System.Drawing.Size(62, 21);
+            this.txtRod_B2_1.TabIndex = 16;
+            this.txtRod_B2_1.TabStop = false;
+            this.txtRod_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtLug_B2_1
+            // 
+            this.txtLug_B2_1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLug_B2_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLug_B2_1.Location = new System.Drawing.Point(147, 56);
+            this.txtLug_B2_1.Name = "txtLug_B2_1";
+            this.txtLug_B2_1.ReadOnly = true;
+            this.txtLug_B2_1.Size = new System.Drawing.Size(62, 21);
+            this.txtLug_B2_1.TabIndex = 14;
+            this.txtLug_B2_1.TabStop = false;
+            this.txtLug_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox3
             // 
@@ -764,16 +861,16 @@
             "700",
             "750",
             "800"});
-            this.cbxDN_B2_1.Location = new System.Drawing.Point(333, 78);
+            this.cbxDN_B2_1.Location = new System.Drawing.Point(370, 76);
             this.cbxDN_B2_1.Name = "cbxDN_B2_1";
-            this.cbxDN_B2_1.Size = new System.Drawing.Size(83, 20);
+            this.cbxDN_B2_1.Size = new System.Drawing.Size(92, 20);
             this.cbxDN_B2_1.TabIndex = 2;
             this.cbxDN_B2_1.Text = "0";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(260, 82);
+            this.label12.Location = new System.Drawing.Point(260, 80);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 10;
@@ -781,7 +878,7 @@
             // 
             // BtnB2_1
             // 
-            this.BtnB2_1.Location = new System.Drawing.Point(526, 322);
+            this.BtnB2_1.Location = new System.Drawing.Point(524, 324);
             this.BtnB2_1.Name = "BtnB2_1";
             this.BtnB2_1.Size = new System.Drawing.Size(81, 23);
             this.BtnB2_1.TabIndex = 6;
@@ -789,81 +886,61 @@
             this.BtnB2_1.UseVisualStyleBackColor = true;
             this.BtnB2_1.Click += new System.EventHandler(this.BtnB2_1_Click);
             // 
-            // chkIsBritish_B2_1
-            // 
-            this.chkIsBritish_B2_1.AutoSize = true;
-            this.chkIsBritish_B2_1.Location = new System.Drawing.Point(350, 146);
-            this.chkIsBritish_B2_1.Name = "chkIsBritish_B2_1";
-            this.chkIsBritish_B2_1.Size = new System.Drawing.Size(72, 16);
-            this.chkIsBritish_B2_1.TabIndex = 5;
-            this.chkIsBritish_B2_1.Text = "英制管道";
-            this.chkIsBritish_B2_1.UseVisualStyleBackColor = true;
-            // 
             // txtPipeLoad_B2_1
             // 
-            this.txtPipeLoad_B2_1.Location = new System.Drawing.Point(333, 110);
+            this.txtPipeLoad_B2_1.Enabled = false;
+            this.txtPipeLoad_B2_1.Location = new System.Drawing.Point(370, 108);
             this.txtPipeLoad_B2_1.Name = "txtPipeLoad_B2_1";
-            this.txtPipeLoad_B2_1.Size = new System.Drawing.Size(83, 21);
+            this.txtPipeLoad_B2_1.Size = new System.Drawing.Size(92, 21);
             this.txtPipeLoad_B2_1.TabIndex = 3;
             this.txtPipeLoad_B2_1.Text = "0";
             this.txtPipeLoad_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label11
+            // txtEL2_B2_1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(260, 114);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 12);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "管道荷载(N)";
-            // 
-            // txtElevationII_B2_1
-            // 
-            this.txtElevationII_B2_1.Location = new System.Drawing.Point(333, 46);
-            this.txtElevationII_B2_1.Name = "txtElevationII_B2_1";
-            this.txtElevationII_B2_1.Size = new System.Drawing.Size(83, 21);
-            this.txtElevationII_B2_1.TabIndex = 1;
-            this.txtElevationII_B2_1.Text = "0";
-            this.txtElevationII_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEL2_B2_1.Location = new System.Drawing.Point(370, 44);
+            this.txtEL2_B2_1.Name = "txtEL2_B2_1";
+            this.txtEL2_B2_1.Size = new System.Drawing.Size(92, 21);
+            this.txtEL2_B2_1.TabIndex = 1;
+            this.txtEL2_B2_1.Text = "0";
+            this.txtEL2_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(260, 50);
+            this.label10.Location = new System.Drawing.Point(260, 48);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 12);
             this.label10.TabIndex = 4;
             this.label10.Text = "EL.II(mm)";
             // 
-            // txtElevationI_B2_1
+            // txtEL1_B2_1
             // 
-            this.txtElevationI_B2_1.Location = new System.Drawing.Point(333, 14);
-            this.txtElevationI_B2_1.Name = "txtElevationI_B2_1";
-            this.txtElevationI_B2_1.Size = new System.Drawing.Size(83, 21);
-            this.txtElevationI_B2_1.TabIndex = 0;
-            this.txtElevationI_B2_1.Text = "0";
-            this.txtElevationI_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEL1_B2_1.Location = new System.Drawing.Point(370, 12);
+            this.txtEL1_B2_1.Name = "txtEL1_B2_1";
+            this.txtEL1_B2_1.Size = new System.Drawing.Size(92, 21);
+            this.txtEL1_B2_1.TabIndex = 0;
+            this.txtEL1_B2_1.Text = "0";
+            this.txtEL1_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(260, 18);
+            this.label9.Location = new System.Drawing.Point(260, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 2;
             this.label9.Text = "EL.I(mm)";
             // 
-            // chkHasInsulation_B2_1
+            // chkB1_1
             // 
-            this.chkHasInsulation_B2_1.AutoSize = true;
-            this.chkHasInsulation_B2_1.Checked = true;
-            this.chkHasInsulation_B2_1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkHasInsulation_B2_1.Location = new System.Drawing.Point(262, 146);
-            this.chkHasInsulation_B2_1.Name = "chkHasInsulation_B2_1";
-            this.chkHasInsulation_B2_1.Size = new System.Drawing.Size(72, 16);
-            this.chkHasInsulation_B2_1.TabIndex = 4;
-            this.chkHasInsulation_B2_1.Text = "保温管道";
-            this.chkHasInsulation_B2_1.UseVisualStyleBackColor = true;
+            this.chkB1_1.AutoSize = true;
+            this.chkB1_1.Location = new System.Drawing.Point(262, 263);
+            this.chkB1_1.Name = "chkB1_1";
+            this.chkB1_1.Size = new System.Drawing.Size(120, 16);
+            this.chkB1_1.TabIndex = 22;
+            this.chkB1_1.Text = "杆式管吊（B1-1）";
+            this.chkB1_1.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -887,6 +964,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pageHanger.ResumeLayout(false);
             this.pageHanger.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -936,26 +1017,32 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox chkHasInsulation_B2_1;
         private System.Windows.Forms.Button BtnB2_1;
-        private System.Windows.Forms.CheckBox chkIsBritish_B2_1;
         private System.Windows.Forms.TextBox txtPipeLoad_B2_1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtElevationII_B2_1;
+        private System.Windows.Forms.TextBox txtEL2_B2_1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtElevationI_B2_1;
+        private System.Windows.Forms.TextBox txtEL1_B2_1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbxDN_B2_1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox txtClamp;
-        private System.Windows.Forms.TextBox txtRod;
-        private System.Windows.Forms.TextBox txtLug;
-        private System.Windows.Forms.TextBox txtRodLength;
+        private System.Windows.Forms.TextBox txtClamp_B2_1;
+        private System.Windows.Forms.TextBox txtRod_B2_1;
+        private System.Windows.Forms.TextBox txtLug_B2_1;
+        private System.Windows.Forms.TextBox txtRodLength_B2_1;
         private System.Windows.Forms.TextBox txtElevation_D19;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtElevation_D6;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rioInsualationType2_B2_1;
+        private System.Windows.Forms.RadioButton rioInsualationType1_B2_1;
+        private System.Windows.Forms.RadioButton rioBaseType_B2_1;
+        private System.Windows.Forms.CheckBox chkCheckLoad_B2_1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rioBritishPipe_B2_1;
+        private System.Windows.Forms.RadioButton rioMetricPipe_B2_1;
+        private System.Windows.Forms.CheckBox chkB1_1;
     }
 }
 

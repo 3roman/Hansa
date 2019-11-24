@@ -34,11 +34,11 @@ namespace HASA
             var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "侧焊", "端焊" });
             if (ret == DialogResult.OK)
             {
-                DataTableToListview(lstShelf, D19I());
+                Common.DataTableToListview(lstShelf, D19I());
             }
             else
             {
-                DataTableToListview(lstShelf, D19II());
+                Common.DataTableToListview(lstShelf, D19II());
             }
         }
 
@@ -73,7 +73,7 @@ namespace HASA
 
             var temp = table.Rows[0]["steel"].ToString().Split(new char[]{'(', ')'});
 
-            Common.CopytToClipboard($"D19\tI\t\t{pipeLoad * 1000}\t{elevation}\t\t{distance + 300}" +
+            Common.Copy2Clipboard($"D19\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 300}" +
                 $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;
@@ -94,7 +94,7 @@ namespace HASA
 
             var temp = table.Rows[0]["steel"].ToString().Split(new char[] { '(', ')' });
 
-            Common.CopytToClipboard($"D19\tII\t\t{pipeLoad * 1000}\t{elevation}\t\t{distance + 150}" +
+            Common.Copy2Clipboard($"D19\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 150}" +
                 $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;
@@ -139,37 +139,6 @@ namespace HASA
             }
 
             return column;
-        }
-
-        private static void DataTableToListview(ListView lv, DataTable dt)
-        {
-            if (null != dt)
-            {
-                lv.Items.Clear();
-                lv.Columns.Clear();
-                for (var i = 0; i < dt.Columns.Count; i++)
-                {
-                    lv.Columns.Add(dt.Columns[i].Caption.ToString());
-                }
-                for (var i = 0; i < lv.Columns.Count; i++)
-                {
-                    if (0 != i)
-                    {
-                        lv.Columns[i].TextAlign = HorizontalAlignment.Center;
-                    }
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    var lvi = new ListViewItem();
-                    lvi.SubItems[0].Text = dr[0].ToString();
-                    for (var i = 1; i < dt.Columns.Count; i++)
-                    {
-                        lvi.SubItems.Add(dr[i].ToString());
-                    }
-                    lv.Items.Add(lvi);
-                }
-                lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            }
         }
     }
 }

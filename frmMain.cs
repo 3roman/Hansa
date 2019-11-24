@@ -78,12 +78,12 @@ namespace HASA
             if (p1 <= 0)
             {
                 MessageBox.Show("必须输入总荷载", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return ;
+                return;
             }
             if (l1 <= 0)
             {
                 MessageBox.Show("必须输入距离", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return ;
+                return;
             }
 
             var dlg = new FrmD6(p1, l1, elevation);
@@ -117,84 +117,85 @@ namespace HASA
 
         private void BtnB2_1_Click(object sender, EventArgs e)
         {
-            Common.CopytToClipboard("AAA\tBBB");
+            // 开始计算前清空
+            txtClamp_B2_1.Clear();
+            txtRod_B2_1.Clear();
+            txtLug_B2_1.Clear();
+            txtRodLength_B2_1.Clear();
 
-            //  开始计算前清空
-            txtLug.Clear();
-            txtRod.Clear();
-            txtClamp.Clear();
-            txtRodLength.Clear();
+            var EL1 = Convert.ToInt32(txtEL1_B2_1.Text);
+            var EL2 = Convert.ToInt32(txtEL2_B2_1.Text);
+            var DN = cbxDN_B2_1.Text;
+            var needCheckLoad = chkCheckLoad_B2_1.Checked;
+            var pipeLoad = Convert.ToInt32(txtPipeLoad_B2_1.Text);
+            string table = string.Empty;
+            if (rioBritishPipe_B2_1.Checked && rioBaseType_B2_1.Checked)
+            {
+                table = "b2_2a";
+            }
+            else if (!rioBritishPipe_B2_1.Checked && rioBaseType_B2_1.Checked)
+            {
+                table = "b2_2b";
+            }
+            else if (rioBritishPipe_B2_1.Checked && rioInsualationType1_B2_1.Checked)
+            {
+                table = "b2_3a";
+            }
+            else if (!rioBritishPipe_B2_1.Checked && rioInsualationType1_B2_1.Checked)
+            {
+                table = "b2_3b";
+            }
+            else if (!rioBritishPipe_B2_1.Checked && rioInsualationType2_B2_1.Checked)
+            {
+                table = "b2_xb";
+            }
 
-            var elevationI = int.Parse(txtElevationI_B2_1.Text);
-            var elevationII = int.Parse(txtElevationII_B2_1.Text);
-            var pipeLoad = int.Parse(txtPipeLoad_B2_1.Text);
-            var dn = cbxDN_B2_1.Text;
-            var hasInsulation = chkHasInsulation_B2_1.Checked;
-            var isBritish = chkIsBritish_B2_1.Checked;
-
-            // 吊杆选型
-            var sql = $"SELECT * FROM a16 WHERE f > {pipeLoad} LIMIT 0,1";
+            var sql = $"SELECT * FROM {table} WHERE dn='{DN}'";
             var dt = SQLiteHelper.Read("HASA.db", sql);
-            var rodSeries = string.Empty + dt.Rows[0]["series"];
-            int rodLength = 0;
-            // 吊耳选型
-            var lugSeries = $"A19({dt.Rows[0]["d"]})";
-            sql = $"SELECT * FROM a19 WHERE series = '{lugSeries}' ";
-            dt = SQLiteHelper.Read("HASA.db", sql);
-            var lugLength = Convert.ToInt32(dt.Rows[0]["f"]);
-            // 管夹选型
-            string ClampSeries = string.Empty;
-            int ClampLength = 0;
-            if (!isBritish && hasInsulation)
+            var clamp = dt.Rows[0]["clamp"] + string.Empty;
+            var rod = dt.Rows[0]["rod"] + string.Empty;
+            var lug = dt.Rows[0]["lug"] + string.Empty;
+            var E = Convert.ToInt32(dt.Rows[0]["e"]);
+            var F = Convert.ToInt32(dt.Rows[0]["f"]);
+            var allowableLoad = Convert.ToInt32(dt.Rows[0]["load"]);
+            if (chkCheckLoad_B2_1.Checked && pipeLoad > allowableLoad)
             {
-                ClampSeries = $"A7-1({dn})";
-                sql = $"SELECT * FROM a7_1 WHERE series = '{ClampSeries}'";
+                sql = $"SELECT * FROM {table} WHERE load > {pipeLoad} LIMIT 0,1";
                 dt = SQLiteHelper.Read("HASA.db", sql);
-                ClampLength = Convert.ToInt32(dt.Rows[0]["b"]) / 2 + Convert.ToInt32(dt.Rows[0]["c"]);
-            }
-            else if (!isBritish && !hasInsulation)
-            {
-                ClampSeries = $"A5-1({dn})";
-                sql = $"SELECT * FROM a5_1 WHERE series = '{ClampSeries}'";
-                dt = SQLiteHelper.Read("HASA.db", sql);
-                var f = Convert.ToInt32(dt.Rows[0]["f"]) / 2;
-                if (f > pipeLoad)
+                if (0 == dt.Rows.Count)
                 {
-                    // 基准型管夹
-                    ClampLength = Convert.ToInt32(dt.Rows[0]["b"]) / 2;
+                    MessageBox.Show("管道荷载过大，无法自动选型!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
-                {
-                    // 重准型管夹
-                    ClampSeries = $"A6-1({dn})";
-                    sql = $"SELECT * FROM a6_1 WHERE series = '{ClampSeries}'";
-                    dt = SQLiteHelper.Read("HASA.db", sql);
-                    ClampLength = Convert.ToInt32(dt.Rows[0]["b"]) / 2;
-                }
-            }
-            else if (isBritish && hasInsulation)
-            {
-                // TODO
-                MessageBox.Show("还未开发");
-                return;
-            }
-            else if (isBritish && !hasInsulation)
-            {
-                // TODO
-                MessageBox.Show("还未开发");
-                return;
+                rod = dt.Rows[0]["rod"] + string.Empty;
+                lug = dt.Rows[0]["lug"] + string.Empty;
+                F = Convert.ToInt32(dt.Rows[0]["f"]);
             }
 
-            //计算吊杆长度
-            rodLength = elevationI - elevationII - lugLength - ClampLength;
-            txtLug.Text = lugSeries;
-            txtRod.Text = rodSeries;
-            txtClamp.Text = ClampSeries;
-            txtRodLength.Text = rodLength + string.Empty;
+            var rodLength = EL1 - EL2 - E - F;
+            txtClamp_B2_1.Text = clamp;
+            txtRod_B2_1.Text = rod;
+            txtLug_B2_1.Text = lug;
+            txtRodLength_B2_1.Text = rodLength + string.Empty;
 
-            var type = hasInsulation ? "II" : "I";
-            Common.CopytToClipboard($"B2-1\t{type}\t\t{pipeLoad}\t{elevationI}\t{elevationII}\t{rodLength}" +
-                $"\t\t\t\t\t\t\t1\t\t\t{lugSeries}\t{rodSeries}\t{ClampSeries}\t\t\t\t1,1,1");
+            var type = rioBaseType_B2_1.Checked ? "I" : "II";
+            Common.Copy2Clipboard($"B2-1\t{type}\t\t\tEL.{EL1}\tEL.{EL2}\t{rodLength}" +
+                $"\t\t\t\t\t\t\t1\t\t\t{lug}\t{rod}\t{clamp}\t\t\t\t1,1,1");
+
+            if (chkB1_1.Checked)
+            {
+                var m = rod.Replace("A16(", "").Replace(")", "");
+                sql = $"SELECT * FROM iso_nut WHERE m='{m}'";
+                dt = SQLiteHelper.Read("HASA.db", sql);
+                var h = Convert.ToInt32(dt.Rows[0]["h"]);
+                rodLength = EL1 - EL2 - E + 3 * h;
+                txtClamp_B2_1.Text = clamp;
+                txtRod_B2_1.Text = rod;
+                txtLug_B2_1.Text = string.Empty;
+                txtRodLength_B2_1.Text = rodLength + string.Empty;
+                Common.Copy2Clipboard($"B1-1\t{type}\t\t\tEL.{EL1}\tEL.{EL2}\t{rodLength}" +
+                $"\t\t\t\t\t\t\t1\t\t\t{rod}\t{clamp}\t\t\t\t\t1,1");
+            }
         }
 
         private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,12 +208,17 @@ namespace HASA
                     break;
                 case 1:
                     AcceptButton = BtnB2_1;
-                    txtElevationI_B2_1.Focus();
-                    txtElevationI_B2_1.SelectAll();
+                    txtEL1_B2_1.Focus();
+                    txtEL1_B2_1.SelectAll();
                     break;
                 case 3:
                     break;
             }
+        }
+
+        private void ChkCheckLoad_B2_1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPipeLoad_B2_1.Enabled = chkCheckLoad_B2_1.Checked;
         }
     }
 }

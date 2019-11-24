@@ -19,8 +19,9 @@ namespace HASA
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="distance">单位为mm</param>
-        /// <param name="pipeLoad">单位为KN</param>
+        /// <param name="pipeLoad">单位KN</param>
+        /// <param name="distance">单位mm</param>
+        /// <param name="elevation">单位mm</param>
         public FrmD6(int pipeLoad, int distance, int elevation)
         {
             this.distance = distance;
@@ -127,11 +128,11 @@ namespace HASA
             var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "侧焊", "端焊" });
             if (ret == DialogResult.OK)
             {
-                DataTableToListview(lstCantilever, D6I());
+                Common.DataTableToListview(lstCantilever, D6I());
             }
             else
             {
-                DataTableToListview(lstCantilever, D6II());
+                Common.DataTableToListview(lstCantilever, D6II());
             }
         }
 
@@ -148,8 +149,8 @@ namespace HASA
                         where row.Field<double>(colName) > pipeLoad
                         select row;
             var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
-            
-            Common.CopytToClipboard($"D6\tI\t\t{pipeLoad*1000}\t{elevation}\t\t{distance+300}" +
+
+            Common.Copy2Clipboard($"D6\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 300}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
@@ -169,7 +170,7 @@ namespace HASA
 
             var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
 
-            Common.CopytToClipboard($"D6\tII\t\t{pipeLoad * 1000}\t{elevation}\t\t{distance + 150}" +
+            Common.Copy2Clipboard($"D6\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 150}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
@@ -202,37 +203,6 @@ namespace HASA
             }
 
             return column;
-        }
-
-        private static void DataTableToListview(ListView lv, DataTable dt)
-        {
-            if (null != dt)
-            {
-                lv.Items.Clear();
-                lv.Columns.Clear();
-                for (var i = 0; i < dt.Columns.Count; i++)
-                {
-                    lv.Columns.Add(dt.Columns[i].Caption.ToString());
-                }
-                for (var i = 0; i < lv.Columns.Count; i++)
-                {
-                    if (0 != i)
-                    {
-                        lv.Columns[i].TextAlign = HorizontalAlignment.Center;
-                    }
-                }
-                foreach (DataRow dr in dt.Rows)
-                {
-                    var lvi = new ListViewItem();
-                    lvi.SubItems[0].Text = dr[0].ToString();
-                    for (var i = 1; i < dt.Columns.Count; i++)
-                    {
-                        lvi.SubItems.Add(dr[i].ToString());
-                    }
-                    lv.Items.Add(lvi);
-                }
-                lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            }
         }
     }
 }
