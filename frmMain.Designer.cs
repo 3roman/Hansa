@@ -31,35 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageBracket = new System.Windows.Forms.TabPage();
-            this.txtElevation_D19 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtElevation_D6 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnD19 = new System.Windows.Forms.Button();
-            this.txtL6 = new System.Windows.Forms.TextBox();
-            this.txtL5 = new System.Windows.Forms.TextBox();
-            this.txtL4 = new System.Windows.Forms.TextBox();
             this.btnD6 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.txtL3 = new System.Windows.Forms.TextBox();
-            this.txtL2 = new System.Windows.Forms.TextBox();
-            this.txtL1 = new System.Windows.Forms.TextBox();
+            this.txtLength_D6 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtInsulation3 = new System.Windows.Forms.TextBox();
             this.txtInsulation2 = new System.Windows.Forms.TextBox();
             this.txtInsulation1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnTotalLoad = new System.Windows.Forms.Button();
-            this.cbxDN3 = new System.Windows.Forms.ComboBox();
             this.cbxDN2 = new System.Windows.Forms.ComboBox();
-            this.txtTload3 = new System.Windows.Forms.TextBox();
-            this.txtCload3 = new System.Windows.Forms.TextBox();
-            this.txtSpan3 = new System.Windows.Forms.TextBox();
-            this.txtPipeWall3 = new System.Windows.Forms.TextBox();
             this.txtTload2 = new System.Windows.Forms.TextBox();
             this.txtCload2 = new System.Windows.Forms.TextBox();
             this.txtSpan2 = new System.Windows.Forms.TextBox();
@@ -75,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pageHanger = new System.Windows.Forms.TabPage();
+            this.chkB1_1 = new System.Windows.Forms.CheckBox();
             this.chkCheckLoad_B2_1 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rioBritishPipe_B2_1 = new System.Windows.Forms.RadioButton();
@@ -96,7 +83,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtEL1_B2_1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.chkB1_1 = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtOD_D6 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtInsulation_D6 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtInsulation_D19 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtOD_D19 = new System.Windows.Forms.TextBox();
+            this.txtElevation_D19 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtLength_D19 = new System.Windows.Forms.TextBox();
             this.tabMain.SuspendLayout();
             this.pageBracket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -122,35 +120,33 @@
             // 
             // pageBracket
             // 
-            this.pageBracket.Controls.Add(this.txtElevation_D19);
+            this.pageBracket.Controls.Add(this.label8);
+            this.pageBracket.Controls.Add(this.txtInsulation_D19);
             this.pageBracket.Controls.Add(this.label14);
+            this.pageBracket.Controls.Add(this.txtOD_D19);
+            this.pageBracket.Controls.Add(this.txtElevation_D19);
+            this.pageBracket.Controls.Add(this.label17);
+            this.pageBracket.Controls.Add(this.label19);
+            this.pageBracket.Controls.Add(this.txtLength_D19);
+            this.pageBracket.Controls.Add(this.label16);
+            this.pageBracket.Controls.Add(this.txtInsulation_D6);
+            this.pageBracket.Controls.Add(this.label11);
+            this.pageBracket.Controls.Add(this.txtOD_D6);
             this.pageBracket.Controls.Add(this.txtElevation_D6);
             this.pageBracket.Controls.Add(this.label13);
-            this.pageBracket.Controls.Add(this.label8);
             this.pageBracket.Controls.Add(this.label7);
             this.pageBracket.Controls.Add(this.label18);
             this.pageBracket.Controls.Add(this.btnD19);
-            this.pageBracket.Controls.Add(this.txtL6);
-            this.pageBracket.Controls.Add(this.txtL5);
-            this.pageBracket.Controls.Add(this.txtL4);
             this.pageBracket.Controls.Add(this.btnD6);
             this.pageBracket.Controls.Add(this.label15);
             this.pageBracket.Controls.Add(this.pictureBox2);
-            this.pageBracket.Controls.Add(this.txtL3);
-            this.pageBracket.Controls.Add(this.txtL2);
-            this.pageBracket.Controls.Add(this.txtL1);
+            this.pageBracket.Controls.Add(this.txtLength_D6);
             this.pageBracket.Controls.Add(this.pictureBox1);
-            this.pageBracket.Controls.Add(this.txtInsulation3);
             this.pageBracket.Controls.Add(this.txtInsulation2);
             this.pageBracket.Controls.Add(this.txtInsulation1);
             this.pageBracket.Controls.Add(this.label6);
             this.pageBracket.Controls.Add(this.btnTotalLoad);
-            this.pageBracket.Controls.Add(this.cbxDN3);
             this.pageBracket.Controls.Add(this.cbxDN2);
-            this.pageBracket.Controls.Add(this.txtTload3);
-            this.pageBracket.Controls.Add(this.txtCload3);
-            this.pageBracket.Controls.Add(this.txtSpan3);
-            this.pageBracket.Controls.Add(this.txtPipeWall3);
             this.pageBracket.Controls.Add(this.txtTload2);
             this.pageBracket.Controls.Add(this.txtCload2);
             this.pageBracket.Controls.Add(this.txtSpan2);
@@ -173,55 +169,28 @@
             this.pageBracket.Text = "悬臂(D6)&三角托架(D19)";
             this.pageBracket.UseVisualStyleBackColor = true;
             // 
-            // txtElevation_D19
-            // 
-            this.txtElevation_D19.Location = new System.Drawing.Point(516, 261);
-            this.txtElevation_D19.Name = "txtElevation_D19";
-            this.txtElevation_D19.Size = new System.Drawing.Size(83, 21);
-            this.txtElevation_D19.TabIndex = 10;
-            this.txtElevation_D19.Text = "0";
-            this.txtElevation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(519, 241);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 12);
-            this.label14.TabIndex = 58;
-            this.label14.Text = "梁顶标高(mm)";
-            // 
             // txtElevation_D6
             // 
-            this.txtElevation_D6.Location = new System.Drawing.Point(210, 261);
+            this.txtElevation_D6.Location = new System.Drawing.Point(210, 288);
             this.txtElevation_D6.Name = "txtElevation_D6";
             this.txtElevation_D6.Size = new System.Drawing.Size(83, 21);
-            this.txtElevation_D6.TabIndex = 7;
+            this.txtElevation_D6.TabIndex = 10;
             this.txtElevation_D6.Text = "0";
             this.txtElevation_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(213, 241);
+            this.label13.Location = new System.Drawing.Point(213, 267);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 12);
             this.label13.TabIndex = 56;
             this.label13.Text = "梁顶标高(mm)";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(531, 134);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 55;
-            this.label8.Text = "距离(mm)";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(225, 134);
+            this.label7.Location = new System.Drawing.Point(225, 114);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 54;
@@ -237,49 +206,20 @@
             // 
             // btnD19
             // 
-            this.btnD19.Location = new System.Drawing.Point(516, 290);
+            this.btnD19.Location = new System.Drawing.Point(516, 327);
             this.btnD19.Name = "btnD19";
             this.btnD19.Size = new System.Drawing.Size(83, 23);
-            this.btnD19.TabIndex = 11;
+            this.btnD19.TabIndex = 16;
             this.btnD19.Text = "三角撑";
             this.btnD19.UseVisualStyleBackColor = true;
             this.btnD19.Click += new System.EventHandler(this.BtnD19_Click);
             // 
-            // txtL6
-            // 
-            this.txtL6.Enabled = false;
-            this.txtL6.Location = new System.Drawing.Point(516, 212);
-            this.txtL6.Name = "txtL6";
-            this.txtL6.Size = new System.Drawing.Size(83, 21);
-            this.txtL6.TabIndex = 48;
-            this.txtL6.Text = "0";
-            this.txtL6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtL5
-            // 
-            this.txtL5.Enabled = false;
-            this.txtL5.Location = new System.Drawing.Point(516, 183);
-            this.txtL5.Name = "txtL5";
-            this.txtL5.Size = new System.Drawing.Size(83, 21);
-            this.txtL5.TabIndex = 47;
-            this.txtL5.Text = "0";
-            this.txtL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtL4
-            // 
-            this.txtL4.Location = new System.Drawing.Point(516, 154);
-            this.txtL4.Name = "txtL4";
-            this.txtL4.Size = new System.Drawing.Size(83, 21);
-            this.txtL4.TabIndex = 9;
-            this.txtL4.Text = "0";
-            this.txtL4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // btnD6
             // 
-            this.btnD6.Location = new System.Drawing.Point(210, 290);
+            this.btnD6.Location = new System.Drawing.Point(210, 325);
             this.btnD6.Name = "btnD6";
             this.btnD6.Size = new System.Drawing.Size(83, 23);
-            this.btnD6.TabIndex = 8;
+            this.btnD6.TabIndex = 11;
             this.btnD6.Text = "单悬臂";
             this.btnD6.UseVisualStyleBackColor = true;
             this.btnD6.Click += new System.EventHandler(this.BtnD6_Click);
@@ -287,7 +227,7 @@
             // label15
             // 
             this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label15.Location = new System.Drawing.Point(1, 124);
+            this.label15.Location = new System.Drawing.Point(1, 104);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(612, 2);
             this.label15.TabIndex = 44;
@@ -295,61 +235,31 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(312, 134);
+            this.pictureBox2.Location = new System.Drawing.Point(312, 114);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(185, 180);
+            this.pictureBox2.Size = new System.Drawing.Size(185, 203);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 40;
             this.pictureBox2.TabStop = false;
             // 
-            // txtL3
+            // txtLength_D6
             // 
-            this.txtL3.Enabled = false;
-            this.txtL3.Location = new System.Drawing.Point(210, 212);
-            this.txtL3.Name = "txtL3";
-            this.txtL3.Size = new System.Drawing.Size(83, 21);
-            this.txtL3.TabIndex = 20;
-            this.txtL3.Text = "0";
-            this.txtL3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtL2
-            // 
-            this.txtL2.Enabled = false;
-            this.txtL2.Location = new System.Drawing.Point(210, 183);
-            this.txtL2.Name = "txtL2";
-            this.txtL2.Size = new System.Drawing.Size(83, 21);
-            this.txtL2.TabIndex = 19;
-            this.txtL2.Text = "0";
-            this.txtL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtL1
-            // 
-            this.txtL1.Location = new System.Drawing.Point(210, 154);
-            this.txtL1.Name = "txtL1";
-            this.txtL1.Size = new System.Drawing.Size(83, 21);
-            this.txtL1.TabIndex = 6;
-            this.txtL1.Text = "0";
-            this.txtL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtLength_D6.Location = new System.Drawing.Point(210, 135);
+            this.txtLength_D6.Name = "txtLength_D6";
+            this.txtLength_D6.Size = new System.Drawing.Size(83, 21);
+            this.txtLength_D6.TabIndex = 7;
+            this.txtLength_D6.Text = "0";
+            this.txtLength_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 134);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 114);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 180);
+            this.pictureBox1.Size = new System.Drawing.Size(185, 203);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
-            // 
-            // txtInsulation3
-            // 
-            this.txtInsulation3.Enabled = false;
-            this.txtInsulation3.Location = new System.Drawing.Point(312, 96);
-            this.txtInsulation3.Name = "txtInsulation3";
-            this.txtInsulation3.Size = new System.Drawing.Size(83, 21);
-            this.txtInsulation3.TabIndex = 15;
-            this.txtInsulation3.Text = "0";
-            this.txtInsulation3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtInsulation2
             // 
@@ -385,46 +295,11 @@
             this.btnTotalLoad.Location = new System.Drawing.Point(4, 325);
             this.btnTotalLoad.Name = "btnTotalLoad";
             this.btnTotalLoad.Size = new System.Drawing.Size(83, 23);
-            this.btnTotalLoad.TabIndex = 12;
+            this.btnTotalLoad.TabIndex = 6;
+            this.btnTotalLoad.TabStop = false;
             this.btnTotalLoad.Text = "总荷载";
             this.btnTotalLoad.UseVisualStyleBackColor = true;
             this.btnTotalLoad.Click += new System.EventHandler(this.BtnTotalLoad_Click);
-            // 
-            // cbxDN3
-            // 
-            this.cbxDN3.Enabled = false;
-            this.cbxDN3.FormattingEnabled = true;
-            this.cbxDN3.Items.AddRange(new object[] {
-            "10",
-            "15",
-            "20",
-            "25",
-            "32",
-            "40",
-            "50",
-            "65",
-            "80",
-            "100",
-            "125",
-            "150",
-            "200",
-            "250",
-            "300",
-            "350",
-            "400",
-            "450",
-            "500",
-            "550",
-            "600",
-            "650",
-            "700",
-            "750",
-            "800"});
-            this.cbxDN3.Location = new System.Drawing.Point(6, 96);
-            this.cbxDN3.Name = "cbxDN3";
-            this.cbxDN3.Size = new System.Drawing.Size(83, 20);
-            this.cbxDN3.TabIndex = 12;
-            this.cbxDN3.Text = "0";
             // 
             // cbxDN2
             // 
@@ -461,46 +336,6 @@
             this.cbxDN2.Size = new System.Drawing.Size(83, 20);
             this.cbxDN2.TabIndex = 6;
             this.cbxDN2.Text = "0";
-            // 
-            // txtTload3
-            // 
-            this.txtTload3.Enabled = false;
-            this.txtTload3.Location = new System.Drawing.Point(516, 96);
-            this.txtTload3.Name = "txtTload3";
-            this.txtTload3.Size = new System.Drawing.Size(83, 21);
-            this.txtTload3.TabIndex = 17;
-            this.txtTload3.Text = "0";
-            this.txtTload3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtCload3
-            // 
-            this.txtCload3.Enabled = false;
-            this.txtCload3.Location = new System.Drawing.Point(414, 96);
-            this.txtCload3.Name = "txtCload3";
-            this.txtCload3.Size = new System.Drawing.Size(83, 21);
-            this.txtCload3.TabIndex = 16;
-            this.txtCload3.Text = "0";
-            this.txtCload3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtSpan3
-            // 
-            this.txtSpan3.Enabled = false;
-            this.txtSpan3.Location = new System.Drawing.Point(210, 96);
-            this.txtSpan3.Name = "txtSpan3";
-            this.txtSpan3.Size = new System.Drawing.Size(83, 21);
-            this.txtSpan3.TabIndex = 14;
-            this.txtSpan3.Text = "0";
-            this.txtSpan3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPipeWall3
-            // 
-            this.txtPipeWall3.Enabled = false;
-            this.txtPipeWall3.Location = new System.Drawing.Point(108, 96);
-            this.txtPipeWall3.Name = "txtPipeWall3";
-            this.txtPipeWall3.Size = new System.Drawing.Size(83, 21);
-            this.txtPipeWall3.TabIndex = 13;
-            this.txtPipeWall3.Text = "0";
-            this.txtPipeWall3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTload2
             // 
@@ -684,6 +519,16 @@
             this.pageHanger.TabIndex = 2;
             this.pageHanger.Text = "吊耳式管吊(B2-1)";
             this.pageHanger.UseVisualStyleBackColor = true;
+            // 
+            // chkB1_1
+            // 
+            this.chkB1_1.AutoSize = true;
+            this.chkB1_1.Location = new System.Drawing.Point(262, 263);
+            this.chkB1_1.Name = "chkB1_1";
+            this.chkB1_1.Size = new System.Drawing.Size(120, 16);
+            this.chkB1_1.TabIndex = 22;
+            this.chkB1_1.Text = "杆式管吊（B1-1）";
+            this.chkB1_1.UseVisualStyleBackColor = true;
             // 
             // chkCheckLoad_B2_1
             // 
@@ -932,15 +777,113 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "EL.I(mm)";
             // 
-            // chkB1_1
+            // label11
             // 
-            this.chkB1_1.AutoSize = true;
-            this.chkB1_1.Location = new System.Drawing.Point(262, 263);
-            this.chkB1_1.Name = "chkB1_1";
-            this.chkB1_1.Size = new System.Drawing.Size(120, 16);
-            this.chkB1_1.TabIndex = 22;
-            this.chkB1_1.Text = "杆式管吊（B1-1）";
-            this.chkB1_1.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(225, 165);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 60;
+            this.label11.Text = "管径(mm)";
+            // 
+            // txtOD_D6
+            // 
+            this.txtOD_D6.Location = new System.Drawing.Point(210, 186);
+            this.txtOD_D6.Name = "txtOD_D6";
+            this.txtOD_D6.Size = new System.Drawing.Size(83, 21);
+            this.txtOD_D6.TabIndex = 8;
+            this.txtOD_D6.Text = "0";
+            this.txtOD_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(213, 216);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(77, 12);
+            this.label16.TabIndex = 62;
+            this.label16.Text = "保温厚度(mm)";
+            // 
+            // txtInsulation_D6
+            // 
+            this.txtInsulation_D6.Location = new System.Drawing.Point(210, 237);
+            this.txtInsulation_D6.Name = "txtInsulation_D6";
+            this.txtInsulation_D6.Size = new System.Drawing.Size(83, 21);
+            this.txtInsulation_D6.TabIndex = 9;
+            this.txtInsulation_D6.Text = "0";
+            this.txtInsulation_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(519, 216);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 70;
+            this.label8.Text = "保温厚度(mm)";
+            // 
+            // txtInsulation_D19
+            // 
+            this.txtInsulation_D19.Location = new System.Drawing.Point(516, 237);
+            this.txtInsulation_D19.Name = "txtInsulation_D19";
+            this.txtInsulation_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtInsulation_D19.TabIndex = 14;
+            this.txtInsulation_D19.Text = "0";
+            this.txtInsulation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(531, 165);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "管径(mm)";
+            // 
+            // txtOD_D19
+            // 
+            this.txtOD_D19.Location = new System.Drawing.Point(516, 186);
+            this.txtOD_D19.Name = "txtOD_D19";
+            this.txtOD_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtOD_D19.TabIndex = 13;
+            this.txtOD_D19.Text = "0";
+            this.txtOD_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtElevation_D19
+            // 
+            this.txtElevation_D19.Location = new System.Drawing.Point(516, 288);
+            this.txtElevation_D19.Name = "txtElevation_D19";
+            this.txtElevation_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtElevation_D19.TabIndex = 15;
+            this.txtElevation_D19.Text = "0";
+            this.txtElevation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(519, 267);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 12);
+            this.label17.TabIndex = 66;
+            this.label17.Text = "梁顶标高(mm)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(531, 114);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 12);
+            this.label19.TabIndex = 65;
+            this.label19.Text = "距离(mm)";
+            // 
+            // txtLength_D19
+            // 
+            this.txtLength_D19.Location = new System.Drawing.Point(516, 135);
+            this.txtLength_D19.Name = "txtLength_D19";
+            this.txtLength_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtLength_D19.TabIndex = 12;
+            this.txtLength_D19.Text = "0";
+            this.txtLength_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmMain
             // 
@@ -978,10 +921,6 @@
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage pageBracket;
         private System.Windows.Forms.TabPage pageHanger;
-        private System.Windows.Forms.TextBox txtTload3;
-        private System.Windows.Forms.TextBox txtCload3;
-        private System.Windows.Forms.TextBox txtSpan3;
-        private System.Windows.Forms.TextBox txtPipeWall3;
         private System.Windows.Forms.TextBox txtTload2;
         private System.Windows.Forms.TextBox txtCload2;
         private System.Windows.Forms.TextBox txtSpan2;
@@ -996,26 +935,18 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxDN3;
         private System.Windows.Forms.ComboBox cbxDN2;
         private System.Windows.Forms.Button btnTotalLoad;
-        private System.Windows.Forms.TextBox txtInsulation3;
         private System.Windows.Forms.TextBox txtInsulation2;
         private System.Windows.Forms.TextBox txtInsulation1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtL3;
-        private System.Windows.Forms.TextBox txtL2;
-        private System.Windows.Forms.TextBox txtL1;
+        private System.Windows.Forms.TextBox txtLength_D6;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnD6;
         private System.Windows.Forms.Button btnD19;
-        private System.Windows.Forms.TextBox txtL6;
-        private System.Windows.Forms.TextBox txtL5;
-        private System.Windows.Forms.TextBox txtL4;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button BtnB2_1;
         private System.Windows.Forms.TextBox txtPipeLoad_B2_1;
@@ -1030,8 +961,6 @@
         private System.Windows.Forms.TextBox txtRod_B2_1;
         private System.Windows.Forms.TextBox txtLug_B2_1;
         private System.Windows.Forms.TextBox txtRodLength_B2_1;
-        private System.Windows.Forms.TextBox txtElevation_D19;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtElevation_D6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1043,6 +972,18 @@
         private System.Windows.Forms.RadioButton rioBritishPipe_B2_1;
         private System.Windows.Forms.RadioButton rioMetricPipe_B2_1;
         private System.Windows.Forms.CheckBox chkB1_1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtInsulation_D6;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtOD_D6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtInsulation_D19;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtOD_D19;
+        private System.Windows.Forms.TextBox txtElevation_D19;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtLength_D19;
     }
 }
 

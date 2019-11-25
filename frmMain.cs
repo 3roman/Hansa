@@ -18,100 +18,85 @@ namespace HASA
             #region convert control value to number
             int dn1 = Convert.ToInt32(cbxDN1.Text);
             int dn2 = Convert.ToInt32(cbxDN2.Text);
-            int dn3 = Convert.ToInt32(cbxDN3.Text);
             double pipeWall1 = Convert.ToDouble(txtPipeWall1.Text);
             double pipeWall2 = Convert.ToDouble(txtPipeWall2.Text);
-            double pipeWall3 = Convert.ToDouble(txtPipeWall3.Text);
             double span1 = Convert.ToDouble(txtSpan1.Text);
             double span2 = Convert.ToDouble(txtSpan2.Text);
-            double span3 = Convert.ToDouble(txtSpan3.Text);
             double insulation1 = Convert.ToDouble(txtInsulation1.Text);
             double insulation2 = Convert.ToDouble(txtInsulation2.Text);
-            double insulation3 = Convert.ToDouble(txtInsulation3.Text);
             double cload1 = Convert.ToDouble(txtCload1.Text);
             double cload2 = Convert.ToDouble(txtCload2.Text);
-            double cload3 = Convert.ToDouble(txtCload3.Text);
             #endregion
 
             #region pipeweight
             int do1 = DN2DO[dn1];
             int do2 = DN2DO[dn2];
-            int do3 = DN2DO[dn3];
             var pipeWeight1 = Common.CalculatePipeWeight(do1, pipeWall1);
             var pipeWeight2 = Common.CalculatePipeWeight(do2, pipeWall2);
-            var pipeWeight3 = Common.CalculatePipeWeight(do3, pipeWall3);
             #endregion
 
             #region water weight
             var waterWeight1 = Common.CalculateWaterWeight(do1, pipeWall1);
             var waterWeight2 = Common.CalculateWaterWeight(do2, pipeWall2);
-            var waterWeight3 = Common.CalculateWaterWeight(do3, pipeWall3);
             #endregion
 
             #region insulation weight
             var insulationWeight1 = Common.CalculateInsulationWeight(do1, insulation1);
             var insulationWeight2 = Common.CalculateInsulationWeight(do2, insulation2);
-            var insulationWeight3 = Common.CalculateInsulationWeight(do3, insulation3);
             #endregion
 
             #region total weight
             var tload1 = (pipeWeight1 + waterWeight1 + insulationWeight1) * span1 + cload1;
             var tload2 = (pipeWeight2 + waterWeight2 + insulationWeight2) * span2 + cload2;
-            var tload3 = (pipeWeight3 + waterWeight3 + insulationWeight3) * span3 + cload3;
             #endregion
 
             txtTload1.Text = (int)tload1 + string.Empty;
             txtTload2.Text = (int)tload2 + string.Empty;
-            txtTload3.Text = (int)tload3 + string.Empty;
         }
 
         private void BtnD6_Click(object sender, EventArgs e)
         {
             var p1 = Convert.ToInt32(txtTload1.Text) * 10 / 1000;
-            //var p2 = Convert.ToInt32(txtTload2.Text) * 10 / 1000;
-            //var p3 = Convert.ToInt32(txtTload3.Text) * 10 / 1000;
-            var l1 = Convert.ToInt32(txtL1.Text);
-            //var l2 = Convert.ToInt32(txtL2.Text);
-            //var l3 = Convert.ToInt32(txtL3.Text);
+            var length = Convert.ToInt32(txtLength_D6.Text);
             var elevation = Convert.ToInt32(txtElevation_D6.Text);
+            var od = Convert.ToInt32(txtOD_D6.Text);
+            var insulation = Convert.ToInt32(txtInsulation_D6.Text);
 
             if (p1 <= 0)
             {
                 MessageBox.Show("必须输入总荷载", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (l1 <= 0)
+            if (length <= 0)
             {
                 MessageBox.Show("必须输入距离", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var dlg = new FrmD6(p1, l1, elevation);
+            var dlg = new FrmD6(p1, length, elevation, od, insulation);
             dlg.ShowDialog();
         }
 
         private void BtnD19_Click(object sender, EventArgs e)
         {
             var p1 = Convert.ToInt32(txtTload1.Text) * 10 / 1000;
-            //var p2 = Convert.ToInt32(txtTload2.Text) * 10 / 1000;
-            //var p3 = Convert.ToInt32(txtTload3.Text) * 10 / 1000;
-            var l4 = Convert.ToInt32(txtL4.Text);
-            //var l5 = Convert.ToInt32(txtL5.Text);
-            //var l6 = Convert.ToInt32(txtL6.Text);
+            var length = Convert.ToInt32(txtLength_D19.Text);
             var elevation = Convert.ToInt32(txtElevation_D19.Text);
+            var od = Convert.ToInt32(txtOD_D19.Text);
+            var insulation = Convert.ToInt32(txtInsulation_D19.Text);
 
             if (p1 <= 0)
             {
                 MessageBox.Show("必须输入总荷载", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (l4 <= 0)
+            if (length <= 0)
             {
                 MessageBox.Show("必须输入距离", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var dlg = new FrmD19(p1, l4, elevation);
+            var dlg = new FrmD19(p1, length, elevation, od, insulation);
             dlg.ShowDialog();
         }
 

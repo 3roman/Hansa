@@ -63,5 +63,12 @@ namespace HASA
                 lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
         }
+
+        public static int Round2Ten(object num)
+        {
+            var number = Convert.ToInt32(num);
+
+            return (number / 10 + 1) * 10;
+        }
     }
 }

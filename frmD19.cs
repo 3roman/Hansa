@@ -9,6 +9,8 @@ namespace HASA
         private int distance;
         private int pipeLoad;
         private int elevation;
+        private int od;
+        private int insulation;
 
         public FrmD19()
         {
@@ -18,13 +20,16 @@ namespace HASA
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="distance">单位为mm</param>
-        /// <param name="pipeLoad">单位为KN</param>
-        public FrmD19(int pipeLoad, int distance, int elevation)
+        /// <param name="pipeLoad">单位KN</param>
+        /// <param name="distance">单位mm</param>
+        /// <param name="elevation">单位mm</param>
+        public FrmD19(int pipeLoad, int distance, int elevation, int od, int insulation)
         {
             this.distance = distance;
             this.pipeLoad = pipeLoad;
             this.elevation = elevation;
+            this.od = od;
+            this.insulation = insulation;
 
             InitializeComponent();
         }
@@ -73,7 +78,8 @@ namespace HASA
 
             var temp = table.Rows[0]["steel"].ToString().Split(new char[]{'(', ')'});
 
-            Common.Copy2Clipboard($"D19\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 300}" +
+            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
+            Common.Copy2Clipboard($"D19\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
                 $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;
@@ -94,7 +100,8 @@ namespace HASA
 
             var temp = table.Rows[0]["steel"].ToString().Split(new char[] { '(', ')' });
 
-            Common.Copy2Clipboard($"D19\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 150}" +
+            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
+            Common.Copy2Clipboard($"D19\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
                 $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;

@@ -10,6 +10,8 @@ namespace HASA
         private int distance;
         private int pipeLoad;
         private int elevation;
+        private int od;
+        private int insulation;
 
         public FrmD6()
         {
@@ -22,11 +24,13 @@ namespace HASA
         /// <param name="pipeLoad">单位KN</param>
         /// <param name="distance">单位mm</param>
         /// <param name="elevation">单位mm</param>
-        public FrmD6(int pipeLoad, int distance, int elevation)
+        public FrmD6(int pipeLoad, int distance, int elevation, int od, int insulation)
         {
             this.distance = distance;
             this.pipeLoad = pipeLoad;
             this.elevation = elevation;
+            this.od = od;
+            this.insulation = insulation;
 
             InitializeComponent();
         }
@@ -150,7 +154,8 @@ namespace HASA
                         select row;
             var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
 
-            Common.Copy2Clipboard($"D6\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 300}" +
+            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
+            Common.Copy2Clipboard($"D6\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
@@ -170,7 +175,8 @@ namespace HASA
 
             var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
 
-            Common.Copy2Clipboard($"D6\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{distance + 150}" +
+            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
+            Common.Copy2Clipboard($"D6\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
