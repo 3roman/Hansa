@@ -178,7 +178,7 @@ namespace HASA
             txtRodLength_B2_1.Text = rodLength + thread /2 + string.Empty;
 
             var type = rioBaseType_B2_1.Checked ? "I" : "II";
-            Common.Copy2Clipboard($"B2-1\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength}" +
+            Common.Copy2Clipboard($"B2-1\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength + thread / 2}" +
                 $"\t\t\t\t{E}\t{F}\t\t1\t\t\t{lug}\t{rod}\t{clamp}\t\t\t\t1,1,1");
 
             //if (chkB1_1.Checked)
