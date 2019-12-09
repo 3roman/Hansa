@@ -31,6 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageBracket = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtInsulation_D19 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtOD_D19 = new System.Windows.Forms.TextBox();
+            this.txtElevation_D19 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtLength_D19 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtInsulation_D6 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtOD_D6 = new System.Windows.Forms.TextBox();
             this.txtElevation_D6 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -61,7 +73,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pageHanger = new System.Windows.Forms.TabPage();
-            this.chkB1_1 = new System.Windows.Forms.CheckBox();
+            this.cbxRod_B2_1 = new System.Windows.Forms.ComboBox();
+            this.chkRod_B2_1 = new System.Windows.Forms.CheckBox();
             this.chkCheckLoad_B2_1 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rioBritishPipe_B2_1 = new System.Windows.Forms.RadioButton();
@@ -83,18 +96,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtEL1_B2_1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtOD_D6 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtInsulation_D6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtInsulation_D19 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtOD_D19 = new System.Windows.Forms.TextBox();
-            this.txtElevation_D19 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtLength_D19 = new System.Windows.Forms.TextBox();
             this.tabMain.SuspendLayout();
             this.pageBracket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -168,6 +169,114 @@
             this.pageBracket.TabIndex = 0;
             this.pageBracket.Text = "悬臂(D6)&三角托架(D19)";
             this.pageBracket.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(519, 216);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 70;
+            this.label8.Text = "保温厚度(mm)";
+            // 
+            // txtInsulation_D19
+            // 
+            this.txtInsulation_D19.Location = new System.Drawing.Point(516, 237);
+            this.txtInsulation_D19.Name = "txtInsulation_D19";
+            this.txtInsulation_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtInsulation_D19.TabIndex = 14;
+            this.txtInsulation_D19.Text = "0";
+            this.txtInsulation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(531, 165);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "管径(mm)";
+            // 
+            // txtOD_D19
+            // 
+            this.txtOD_D19.Location = new System.Drawing.Point(516, 186);
+            this.txtOD_D19.Name = "txtOD_D19";
+            this.txtOD_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtOD_D19.TabIndex = 13;
+            this.txtOD_D19.Text = "0";
+            this.txtOD_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtElevation_D19
+            // 
+            this.txtElevation_D19.Location = new System.Drawing.Point(516, 288);
+            this.txtElevation_D19.Name = "txtElevation_D19";
+            this.txtElevation_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtElevation_D19.TabIndex = 15;
+            this.txtElevation_D19.Text = "0";
+            this.txtElevation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(519, 267);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 12);
+            this.label17.TabIndex = 66;
+            this.label17.Text = "梁顶标高(mm)";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(531, 114);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 12);
+            this.label19.TabIndex = 65;
+            this.label19.Text = "距离(mm)";
+            // 
+            // txtLength_D19
+            // 
+            this.txtLength_D19.Location = new System.Drawing.Point(516, 135);
+            this.txtLength_D19.Name = "txtLength_D19";
+            this.txtLength_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtLength_D19.TabIndex = 12;
+            this.txtLength_D19.Text = "0";
+            this.txtLength_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(213, 216);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(77, 12);
+            this.label16.TabIndex = 62;
+            this.label16.Text = "保温厚度(mm)";
+            // 
+            // txtInsulation_D6
+            // 
+            this.txtInsulation_D6.Location = new System.Drawing.Point(210, 237);
+            this.txtInsulation_D6.Name = "txtInsulation_D6";
+            this.txtInsulation_D6.Size = new System.Drawing.Size(83, 21);
+            this.txtInsulation_D6.TabIndex = 9;
+            this.txtInsulation_D6.Text = "0";
+            this.txtInsulation_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(225, 165);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 60;
+            this.label11.Text = "管径(mm)";
+            // 
+            // txtOD_D6
+            // 
+            this.txtOD_D6.Location = new System.Drawing.Point(210, 186);
+            this.txtOD_D6.Name = "txtOD_D6";
+            this.txtOD_D6.Size = new System.Drawing.Size(83, 21);
+            this.txtOD_D6.TabIndex = 8;
+            this.txtOD_D6.Text = "0";
+            this.txtOD_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtElevation_D6
             // 
@@ -495,7 +604,8 @@
             // 
             // pageHanger
             // 
-            this.pageHanger.Controls.Add(this.chkB1_1);
+            this.pageHanger.Controls.Add(this.cbxRod_B2_1);
+            this.pageHanger.Controls.Add(this.chkRod_B2_1);
             this.pageHanger.Controls.Add(this.chkCheckLoad_B2_1);
             this.pageHanger.Controls.Add(this.groupBox2);
             this.pageHanger.Controls.Add(this.groupBox1);
@@ -520,20 +630,37 @@
             this.pageHanger.Text = "吊耳式管吊(B2-1)";
             this.pageHanger.UseVisualStyleBackColor = true;
             // 
-            // chkB1_1
+            // cbxRod_B2_1
             // 
-            this.chkB1_1.AutoSize = true;
-            this.chkB1_1.Location = new System.Drawing.Point(262, 263);
-            this.chkB1_1.Name = "chkB1_1";
-            this.chkB1_1.Size = new System.Drawing.Size(120, 16);
-            this.chkB1_1.TabIndex = 22;
-            this.chkB1_1.Text = "杆式管吊（B1-1）";
-            this.chkB1_1.UseVisualStyleBackColor = true;
+            this.cbxRod_B2_1.Enabled = false;
+            this.cbxRod_B2_1.FormattingEnabled = true;
+            this.cbxRod_B2_1.Items.AddRange(new object[] {
+            "A16(10)",
+            "A16(12)",
+            "A16(16)",
+            "A16(20)",
+            "A16(24)",
+            "A16(30)"});
+            this.cbxRod_B2_1.Location = new System.Drawing.Point(370, 116);
+            this.cbxRod_B2_1.Name = "cbxRod_B2_1";
+            this.cbxRod_B2_1.Size = new System.Drawing.Size(92, 20);
+            this.cbxRod_B2_1.TabIndex = 25;
+            // 
+            // chkRod_B2_1
+            // 
+            this.chkRod_B2_1.AutoSize = true;
+            this.chkRod_B2_1.Location = new System.Drawing.Point(262, 118);
+            this.chkRod_B2_1.Name = "chkRod_B2_1";
+            this.chkRod_B2_1.Size = new System.Drawing.Size(72, 16);
+            this.chkRod_B2_1.TabIndex = 24;
+            this.chkRod_B2_1.Text = "指定吊杆";
+            this.chkRod_B2_1.UseVisualStyleBackColor = true;
+            this.chkRod_B2_1.CheckedChanged += new System.EventHandler(this.ChkRod_B2_1_CheckedChanged);
             // 
             // chkCheckLoad_B2_1
             // 
             this.chkCheckLoad_B2_1.AutoSize = true;
-            this.chkCheckLoad_B2_1.Location = new System.Drawing.Point(262, 113);
+            this.chkCheckLoad_B2_1.Location = new System.Drawing.Point(262, 156);
             this.chkCheckLoad_B2_1.Name = "chkCheckLoad_B2_1";
             this.chkCheckLoad_B2_1.Size = new System.Drawing.Size(90, 16);
             this.chkCheckLoad_B2_1.TabIndex = 21;
@@ -545,7 +672,7 @@
             // 
             this.groupBox2.Controls.Add(this.rioBritishPipe_B2_1);
             this.groupBox2.Controls.Add(this.rioMetricPipe_B2_1);
-            this.groupBox2.Location = new System.Drawing.Point(262, 202);
+            this.groupBox2.Location = new System.Drawing.Point(259, 255);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 50);
             this.groupBox2.TabIndex = 20;
@@ -579,7 +706,7 @@
             this.groupBox1.Controls.Add(this.rioInsualationType2_B2_1);
             this.groupBox1.Controls.Add(this.rioInsualationType1_B2_1);
             this.groupBox1.Controls.Add(this.rioBaseType_B2_1);
-            this.groupBox1.Location = new System.Drawing.Point(262, 141);
+            this.groupBox1.Location = new System.Drawing.Point(262, 191);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 50);
             this.groupBox1.TabIndex = 19;
@@ -599,22 +726,22 @@
             // rioInsualationType1_B2_1
             // 
             this.rioInsualationType1_B2_1.AutoSize = true;
+            this.rioInsualationType1_B2_1.Checked = true;
             this.rioInsualationType1_B2_1.Location = new System.Drawing.Point(71, 22);
             this.rioInsualationType1_B2_1.Name = "rioInsualationType1_B2_1";
             this.rioInsualationType1_B2_1.Size = new System.Drawing.Size(59, 16);
             this.rioInsualationType1_B2_1.TabIndex = 1;
+            this.rioInsualationType1_B2_1.TabStop = true;
             this.rioInsualationType1_B2_1.Text = "保温型";
             this.rioInsualationType1_B2_1.UseVisualStyleBackColor = true;
             // 
             // rioBaseType_B2_1
             // 
             this.rioBaseType_B2_1.AutoSize = true;
-            this.rioBaseType_B2_1.Checked = true;
             this.rioBaseType_B2_1.Location = new System.Drawing.Point(4, 22);
             this.rioBaseType_B2_1.Name = "rioBaseType_B2_1";
             this.rioBaseType_B2_1.Size = new System.Drawing.Size(59, 16);
             this.rioBaseType_B2_1.TabIndex = 0;
-            this.rioBaseType_B2_1.TabStop = true;
             this.rioBaseType_B2_1.Text = "基准型";
             this.rioBaseType_B2_1.UseVisualStyleBackColor = true;
             // 
@@ -706,16 +833,15 @@
             "700",
             "750",
             "800"});
-            this.cbxDN_B2_1.Location = new System.Drawing.Point(370, 76);
+            this.cbxDN_B2_1.Location = new System.Drawing.Point(370, 80);
             this.cbxDN_B2_1.Name = "cbxDN_B2_1";
             this.cbxDN_B2_1.Size = new System.Drawing.Size(92, 20);
             this.cbxDN_B2_1.TabIndex = 2;
-            this.cbxDN_B2_1.Text = "0";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(260, 80);
+            this.label12.Location = new System.Drawing.Point(262, 84);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 10;
@@ -734,7 +860,7 @@
             // txtPipeLoad_B2_1
             // 
             this.txtPipeLoad_B2_1.Enabled = false;
-            this.txtPipeLoad_B2_1.Location = new System.Drawing.Point(370, 108);
+            this.txtPipeLoad_B2_1.Location = new System.Drawing.Point(370, 154);
             this.txtPipeLoad_B2_1.Name = "txtPipeLoad_B2_1";
             this.txtPipeLoad_B2_1.Size = new System.Drawing.Size(92, 21);
             this.txtPipeLoad_B2_1.TabIndex = 3;
@@ -743,17 +869,16 @@
             // 
             // txtEL2_B2_1
             // 
-            this.txtEL2_B2_1.Location = new System.Drawing.Point(370, 44);
+            this.txtEL2_B2_1.Location = new System.Drawing.Point(370, 46);
             this.txtEL2_B2_1.Name = "txtEL2_B2_1";
             this.txtEL2_B2_1.Size = new System.Drawing.Size(92, 21);
             this.txtEL2_B2_1.TabIndex = 1;
-            this.txtEL2_B2_1.Text = "0";
             this.txtEL2_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(260, 48);
+            this.label10.Location = new System.Drawing.Point(262, 50);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 12);
             this.label10.TabIndex = 4;
@@ -765,125 +890,16 @@
             this.txtEL1_B2_1.Name = "txtEL1_B2_1";
             this.txtEL1_B2_1.Size = new System.Drawing.Size(92, 21);
             this.txtEL1_B2_1.TabIndex = 0;
-            this.txtEL1_B2_1.Text = "0";
             this.txtEL1_B2_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(260, 16);
+            this.label9.Location = new System.Drawing.Point(262, 16);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 2;
             this.label9.Text = "EL.I(mm)";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(225, 165);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 60;
-            this.label11.Text = "管径(mm)";
-            // 
-            // txtOD_D6
-            // 
-            this.txtOD_D6.Location = new System.Drawing.Point(210, 186);
-            this.txtOD_D6.Name = "txtOD_D6";
-            this.txtOD_D6.Size = new System.Drawing.Size(83, 21);
-            this.txtOD_D6.TabIndex = 8;
-            this.txtOD_D6.Text = "0";
-            this.txtOD_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(213, 216);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(77, 12);
-            this.label16.TabIndex = 62;
-            this.label16.Text = "保温厚度(mm)";
-            // 
-            // txtInsulation_D6
-            // 
-            this.txtInsulation_D6.Location = new System.Drawing.Point(210, 237);
-            this.txtInsulation_D6.Name = "txtInsulation_D6";
-            this.txtInsulation_D6.Size = new System.Drawing.Size(83, 21);
-            this.txtInsulation_D6.TabIndex = 9;
-            this.txtInsulation_D6.Text = "0";
-            this.txtInsulation_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(519, 216);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 12);
-            this.label8.TabIndex = 70;
-            this.label8.Text = "保温厚度(mm)";
-            // 
-            // txtInsulation_D19
-            // 
-            this.txtInsulation_D19.Location = new System.Drawing.Point(516, 237);
-            this.txtInsulation_D19.Name = "txtInsulation_D19";
-            this.txtInsulation_D19.Size = new System.Drawing.Size(83, 21);
-            this.txtInsulation_D19.TabIndex = 14;
-            this.txtInsulation_D19.Text = "0";
-            this.txtInsulation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(531, 165);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
-            this.label14.TabIndex = 68;
-            this.label14.Text = "管径(mm)";
-            // 
-            // txtOD_D19
-            // 
-            this.txtOD_D19.Location = new System.Drawing.Point(516, 186);
-            this.txtOD_D19.Name = "txtOD_D19";
-            this.txtOD_D19.Size = new System.Drawing.Size(83, 21);
-            this.txtOD_D19.TabIndex = 13;
-            this.txtOD_D19.Text = "0";
-            this.txtOD_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtElevation_D19
-            // 
-            this.txtElevation_D19.Location = new System.Drawing.Point(516, 288);
-            this.txtElevation_D19.Name = "txtElevation_D19";
-            this.txtElevation_D19.Size = new System.Drawing.Size(83, 21);
-            this.txtElevation_D19.TabIndex = 15;
-            this.txtElevation_D19.Text = "0";
-            this.txtElevation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(519, 267);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(77, 12);
-            this.label17.TabIndex = 66;
-            this.label17.Text = "梁顶标高(mm)";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(531, 114);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 12);
-            this.label19.TabIndex = 65;
-            this.label19.Text = "距离(mm)";
-            // 
-            // txtLength_D19
-            // 
-            this.txtLength_D19.Location = new System.Drawing.Point(516, 135);
-            this.txtLength_D19.Name = "txtLength_D19";
-            this.txtLength_D19.Size = new System.Drawing.Size(83, 21);
-            this.txtLength_D19.TabIndex = 12;
-            this.txtLength_D19.Text = "0";
-            this.txtLength_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmMain
             // 
@@ -971,7 +987,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rioBritishPipe_B2_1;
         private System.Windows.Forms.RadioButton rioMetricPipe_B2_1;
-        private System.Windows.Forms.CheckBox chkB1_1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtInsulation_D6;
         private System.Windows.Forms.Label label11;
@@ -984,6 +999,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtLength_D19;
+        private System.Windows.Forms.ComboBox cbxRod_B2_1;
+        private System.Windows.Forms.CheckBox chkRod_B2_1;
     }
 }
 
