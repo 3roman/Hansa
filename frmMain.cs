@@ -252,6 +252,63 @@ namespace HASA
                 $"\t\t\t\t{E}\t\t\t1\t\t\t\t{rod}\t{clamp}\t\t\t\t1,1");
         }
 
+        private void BtnC7_1_Click(object sender, EventArgs e)
+        {
+            txtClamp_C7_1.Clear();
+            txtRod_C7_1.Clear();
+            txtLug_C7_1.Clear();
+            txtRodLength_C7_1.Clear();
+            var EL1 = Convert.ToInt32(txtEL1_C7_1.Text);
+            var EL2 = Convert.ToInt32(txtEL2_C7_1.Text);
+            var DN = cbxDN_C7_1.Text;
+            var Spring = cbxSpring_C7_1.Text;
+
+            // 判断用哪个表
+            string clampTable = string.Empty;
+            if (!rioBritishPipe_C7_1.Checked && rioBaseType_C7_1.Checked)
+            {
+                clampTable = "a5_1";
+            }
+            else if (!rioBritishPipe_C7_1.Checked && rioInsualationType1_C7_1.Checked)
+            {
+                clampTable = "a7_1";
+            }
+            else if (rioBritishPipe_C7_1.Checked && rioBaseType_C7_1.Checked)
+            {
+                clampTable = "a5_2";
+            }
+            else if (rioBritishPipe_C7_1.Checked && rioInsualationType1_C7_1.Checked)
+            {
+                clampTable = "a7_2";
+            }
+            else if (!rioBritishPipe_C7_1.Checked && rioInsualationType2_C7_1.Checked)
+            {
+                clampTable = "b2_xb";
+            }
+
+            // 指定管径
+            var clamp = $"{clampTable.Substring(0, 4)}({DN})".ToUpper().Replace("_", "-");
+            var sql = $"SELECT * FROM {clampTable} WHERE clamp='{clamp}'";
+            var dt = SQLiteHelper.Read("HASA.db", sql);
+            var E = Convert.ToInt32(dt.Rows[0]["e"]);
+            sql = $"SELECT * FROM td_spring WHERE spring='{Spring}'";
+            dt = SQLiteHelper.Read("HASA.db", sql);
+            var rod = Convert.ToString(dt.Rows[0]["rod"]);
+            var lug = Convert.ToString(dt.Rows[0]["lug"]);
+            var F = Convert.ToInt32(dt.Rows[0]["f"]);
+            var H = Convert.ToInt32(dt.Rows[0]["h"]);
+            // TODO
+            var rodLength = EL1 - EL2 - E - F - H + Convert.ToInt32(rod.Substring(4, 2)) * 1.5;
+            txtClamp_C7_1.Text = clamp;
+            txtRod_C7_1.Text = rod;
+            txtLug_C7_1.Text = lug;
+            txtRodLength_C7_1.Text = Convert.ToString(rodLength);
+            var type = rioBaseType_C7_1.Checked ? "I" : "II";
+
+            Common.Copy2Clipboard($"B2-1\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength}" +
+                $"\t\t\t\t{E}\t{F}\t\t1\t\t\t{lug}\t{rod}\t{clamp}\t\t\t\t1,1,1");
+        }
+
         private void ChkCheckLoad_B2_1_CheckedChanged(object sender, EventArgs e)
         {
             chkRod_B2_1.Checked = false;
@@ -286,6 +343,8 @@ namespace HASA
                     break;
             }
         }
+
+        
     }
 }
 

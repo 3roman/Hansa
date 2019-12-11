@@ -79,7 +79,7 @@ namespace HASA
             var temp = table.Rows[0]["steel"].ToString().Split(new char[]{'(', ')'});
 
             var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D19\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
+            Common.Copy2Clipboard($"D19\tI\t\t\t{elevation}\t\t{len}" +
                 $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;
@@ -101,7 +101,7 @@ namespace HASA
             var temp = table.Rows[0]["steel"].ToString().Split(new char[] { '(', ')' });
 
             var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D19\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
+            Common.Copy2Clipboard($"D19\tII\t\t\t{elevation}\t\t{len}" +
                 $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;

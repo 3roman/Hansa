@@ -155,7 +155,7 @@ namespace HASA
             var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
 
             var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D6\tI\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
+            Common.Copy2Clipboard($"D6\tI\t\t\t{elevation}\t\t{len}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
@@ -176,7 +176,7 @@ namespace HASA
             var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
 
             var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D6\tII\t\t{pipeLoad * 1000}\tEL.{elevation}\t\t{len}" +
+            Common.Copy2Clipboard($"D6\tII\t\t\t{elevation}\t\t{len}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
