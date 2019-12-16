@@ -3,7 +3,6 @@ C:\Users\LIM42\Desktop\hasa\bin\Release\HASA.exe
 C:\Users\LIM42\Desktop\hasa\bin\Release\HASA.pdb
 C:\Users\LIM42\Desktop\hasa\bin\Release\System.Data.SQLite.dll
 C:\Users\LIM42\Desktop\hasa\bin\Release\System.Data.SQLite.xml
-C:\Users\LIM42\Desktop\hasa\obj\Release\HASA.csprojAssemblyReference.cache
 C:\Users\LIM42\Desktop\hasa\obj\Release\HASA.FrmMain.resources
 C:\Users\LIM42\Desktop\hasa\obj\Release\HASA.Properties.Resources.resources
 C:\Users\LIM42\Desktop\hasa\obj\Release\HASA.csproj.GenerateResource.cache
