@@ -179,6 +179,17 @@
             this.BtnC8 = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.pageMisc = new System.Windows.Forms.TabPage();
+            this.txtNutCount = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.cbxNutSpec = new System.Windows.Forms.ComboBox();
+            this.螺母数量 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.txtOutLength = new System.Windows.Forms.TextBox();
+            this.Btnut = new System.Windows.Forms.Button();
+            this.rioSingleStart = new System.Windows.Forms.RadioButton();
+            this.rioDoubleStart = new System.Windows.Forms.RadioButton();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.pageB1_1.SuspendLayout();
             this.grpTempRange_B1_1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -203,6 +214,8 @@
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.pageMisc.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // pageB1_1
@@ -1379,6 +1392,7 @@
             this.tabMain.Controls.Add(this.pageB2_1);
             this.tabMain.Controls.Add(this.pageC7_1);
             this.tabMain.Controls.Add(this.pageC8);
+            this.tabMain.Controls.Add(this.pageMisc);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
@@ -2282,6 +2296,140 @@
             this.label30.TabIndex = 50;
             this.label30.Text = "EL.I(mm)";
             // 
+            // pageMisc
+            // 
+            this.pageMisc.Controls.Add(this.groupBox9);
+            this.pageMisc.Controls.Add(this.Btnut);
+            this.pageMisc.Location = new System.Drawing.Point(4, 22);
+            this.pageMisc.Name = "pageMisc";
+            this.pageMisc.Padding = new System.Windows.Forms.Padding(3);
+            this.pageMisc.Size = new System.Drawing.Size(613, 353);
+            this.pageMisc.TabIndex = 7;
+            this.pageMisc.Text = "杂项功能";
+            this.pageMisc.UseVisualStyleBackColor = true;
+            // 
+            // txtNutCount
+            // 
+            this.txtNutCount.Location = new System.Drawing.Point(87, 65);
+            this.txtNutCount.Name = "txtNutCount";
+            this.txtNutCount.Size = new System.Drawing.Size(92, 21);
+            this.txtNutCount.TabIndex = 1;
+            this.txtNutCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(16, 30);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(53, 12);
+            this.label31.TabIndex = 52;
+            this.label31.Text = "螺母规格";
+            // 
+            // cbxNutSpec
+            // 
+            this.cbxNutSpec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNutSpec.FormattingEnabled = true;
+            this.cbxNutSpec.Items.AddRange(new object[] {
+            "M1.6",
+            "M2",
+            "M2.5",
+            "M3",
+            "M4",
+            "M5",
+            "M6",
+            "M8",
+            "M10",
+            "M12",
+            "M16",
+            "M20",
+            "M24",
+            "M30",
+            "M36",
+            "M42",
+            "M48",
+            "M56",
+            "M64"});
+            this.cbxNutSpec.Location = new System.Drawing.Point(87, 26);
+            this.cbxNutSpec.Name = "cbxNutSpec";
+            this.cbxNutSpec.Size = new System.Drawing.Size(92, 20);
+            this.cbxNutSpec.TabIndex = 0;
+            // 
+            // 螺母数量
+            // 
+            this.螺母数量.AutoSize = true;
+            this.螺母数量.Location = new System.Drawing.Point(16, 69);
+            this.螺母数量.Name = "螺母数量";
+            this.螺母数量.Size = new System.Drawing.Size(53, 12);
+            this.螺母数量.TabIndex = 54;
+            this.螺母数量.Text = "螺母个数";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(16, 144);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(53, 12);
+            this.label33.TabIndex = 57;
+            this.label33.Text = "外伸长度";
+            // 
+            // txtOutLength
+            // 
+            this.txtOutLength.Location = new System.Drawing.Point(87, 140);
+            this.txtOutLength.Name = "txtOutLength";
+            this.txtOutLength.ReadOnly = true;
+            this.txtOutLength.Size = new System.Drawing.Size(92, 21);
+            this.txtOutLength.TabIndex = 58;
+            this.txtOutLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Btnut
+            // 
+            this.Btnut.Location = new System.Drawing.Point(510, 322);
+            this.Btnut.Name = "Btnut";
+            this.Btnut.Size = new System.Drawing.Size(81, 23);
+            this.Btnut.TabIndex = 59;
+            this.Btnut.Text = "选型计算";
+            this.Btnut.UseVisualStyleBackColor = true;
+            this.Btnut.Click += new System.EventHandler(this.Btnut_Click);
+            // 
+            // rioSingleStart
+            // 
+            this.rioSingleStart.AutoSize = true;
+            this.rioSingleStart.Location = new System.Drawing.Point(16, 104);
+            this.rioSingleStart.Name = "rioSingleStart";
+            this.rioSingleStart.Size = new System.Drawing.Size(71, 16);
+            this.rioSingleStart.TabIndex = 60;
+            this.rioSingleStart.Text = "单头螺纹";
+            this.rioSingleStart.UseVisualStyleBackColor = true;
+            // 
+            // rioDoubleStart
+            // 
+            this.rioDoubleStart.AutoSize = true;
+            this.rioDoubleStart.Checked = true;
+            this.rioDoubleStart.Location = new System.Drawing.Point(108, 104);
+            this.rioDoubleStart.Name = "rioDoubleStart";
+            this.rioDoubleStart.Size = new System.Drawing.Size(71, 16);
+            this.rioDoubleStart.TabIndex = 2;
+            this.rioDoubleStart.TabStop = true;
+            this.rioDoubleStart.Text = "双头螺纹";
+            this.rioDoubleStart.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.rioDoubleStart);
+            this.groupBox9.Controls.Add(this.label31);
+            this.groupBox9.Controls.Add(this.rioSingleStart);
+            this.groupBox9.Controls.Add(this.txtNutCount);
+            this.groupBox9.Controls.Add(this.cbxNutSpec);
+            this.groupBox9.Controls.Add(this.螺母数量);
+            this.groupBox9.Controls.Add(this.txtOutLength);
+            this.groupBox9.Controls.Add(this.label33);
+            this.groupBox9.Location = new System.Drawing.Point(8, 7);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(199, 178);
+            this.groupBox9.TabIndex = 62;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "吊杆附加长度";
+            // 
             // FrmMain
             // 
             this.AcceptButton = this.btnTotalLoad;
@@ -2338,6 +2486,9 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.pageMisc.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2494,6 +2645,17 @@
         private System.Windows.Forms.RadioButton rioTempA_C8;
         private System.Windows.Forms.RadioButton rioTempB_C8;
         private System.Windows.Forms.RadioButton rioTempC_C8;
+        private System.Windows.Forms.TabPage pageMisc;
+        private System.Windows.Forms.Button Btnut;
+        private System.Windows.Forms.TextBox txtOutLength;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label 螺母数量;
+        private System.Windows.Forms.ComboBox cbxNutSpec;
+        private System.Windows.Forms.TextBox txtNutCount;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.RadioButton rioDoubleStart;
+        private System.Windows.Forms.RadioButton rioSingleStart;
     }
 }
 

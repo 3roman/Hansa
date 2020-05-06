@@ -452,6 +452,26 @@ namespace HASA
                 $"\t\t\t\t{E}\t{F}\t{H}\t1\t\t\t{lug}\t{rod}\t{clamp}\t{spring}\t\t\t1,1,1,1");
         }
 
+        private void Btnut_Click(object sender, EventArgs e)
+        {
+            var d = cbxNutSpec.Text;
+            var count = Convert.ToInt32(txtNutCount.Text);
+            var n = 3;
+            if (rioDoubleStart.Checked)
+            {
+                n = 6;
+            }
+            var sql = $"SELECT * FROM nuts WHERE D='{d}'";
+            var dt = SQLiteHelper.Read("HASA.db", sql);
+            var m = Convert.ToDouble(dt.Rows[0]["m"]);
+            var P = Convert.ToDouble(dt.Rows[0]["P"]);
+            var outLength = count * m + n * P;
+            txtOutLength.Text = Convert.ToInt32(outLength) + string.Empty;
+
+
+
+        }
+
         private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             var tab = sender as TabControl;
@@ -522,6 +542,8 @@ namespace HASA
         {
             cbxRod_B2_1.Enabled = chkRod_B2_1.Checked;
         }
+
+        
     }
 }
 
