@@ -301,18 +301,26 @@ namespace HASA
 
         private void BtnC7_1_Click(object sender, EventArgs e)
         {
-            txtClamp_C7_1.Clear();
-            txtRod_C7_1.Clear();
+            // 初始化清空
             txtLug_C7_1.Clear();
+            txtSpring_C7_1.Clear();
+            txtRod_C7_1.Clear();
+            txtClamp_C7_1.Clear();
+            txtLugLength_C7_1.Clear();
+            txtSpringLength_C7_1.Clear();
             txtRodLength_C7_1.Clear();
+            txtClampLength_C7_1.Clear();
+
+            // 获取界面数据
             var EL1 = Convert.ToInt32(txtEL1_C7_1.Text);
             var EL2 = Convert.ToInt32(txtEL2_C7_1.Text);
             var DN = cbxDN_C7_1.Text;
             var spring = cbxSpring_C7_1.Text;
 
-            // 判断用哪个表
+            // 判断用哪个管夹表
             string clampTable = string.Empty;
             string clamp = string.Empty;
+            // 基准型
             if (rioBaseType_C7_1.Checked && !rioBritishPipe_C7_1.Checked)
             {
                 clampTable = "a5_1";
@@ -324,17 +332,18 @@ namespace HASA
                 clampTable = "a5_2";
                 clamp = $"A5-2({DN})";
             }
+            // 保温型
             else if (rioInsualationType1_C7_1.Checked && !rioBritishPipe_C7_1.Checked)
             {
                 clampTable = "a7_1";
                 clamp = $"A7-1({DN})";
             }
-
             else if (rioInsualationType1_C7_1.Checked && rioBritishPipe_C7_1.Checked)
             {
                 clampTable = "a7_2";
                 clamp = $"A7-2({DN})";
             }
+            // 隔热型
             else if (rioInsualationType2_C7_1.Checked)
             {
                 if (rioTempA_C7_1.Checked)
@@ -357,99 +366,82 @@ namespace HASA
             // 指定管径
             var sql = $"SELECT * FROM {clampTable} WHERE clamp='{clamp}'";
             var dt = SQLiteHelper.Read("HASA.db", sql);
+            // 管夹长度
             var E = Convert.ToInt32(dt.Rows[0]["e"]);
             sql = $"SELECT * FROM c7_1 WHERE spring='{spring}'";
             dt = SQLiteHelper.Read("HASA.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
             var lug = Convert.ToString(dt.Rows[0]["lug"]);
-            var F = Convert.ToInt32(dt.Rows[0]["f"]);
-            var H = Convert.ToInt32(dt.Rows[0]["h"]);
-            // TODO
-            var rodLength = EL1 - EL2 - E - F - H + Convert.ToInt32(rod.Substring(4, 2)) * 1;
-            txtClamp_C7_1.Text = clamp;
-            txtRod_C7_1.Text = rod;
-            txtLug_C7_1.Text = lug;
-            txtRodLength_C7_1.Text = Convert.ToString(rodLength);
-            var type = rioBaseType_C7_1.Checked ? "I" : "II";
+            var nut = Convert.ToString(dt.Rows[0]["d"]);
 
+            // 吊耳长度
+            var F = Convert.ToInt32(dt.Rows[0]["f"]);
+            // 弹簧高度
+            var H = Convert.ToInt32(dt.Rows[0]["h"]);
+            // 伸入花篮螺母长度
+            sql = $"SELECT * FROM orchid_bolt WHERE D='{nut}'";
+            dt = SQLiteHelper.Read("HASA.db", sql);
+            var outLength = Convert.ToInt32(dt.Rows[0]["L"]) / 2 - Convert.ToInt32(dt.Rows[0]["h"]) / 2;
+            // 计算吊杆长度
+            var rodLength = EL1 - EL2 - E - F - H + outLength;
+            // 更新界面
+            txtLug_C7_1.Text = lug;
+            txtSpring_C7_1.Text = spring;
+            txtRod_C7_1.Text = rod;
+            txtClamp_C7_1.Text = clamp;
+            txtLugLength_C7_1.Text = F + string.Empty;
+            txtSpringLength_C7_1.Text = H + string.Empty;
+            txtRodLength_C7_1.Text = rodLength + string.Empty;
+            txtClampLength_C7_1.Text = E + string.Empty;
+
+            var type = rioBaseType_C7_1.Checked ? "I" : "II";
             Common.Copy2Clipboard($"C7-1\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength}" +
                 $"\t\t\t\t{E}\t{F}\t{H}\t1\t\t\t{lug}\t{rod}\t{clamp}\t{spring}\t\t\t1,1,1,1");
         }
 
         private void BtnC8_Click(object sender, EventArgs e)
         {
-            txtClamp_C8.Clear();
-            txtRod_C8.Clear();
-            txtLug_C8.Clear();
-            txtRodLength_C8.Clear();
-            var EL1 = Convert.ToInt32(txtEL1_C8.Text);
-            var EL2 = Convert.ToInt32(txtEL2_C8.Text);
-            var DN = cbxDN_C8.Text;
-            var spring = cbxSpring_C8.Text;
+            txtLug_C7_2.Clear();
+            txtSpring_C7_2.Clear();
+            txtRod_C7_2.Clear();
+            txtLugLength_C7_2.Clear();
+            txtSpringLength_C7_2.Clear();
+            txtRodLength_C7_2.Clear();
+            txtSteelHeight1_C7_2.Clear();
 
-            // 判断用哪个表
-            string clampTable = string.Empty;
-            string clamp = string.Empty;
-            if (rioBaseType_C8.Checked && !rioBritishPipe_C8.Checked)
-            {
-                clampTable = "a5_1";
-                clamp = $"A5-1({DN})";
-            }
-            else if (rioBaseType_C8.Checked && rioBritishPipe_C8.Checked)
-            {
-                clampTable = "a5_2";
-                clamp = $"A5-2({DN})";
-            }
-            else if (rioInsualationType1_C8.Checked && !rioBritishPipe_C8.Checked)
-            {
-                clampTable = "a7_1";
-                clamp = $"A7-1({DN})";
-            }
-
-            else if (rioInsualationType1_C8.Checked && rioBritishPipe_C8.Checked)
-            {
-                clampTable = "a7_2";
-                clamp = $"A7-2({DN})";
-            }
-            else if (rioInsualationType2_C8.Checked)
-            {
-                if (rioTempA_C8.Checked)
-                {
-                    clampTable = "da";
-                    clamp = $"DA-DN{DN}";
-                }
-                if (rioTempB_C8.Checked)
-                {
-                    clampTable = "db";
-                    clamp = $"DB-DN{DN}";
-                }
-                if (rioTempC_C8.Checked)
-                {
-                    clampTable = "dc";
-                    clamp = $"DC-DN{DN}";
-                }
-            }
-
-            // 指定管径
-            var sql = $"SELECT * FROM {clampTable} WHERE clamp='{clamp}'";
+            var EL1 = Convert.ToInt32(txtEL1_C7_2.Text);
+            var EL2 = Convert.ToInt32(txtEL2_C7_2.Text);
+            var steelHeight = Convert.ToInt32(txtSteelHeight_C7_2.Text);
+            var spring = cbxSpring_C7_2.Text;
+           
+            var sql = $"SELECT * FROM c7_1 WHERE spring='{spring}'";
             var dt = SQLiteHelper.Read("HASA.db", sql);
-            var E = Convert.ToInt32(dt.Rows[0]["e"]);
-            sql = $"SELECT * FROM c8 WHERE spring='{spring}'";
-            dt = SQLiteHelper.Read("HASA.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
             var lug = Convert.ToString(dt.Rows[0]["lug"]);
+            var d = Convert.ToString(dt.Rows[0]["d"]);
             var F = Convert.ToInt32(dt.Rows[0]["f"]);
             var H = Convert.ToInt32(dt.Rows[0]["h"]);
-            // TODO
-            var rodLength = EL1 - EL2 - E - F - H + Convert.ToInt32(rod.Substring(4, 2)) * 1;
-            txtClamp_C8.Text = clamp;
-            txtRod_C8.Text = rod;
-            txtLug_C8.Text = lug;
-            txtRodLength_C8.Text = Convert.ToString(rodLength);
-            var type = rioBaseType_C8.Checked ? "I" : "II";
 
-            Common.Copy2Clipboard($"C8\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength}" +
-                $"\t\t\t\t{E}\t{F}\t{H}\t1\t\t\t{lug}\t{rod}\t{clamp}\t{spring}\t\t\t1,1,1,1");
+            // 伸入花篮螺母长度
+            sql = $"SELECT * FROM orchid_bolt WHERE D='{d}'";
+            dt = SQLiteHelper.Read("HASA.db", sql);
+            var outLength1 = Convert.ToInt32(dt.Rows[0]["L"]) / 2 - Convert.ToInt32(dt.Rows[0]["h"]) / 2;
+
+            // 下端外伸长度
+            sql = $"SELECT * FROM nuts WHERE D='{d}'";
+            dt = SQLiteHelper.Read("HASA.db", sql);
+            var outLength2 = Convert.ToDouble(dt.Rows[0]["m"]);
+            outLength2 = Convert.ToInt32(outLength2 * 3);
+
+            // TODO
+            var rodLength = EL1 - EL2 - F - H + outLength1 + outLength2 + steelHeight;
+            txtLug_C7_2.Text = lug;
+            txtSpring_C7_2.Text = spring;
+            txtRod_C7_2.Text = rod.Replace("A16", "A15");
+            txtLugLength_C7_2.Text = F + string.Empty;
+            txtSpringLength_C7_2.Text = H + string.Empty;
+            txtSteelHeight1_C7_2.Text = txtSteelHeight_C7_2.Text;
+            txtRodLength_C7_2.Text = Convert.ToInt32(rodLength) + string.Empty;
         }
 
         private void Btnut_Click(object sender, EventArgs e)
@@ -467,8 +459,6 @@ namespace HASA
             var P = Convert.ToDouble(dt.Rows[0]["P"]);
             var outLength = count * m + n * P;
             txtOutLength.Text = Convert.ToInt32(outLength) + string.Empty;
-
-
 
         }
 
@@ -496,9 +486,9 @@ namespace HASA
                     txtEL1_C7_1.SelectAll();
                     break;
                 case 4:
-                    AcceptButton = BtnC8;
-                    txtEL1_C8.Focus();
-                    txtEL1_C8.SelectAll();
+                    AcceptButton = BtnC7_2;
+                    txtEL1_C7_2.Focus();
+                    txtEL1_C7_2.SelectAll();
                     break;
             }
         }
@@ -516,11 +506,6 @@ namespace HASA
         private void RioInsualationType2_C7_1_CheckedChanged(object sender, EventArgs e)
         {
             grpTempRange_C7_1.Enabled = rioInsualationType2_C7_1.Checked;
-        }
-
-        private void rioInsualationType2_C8_CheckedChanged(object sender, EventArgs e)
-        {
-            grpTempRange_C8.Enabled = rioInsualationType2_C8.Checked;
         }
 
         private void ChkRod_B1_1_CheckedChanged(object sender, EventArgs e)
@@ -543,7 +528,9 @@ namespace HASA
             cbxRod_B2_1.Enabled = chkRod_B2_1.Checked;
         }
 
-        
+
+
+       
     }
 }
 
