@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pageB1_1 = new System.Windows.Forms.TabPage();
             this.grpTempRange_B1_1 = new System.Windows.Forms.GroupBox();
@@ -128,9 +129,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageC7_1 = new System.Windows.Forms.TabPage();
+            this.cbxClampLength1_C7_1 = new System.Windows.Forms.CheckBox();
+            this.txtClampLength1_C7_1 = new System.Windows.Forms.TextBox();
             this.txtLugLength_C7_1 = new System.Windows.Forms.TextBox();
             this.txtSpringLength_C7_1 = new System.Windows.Forms.TextBox();
-            this.txtClampLength_C7_1 = new System.Windows.Forms.TextBox();
+            this.txtClampLength2_C7_1 = new System.Windows.Forms.TextBox();
             this.txtSpring_C7_1 = new System.Windows.Forms.TextBox();
             this.grpTempRange_C7_1 = new System.Windows.Forms.GroupBox();
             this.rioTempA_C7_1 = new System.Windows.Forms.RadioButton();
@@ -158,7 +161,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.pageC7_2 = new System.Windows.Forms.TabPage();
-            this.txtSteelHeight1_C7_2 = new System.Windows.Forms.TextBox();
             this.txtSteelHeight_C7_2 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.txtSpringLength_C7_2 = new System.Windows.Forms.TextBox();
@@ -175,17 +177,8 @@
             this.BtnC7_2 = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.pageMisc = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.rioDoubleStart = new System.Windows.Forms.RadioButton();
-            this.label31 = new System.Windows.Forms.Label();
-            this.rioSingleStart = new System.Windows.Forms.RadioButton();
-            this.txtNutCount = new System.Windows.Forms.TextBox();
-            this.cbxNutSpec = new System.Windows.Forms.ComboBox();
-            this.螺母数量 = new System.Windows.Forms.Label();
-            this.txtOutLength = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.Btnut = new System.Windows.Forms.Button();
+            this.mnuC7_1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pageB1_1.SuspendLayout();
             this.grpTempRange_B1_1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -207,8 +200,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.pageC7_2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.pageMisc.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.mnuC7_1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pageB1_1
@@ -1385,7 +1377,6 @@
             this.tabMain.Controls.Add(this.pageB2_1);
             this.tabMain.Controls.Add(this.pageC7_1);
             this.tabMain.Controls.Add(this.pageC7_2);
-            this.tabMain.Controls.Add(this.pageMisc);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
@@ -1394,12 +1385,15 @@
             this.tabMain.TabIndex = 0;
             this.tabMain.TabStop = false;
             this.tabMain.SelectedIndexChanged += new System.EventHandler(this.TabMain_SelectedIndexChanged);
+            this.tabMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabMain_MouseDown);
             // 
             // pageC7_1
             // 
+            this.pageC7_1.Controls.Add(this.cbxClampLength1_C7_1);
+            this.pageC7_1.Controls.Add(this.txtClampLength1_C7_1);
             this.pageC7_1.Controls.Add(this.txtLugLength_C7_1);
             this.pageC7_1.Controls.Add(this.txtSpringLength_C7_1);
-            this.pageC7_1.Controls.Add(this.txtClampLength_C7_1);
+            this.pageC7_1.Controls.Add(this.txtClampLength2_C7_1);
             this.pageC7_1.Controls.Add(this.txtSpring_C7_1);
             this.pageC7_1.Controls.Add(this.grpTempRange_C7_1);
             this.pageC7_1.Controls.Add(this.label26);
@@ -1426,14 +1420,36 @@
             this.pageC7_1.Text = "B型弹簧吊(C7-1)";
             this.pageC7_1.UseVisualStyleBackColor = true;
             // 
+            // cbxClampLength1_C7_1
+            // 
+            this.cbxClampLength1_C7_1.AutoSize = true;
+            this.cbxClampLength1_C7_1.Location = new System.Drawing.Point(262, 150);
+            this.cbxClampLength1_C7_1.Name = "cbxClampLength1_C7_1";
+            this.cbxClampLength1_C7_1.Size = new System.Drawing.Size(96, 16);
+            this.cbxClampLength1_C7_1.TabIndex = 52;
+            this.cbxClampLength1_C7_1.TabStop = false;
+            this.cbxClampLength1_C7_1.Text = "给定管夹高度";
+            this.cbxClampLength1_C7_1.UseVisualStyleBackColor = true;
+            this.cbxClampLength1_C7_1.CheckedChanged += new System.EventHandler(this.CbxClampLength1_C7_1_CheckedChanged);
+            // 
+            // txtClampLength1_C7_1
+            // 
+            this.txtClampLength1_C7_1.Enabled = false;
+            this.txtClampLength1_C7_1.ForeColor = System.Drawing.Color.Blue;
+            this.txtClampLength1_C7_1.Location = new System.Drawing.Point(370, 148);
+            this.txtClampLength1_C7_1.Name = "txtClampLength1_C7_1";
+            this.txtClampLength1_C7_1.Size = new System.Drawing.Size(92, 21);
+            this.txtClampLength1_C7_1.TabIndex = 4;
+            this.txtClampLength1_C7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // txtLugLength_C7_1
             // 
             this.txtLugLength_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLugLength_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLugLength_C7_1.Location = new System.Drawing.Point(17, 72);
+            this.txtLugLength_C7_1.Location = new System.Drawing.Point(153, 51);
             this.txtLugLength_C7_1.Name = "txtLugLength_C7_1";
             this.txtLugLength_C7_1.ReadOnly = true;
-            this.txtLugLength_C7_1.Size = new System.Drawing.Size(45, 21);
+            this.txtLugLength_C7_1.Size = new System.Drawing.Size(62, 21);
             this.txtLugLength_C7_1.TabIndex = 49;
             this.txtLugLength_C7_1.TabStop = false;
             this.txtLugLength_C7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1442,31 +1458,31 @@
             // 
             this.txtSpringLength_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSpringLength_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSpringLength_C7_1.Location = new System.Drawing.Point(17, 108);
+            this.txtSpringLength_C7_1.Location = new System.Drawing.Point(153, 86);
             this.txtSpringLength_C7_1.Name = "txtSpringLength_C7_1";
             this.txtSpringLength_C7_1.ReadOnly = true;
-            this.txtSpringLength_C7_1.Size = new System.Drawing.Size(45, 21);
+            this.txtSpringLength_C7_1.Size = new System.Drawing.Size(62, 21);
             this.txtSpringLength_C7_1.TabIndex = 48;
             this.txtSpringLength_C7_1.TabStop = false;
             this.txtSpringLength_C7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtClampLength_C7_1
+            // txtClampLength2_C7_1
             // 
-            this.txtClampLength_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtClampLength_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClampLength_C7_1.Location = new System.Drawing.Point(17, 240);
-            this.txtClampLength_C7_1.Name = "txtClampLength_C7_1";
-            this.txtClampLength_C7_1.ReadOnly = true;
-            this.txtClampLength_C7_1.Size = new System.Drawing.Size(45, 21);
-            this.txtClampLength_C7_1.TabIndex = 47;
-            this.txtClampLength_C7_1.TabStop = false;
-            this.txtClampLength_C7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtClampLength2_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtClampLength2_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClampLength2_C7_1.Location = new System.Drawing.Point(153, 246);
+            this.txtClampLength2_C7_1.Name = "txtClampLength2_C7_1";
+            this.txtClampLength2_C7_1.ReadOnly = true;
+            this.txtClampLength2_C7_1.Size = new System.Drawing.Size(62, 21);
+            this.txtClampLength2_C7_1.TabIndex = 47;
+            this.txtClampLength2_C7_1.TabStop = false;
+            this.txtClampLength2_C7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSpring_C7_1
             // 
             this.txtSpring_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSpring_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSpring_C7_1.Location = new System.Drawing.Point(138, 108);
+            this.txtSpring_C7_1.Location = new System.Drawing.Point(14, 86);
             this.txtSpring_C7_1.Name = "txtSpring_C7_1";
             this.txtSpring_C7_1.ReadOnly = true;
             this.txtSpring_C7_1.Size = new System.Drawing.Size(62, 21);
@@ -1480,7 +1496,7 @@
             this.grpTempRange_C7_1.Controls.Add(this.rioTempB_C7_1);
             this.grpTempRange_C7_1.Controls.Add(this.rioTempC_C7_1);
             this.grpTempRange_C7_1.Enabled = false;
-            this.grpTempRange_C7_1.Location = new System.Drawing.Point(262, 225);
+            this.grpTempRange_C7_1.Location = new System.Drawing.Point(262, 237);
             this.grpTempRange_C7_1.Name = "grpTempRange_C7_1";
             this.grpTempRange_C7_1.Size = new System.Drawing.Size(200, 50);
             this.grpTempRange_C7_1.TabIndex = 45;
@@ -1495,7 +1511,6 @@
             this.rioTempA_C7_1.Name = "rioTempA_C7_1";
             this.rioTempA_C7_1.Size = new System.Drawing.Size(65, 16);
             this.rioTempA_C7_1.TabIndex = 2;
-            this.rioTempA_C7_1.TabStop = true;
             this.rioTempA_C7_1.Text = "≤540℃";
             this.rioTempA_C7_1.UseVisualStyleBackColor = true;
             // 
@@ -1522,7 +1537,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(262, 125);
+            this.label26.Location = new System.Drawing.Point(262, 116);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(53, 12);
             this.label26.TabIndex = 44;
@@ -1530,6 +1545,9 @@
             // 
             // cbxSpring_C7_1
             // 
+            this.cbxSpring_C7_1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxSpring_C7_1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxSpring_C7_1.ForeColor = System.Drawing.Color.Blue;
             this.cbxSpring_C7_1.FormattingEnabled = true;
             this.cbxSpring_C7_1.Items.AddRange(new object[] {
             "TD30B0",
@@ -1665,7 +1683,7 @@
             "JHB391",
             "JHB491",
             "JHB591"});
-            this.cbxSpring_C7_1.Location = new System.Drawing.Point(370, 121);
+            this.cbxSpring_C7_1.Location = new System.Drawing.Point(370, 112);
             this.cbxSpring_C7_1.Name = "cbxSpring_C7_1";
             this.cbxSpring_C7_1.Size = new System.Drawing.Size(92, 20);
             this.cbxSpring_C7_1.TabIndex = 3;
@@ -1674,7 +1692,7 @@
             // 
             this.groupBox5.Controls.Add(this.rioBritishPipe_C7_1);
             this.groupBox5.Controls.Add(this.rioMetricPipe_C7_1);
-            this.groupBox5.Location = new System.Drawing.Point(262, 292);
+            this.groupBox5.Location = new System.Drawing.Point(262, 293);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 50);
             this.groupBox5.TabIndex = 40;
@@ -1699,7 +1717,6 @@
             this.rioMetricPipe_C7_1.Name = "rioMetricPipe_C7_1";
             this.rioMetricPipe_C7_1.Size = new System.Drawing.Size(59, 16);
             this.rioMetricPipe_C7_1.TabIndex = 0;
-            this.rioMetricPipe_C7_1.TabStop = true;
             this.rioMetricPipe_C7_1.Text = "公制管";
             this.rioMetricPipe_C7_1.UseVisualStyleBackColor = true;
             // 
@@ -1708,7 +1725,7 @@
             this.groupBox6.Controls.Add(this.rioInsualationType2_C7_1);
             this.groupBox6.Controls.Add(this.rioInsualationType1_C7_1);
             this.groupBox6.Controls.Add(this.rioBaseType_C7_1);
-            this.groupBox6.Location = new System.Drawing.Point(262, 158);
+            this.groupBox6.Location = new System.Drawing.Point(262, 180);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(200, 50);
             this.groupBox6.TabIndex = 39;
@@ -1734,7 +1751,6 @@
             this.rioInsualationType1_C7_1.Name = "rioInsualationType1_C7_1";
             this.rioInsualationType1_C7_1.Size = new System.Drawing.Size(59, 16);
             this.rioInsualationType1_C7_1.TabIndex = 1;
-            this.rioInsualationType1_C7_1.TabStop = true;
             this.rioInsualationType1_C7_1.Text = "保温型";
             this.rioInsualationType1_C7_1.UseVisualStyleBackColor = true;
             // 
@@ -1752,10 +1768,10 @@
             // 
             this.txtRodLength_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRodLength_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRodLength_C7_1.Location = new System.Drawing.Point(17, 176);
+            this.txtRodLength_C7_1.Location = new System.Drawing.Point(153, 176);
             this.txtRodLength_C7_1.Name = "txtRodLength_C7_1";
             this.txtRodLength_C7_1.ReadOnly = true;
-            this.txtRodLength_C7_1.Size = new System.Drawing.Size(45, 21);
+            this.txtRodLength_C7_1.Size = new System.Drawing.Size(62, 21);
             this.txtRodLength_C7_1.TabIndex = 38;
             this.txtRodLength_C7_1.TabStop = false;
             this.txtRodLength_C7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1764,7 +1780,7 @@
             // 
             this.txtClamp_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtClamp_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtClamp_C7_1.Location = new System.Drawing.Point(138, 240);
+            this.txtClamp_C7_1.Location = new System.Drawing.Point(14, 246);
             this.txtClamp_C7_1.Name = "txtClamp_C7_1";
             this.txtClamp_C7_1.ReadOnly = true;
             this.txtClamp_C7_1.Size = new System.Drawing.Size(62, 21);
@@ -1776,7 +1792,7 @@
             // 
             this.txtRod_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRod_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRod_C7_1.Location = new System.Drawing.Point(138, 176);
+            this.txtRod_C7_1.Location = new System.Drawing.Point(14, 176);
             this.txtRod_C7_1.Name = "txtRod_C7_1";
             this.txtRod_C7_1.ReadOnly = true;
             this.txtRod_C7_1.Size = new System.Drawing.Size(62, 21);
@@ -1788,7 +1804,7 @@
             // 
             this.txtLug_C7_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLug_C7_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLug_C7_1.Location = new System.Drawing.Point(138, 72);
+            this.txtLug_C7_1.Location = new System.Drawing.Point(14, 51);
             this.txtLug_C7_1.Name = "txtLug_C7_1";
             this.txtLug_C7_1.ReadOnly = true;
             this.txtLug_C7_1.Size = new System.Drawing.Size(62, 21);
@@ -1798,7 +1814,8 @@
             // 
             // txtEL2_C7_1
             // 
-            this.txtEL2_C7_1.Location = new System.Drawing.Point(370, 47);
+            this.txtEL2_C7_1.ForeColor = System.Drawing.Color.Blue;
+            this.txtEL2_C7_1.Location = new System.Drawing.Point(370, 44);
             this.txtEL2_C7_1.Name = "txtEL2_C7_1";
             this.txtEL2_C7_1.Size = new System.Drawing.Size(92, 21);
             this.txtEL2_C7_1.TabIndex = 1;
@@ -1806,6 +1823,7 @@
             // 
             // txtEL1_C7_1
             // 
+            this.txtEL1_C7_1.ForeColor = System.Drawing.Color.Blue;
             this.txtEL1_C7_1.Location = new System.Drawing.Point(370, 10);
             this.txtEL1_C7_1.Name = "txtEL1_C7_1";
             this.txtEL1_C7_1.Size = new System.Drawing.Size(92, 21);
@@ -1825,6 +1843,9 @@
             // 
             // cbxDN_C7_1
             // 
+            this.cbxDN_C7_1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxDN_C7_1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxDN_C7_1.ForeColor = System.Drawing.Color.Blue;
             this.cbxDN_C7_1.FormattingEnabled = true;
             this.cbxDN_C7_1.Items.AddRange(new object[] {
             "10",
@@ -1852,7 +1873,7 @@
             "700",
             "750",
             "800"});
-            this.cbxDN_C7_1.Location = new System.Drawing.Point(370, 84);
+            this.cbxDN_C7_1.Location = new System.Drawing.Point(370, 78);
             this.cbxDN_C7_1.Name = "cbxDN_C7_1";
             this.cbxDN_C7_1.Size = new System.Drawing.Size(92, 20);
             this.cbxDN_C7_1.TabIndex = 2;
@@ -1860,7 +1881,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(262, 88);
+            this.label23.Location = new System.Drawing.Point(262, 82);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(53, 12);
             this.label23.TabIndex = 33;
@@ -1871,7 +1892,7 @@
             this.BtnC7_1.Location = new System.Drawing.Point(524, 320);
             this.BtnC7_1.Name = "BtnC7_1";
             this.BtnC7_1.Size = new System.Drawing.Size(81, 23);
-            this.BtnC7_1.TabIndex = 4;
+            this.BtnC7_1.TabIndex = 5;
             this.BtnC7_1.Text = "选型计算";
             this.BtnC7_1.UseVisualStyleBackColor = true;
             this.BtnC7_1.Click += new System.EventHandler(this.BtnC7_1_Click);
@@ -1879,7 +1900,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(262, 51);
+            this.label24.Location = new System.Drawing.Point(262, 48);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(59, 12);
             this.label24.TabIndex = 31;
@@ -1896,7 +1917,6 @@
             // 
             // pageC7_2
             // 
-            this.pageC7_2.Controls.Add(this.txtSteelHeight1_C7_2);
             this.pageC7_2.Controls.Add(this.txtSteelHeight_C7_2);
             this.pageC7_2.Controls.Add(this.label28);
             this.pageC7_2.Controls.Add(this.txtSpringLength_C7_2);
@@ -1918,24 +1938,13 @@
             this.pageC7_2.Padding = new System.Windows.Forms.Padding(3);
             this.pageC7_2.Size = new System.Drawing.Size(613, 353);
             this.pageC7_2.TabIndex = 6;
-            this.pageC7_2.Text = "并联B型弹簧吊";
+            this.pageC7_2.Text = "横担型C7-1";
             this.pageC7_2.UseVisualStyleBackColor = true;
-            // 
-            // txtSteelHeight1_C7_2
-            // 
-            this.txtSteelHeight1_C7_2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSteelHeight1_C7_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSteelHeight1_C7_2.Location = new System.Drawing.Point(11, 300);
-            this.txtSteelHeight1_C7_2.Name = "txtSteelHeight1_C7_2";
-            this.txtSteelHeight1_C7_2.ReadOnly = true;
-            this.txtSteelHeight1_C7_2.Size = new System.Drawing.Size(35, 21);
-            this.txtSteelHeight1_C7_2.TabIndex = 68;
-            this.txtSteelHeight1_C7_2.TabStop = false;
-            this.txtSteelHeight1_C7_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSteelHeight_C7_2
             // 
-            this.txtSteelHeight_C7_2.Location = new System.Drawing.Point(421, 88);
+            this.txtSteelHeight_C7_2.ForeColor = System.Drawing.Color.Blue;
+            this.txtSteelHeight_C7_2.Location = new System.Drawing.Point(421, 84);
             this.txtSteelHeight_C7_2.Name = "txtSteelHeight_C7_2";
             this.txtSteelHeight_C7_2.Size = new System.Drawing.Size(92, 21);
             this.txtSteelHeight_C7_2.TabIndex = 2;
@@ -1944,20 +1953,20 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(346, 92);
+            this.label28.Location = new System.Drawing.Point(350, 88);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(77, 12);
+            this.label28.Size = new System.Drawing.Size(53, 12);
             this.label28.TabIndex = 67;
-            this.label28.Text = "型钢高度(mm)";
+            this.label28.Text = "型钢高度";
             // 
             // txtSpringLength_C7_2
             // 
             this.txtSpringLength_C7_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSpringLength_C7_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSpringLength_C7_2.Location = new System.Drawing.Point(11, 104);
+            this.txtSpringLength_C7_2.Location = new System.Drawing.Point(131, 104);
             this.txtSpringLength_C7_2.Name = "txtSpringLength_C7_2";
             this.txtSpringLength_C7_2.ReadOnly = true;
-            this.txtSpringLength_C7_2.Size = new System.Drawing.Size(35, 21);
+            this.txtSpringLength_C7_2.Size = new System.Drawing.Size(57, 21);
             this.txtSpringLength_C7_2.TabIndex = 65;
             this.txtSpringLength_C7_2.TabStop = false;
             this.txtSpringLength_C7_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1966,7 +1975,7 @@
             // 
             this.txtSpring_C7_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSpring_C7_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSpring_C7_2.Location = new System.Drawing.Point(118, 104);
+            this.txtSpring_C7_2.Location = new System.Drawing.Point(10, 104);
             this.txtSpring_C7_2.Name = "txtSpring_C7_2";
             this.txtSpring_C7_2.ReadOnly = true;
             this.txtSpring_C7_2.Size = new System.Drawing.Size(57, 21);
@@ -1978,10 +1987,10 @@
             // 
             this.txtRod_C7_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRod_C7_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRod_C7_2.Location = new System.Drawing.Point(288, 172);
+            this.txtRod_C7_2.Location = new System.Drawing.Point(10, 254);
             this.txtRod_C7_2.Name = "txtRod_C7_2";
             this.txtRod_C7_2.ReadOnly = true;
-            this.txtRod_C7_2.Size = new System.Drawing.Size(48, 21);
+            this.txtRod_C7_2.Size = new System.Drawing.Size(57, 21);
             this.txtRod_C7_2.TabIndex = 55;
             this.txtRod_C7_2.TabStop = false;
             this.txtRod_C7_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1990,10 +1999,10 @@
             // 
             this.txtRodLength_C7_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRodLength_C7_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRodLength_C7_2.Location = new System.Drawing.Point(204, 172);
+            this.txtRodLength_C7_2.Location = new System.Drawing.Point(100, 254);
             this.txtRodLength_C7_2.Name = "txtRodLength_C7_2";
             this.txtRodLength_C7_2.ReadOnly = true;
-            this.txtRodLength_C7_2.Size = new System.Drawing.Size(48, 21);
+            this.txtRodLength_C7_2.Size = new System.Drawing.Size(57, 21);
             this.txtRodLength_C7_2.TabIndex = 57;
             this.txtRodLength_C7_2.TabStop = false;
             this.txtRodLength_C7_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2002,10 +2011,10 @@
             // 
             this.txtLugLength_C7_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLugLength_C7_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLugLength_C7_2.Location = new System.Drawing.Point(11, 56);
+            this.txtLugLength_C7_2.Location = new System.Drawing.Point(131, 59);
             this.txtLugLength_C7_2.Name = "txtLugLength_C7_2";
             this.txtLugLength_C7_2.ReadOnly = true;
-            this.txtLugLength_C7_2.Size = new System.Drawing.Size(35, 21);
+            this.txtLugLength_C7_2.Size = new System.Drawing.Size(57, 21);
             this.txtLugLength_C7_2.TabIndex = 63;
             this.txtLugLength_C7_2.TabStop = false;
             this.txtLugLength_C7_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2014,7 +2023,7 @@
             // 
             this.txtLug_C7_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLug_C7_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLug_C7_2.Location = new System.Drawing.Point(118, 56);
+            this.txtLug_C7_2.Location = new System.Drawing.Point(10, 59);
             this.txtLug_C7_2.Name = "txtLug_C7_2";
             this.txtLug_C7_2.ReadOnly = true;
             this.txtLug_C7_2.Size = new System.Drawing.Size(57, 21);
@@ -2026,7 +2035,6 @@
             // 
             this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
             this.pictureBox6.Location = new System.Drawing.Point(6, 8);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(333, 336);
@@ -2037,7 +2045,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(346, 131);
+            this.label27.Location = new System.Drawing.Point(350, 125);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(53, 12);
             this.label27.TabIndex = 60;
@@ -2045,6 +2053,9 @@
             // 
             // cbxSpring_C7_2
             // 
+            this.cbxSpring_C7_2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxSpring_C7_2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxSpring_C7_2.ForeColor = System.Drawing.Color.Blue;
             this.cbxSpring_C7_2.FormattingEnabled = true;
             this.cbxSpring_C7_2.Items.AddRange(new object[] {
             "TD30C0",
@@ -2180,14 +2191,15 @@
             "JHC391",
             "JHC491",
             "JHC591"});
-            this.cbxSpring_C7_2.Location = new System.Drawing.Point(421, 127);
+            this.cbxSpring_C7_2.Location = new System.Drawing.Point(421, 121);
             this.cbxSpring_C7_2.Name = "cbxSpring_C7_2";
             this.cbxSpring_C7_2.Size = new System.Drawing.Size(92, 20);
             this.cbxSpring_C7_2.TabIndex = 3;
             // 
             // txtEL2_C7_2
             // 
-            this.txtEL2_C7_2.Location = new System.Drawing.Point(421, 49);
+            this.txtEL2_C7_2.ForeColor = System.Drawing.Color.Blue;
+            this.txtEL2_C7_2.Location = new System.Drawing.Point(421, 47);
             this.txtEL2_C7_2.Name = "txtEL2_C7_2";
             this.txtEL2_C7_2.Size = new System.Drawing.Size(92, 21);
             this.txtEL2_C7_2.TabIndex = 1;
@@ -2195,6 +2207,7 @@
             // 
             // txtEL1_C7_2
             // 
+            this.txtEL1_C7_2.ForeColor = System.Drawing.Color.Blue;
             this.txtEL1_C7_2.Location = new System.Drawing.Point(421, 10);
             this.txtEL1_C7_2.Name = "txtEL1_C7_2";
             this.txtEL1_C7_2.Size = new System.Drawing.Size(92, 21);
@@ -2214,7 +2227,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(346, 53);
+            this.label29.Location = new System.Drawing.Point(350, 51);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(59, 12);
             this.label29.TabIndex = 51;
@@ -2223,149 +2236,27 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(346, 14);
+            this.label30.Location = new System.Drawing.Point(350, 14);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(53, 12);
             this.label30.TabIndex = 50;
             this.label30.Text = "EL.I(mm)";
             // 
-            // pageMisc
+            // mnuC7_1
             // 
-            this.pageMisc.Controls.Add(this.groupBox9);
-            this.pageMisc.Controls.Add(this.Btnut);
-            this.pageMisc.Location = new System.Drawing.Point(4, 22);
-            this.pageMisc.Name = "pageMisc";
-            this.pageMisc.Padding = new System.Windows.Forms.Padding(3);
-            this.pageMisc.Size = new System.Drawing.Size(613, 353);
-            this.pageMisc.TabIndex = 7;
-            this.pageMisc.Text = "杂项功能";
-            this.pageMisc.UseVisualStyleBackColor = true;
+            this.mnuC7_1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.mnuC7_1.Name = "mnuC7_1";
+            this.mnuC7_1.Size = new System.Drawing.Size(112, 26);
             // 
-            // groupBox9
+            // toolStripMenuItem2
             // 
-            this.groupBox9.Controls.Add(this.rioDoubleStart);
-            this.groupBox9.Controls.Add(this.label31);
-            this.groupBox9.Controls.Add(this.rioSingleStart);
-            this.groupBox9.Controls.Add(this.txtNutCount);
-            this.groupBox9.Controls.Add(this.cbxNutSpec);
-            this.groupBox9.Controls.Add(this.螺母数量);
-            this.groupBox9.Controls.Add(this.txtOutLength);
-            this.groupBox9.Controls.Add(this.label33);
-            this.groupBox9.Location = new System.Drawing.Point(8, 7);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(199, 178);
-            this.groupBox9.TabIndex = 62;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "吊杆附加长度";
-            // 
-            // rioDoubleStart
-            // 
-            this.rioDoubleStart.AutoSize = true;
-            this.rioDoubleStart.Checked = true;
-            this.rioDoubleStart.Location = new System.Drawing.Point(108, 104);
-            this.rioDoubleStart.Name = "rioDoubleStart";
-            this.rioDoubleStart.Size = new System.Drawing.Size(71, 16);
-            this.rioDoubleStart.TabIndex = 2;
-            this.rioDoubleStart.TabStop = true;
-            this.rioDoubleStart.Text = "双头螺纹";
-            this.rioDoubleStart.UseVisualStyleBackColor = true;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(16, 30);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(53, 12);
-            this.label31.TabIndex = 52;
-            this.label31.Text = "螺母规格";
-            // 
-            // rioSingleStart
-            // 
-            this.rioSingleStart.AutoSize = true;
-            this.rioSingleStart.Location = new System.Drawing.Point(16, 104);
-            this.rioSingleStart.Name = "rioSingleStart";
-            this.rioSingleStart.Size = new System.Drawing.Size(71, 16);
-            this.rioSingleStart.TabIndex = 60;
-            this.rioSingleStart.Text = "单头螺纹";
-            this.rioSingleStart.UseVisualStyleBackColor = true;
-            // 
-            // txtNutCount
-            // 
-            this.txtNutCount.Location = new System.Drawing.Point(87, 65);
-            this.txtNutCount.Name = "txtNutCount";
-            this.txtNutCount.Size = new System.Drawing.Size(92, 21);
-            this.txtNutCount.TabIndex = 1;
-            this.txtNutCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cbxNutSpec
-            // 
-            this.cbxNutSpec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxNutSpec.FormattingEnabled = true;
-            this.cbxNutSpec.Items.AddRange(new object[] {
-            "M1.6",
-            "M2",
-            "M2.5",
-            "M3",
-            "M4",
-            "M5",
-            "M6",
-            "M8",
-            "M10",
-            "M12",
-            "M16",
-            "M20",
-            "M24",
-            "M30",
-            "M36",
-            "M42",
-            "M48",
-            "M56",
-            "M64"});
-            this.cbxNutSpec.Location = new System.Drawing.Point(87, 26);
-            this.cbxNutSpec.Name = "cbxNutSpec";
-            this.cbxNutSpec.Size = new System.Drawing.Size(92, 20);
-            this.cbxNutSpec.TabIndex = 0;
-            // 
-            // 螺母数量
-            // 
-            this.螺母数量.AutoSize = true;
-            this.螺母数量.Location = new System.Drawing.Point(16, 69);
-            this.螺母数量.Name = "螺母数量";
-            this.螺母数量.Size = new System.Drawing.Size(53, 12);
-            this.螺母数量.TabIndex = 54;
-            this.螺母数量.Text = "螺母个数";
-            // 
-            // txtOutLength
-            // 
-            this.txtOutLength.Location = new System.Drawing.Point(87, 140);
-            this.txtOutLength.Name = "txtOutLength";
-            this.txtOutLength.ReadOnly = true;
-            this.txtOutLength.Size = new System.Drawing.Size(92, 21);
-            this.txtOutLength.TabIndex = 58;
-            this.txtOutLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(16, 144);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(53, 12);
-            this.label33.TabIndex = 57;
-            this.label33.Text = "外伸长度";
-            // 
-            // Btnut
-            // 
-            this.Btnut.Location = new System.Drawing.Point(510, 322);
-            this.Btnut.Name = "Btnut";
-            this.Btnut.Size = new System.Drawing.Size(81, 23);
-            this.Btnut.TabIndex = 59;
-            this.Btnut.Text = "选型计算";
-            this.Btnut.UseVisualStyleBackColor = true;
-            this.Btnut.Click += new System.EventHandler(this.Btnut_Click);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
+            this.toolStripMenuItem2.Text = "11111";
             // 
             // FrmMain
             // 
-            this.AcceptButton = this.btnTotalLoad;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
@@ -2413,9 +2304,7 @@
             this.pageC7_2.ResumeLayout(false);
             this.pageC7_2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.pageMisc.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.mnuC7_1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2557,18 +2446,7 @@
         private System.Windows.Forms.RadioButton rioTempA_C7_1;
         private System.Windows.Forms.RadioButton rioTempB_C7_1;
         private System.Windows.Forms.RadioButton rioTempC_C7_1;
-        private System.Windows.Forms.TabPage pageMisc;
-        private System.Windows.Forms.Button Btnut;
-        private System.Windows.Forms.TextBox txtOutLength;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label 螺母数量;
-        private System.Windows.Forms.ComboBox cbxNutSpec;
-        private System.Windows.Forms.TextBox txtNutCount;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.RadioButton rioDoubleStart;
-        private System.Windows.Forms.RadioButton rioSingleStart;
-        private System.Windows.Forms.TextBox txtClampLength_C7_1;
+        private System.Windows.Forms.TextBox txtClampLength2_C7_1;
         private System.Windows.Forms.TextBox txtSpring_C7_1;
         private System.Windows.Forms.TextBox txtSpringLength_C7_1;
         private System.Windows.Forms.TextBox txtLugLength_C7_1;
@@ -2578,7 +2456,10 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtSpringLength_C7_2;
         private System.Windows.Forms.TextBox txtSpring_C7_2;
-        private System.Windows.Forms.TextBox txtSteelHeight1_C7_2;
+        private System.Windows.Forms.CheckBox cbxClampLength1_C7_1;
+        private System.Windows.Forms.TextBox txtClampLength1_C7_1;
+        private System.Windows.Forms.ContextMenuStrip mnuC7_1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace HASA
@@ -309,7 +310,7 @@ namespace HASA
             txtLugLength_C7_1.Clear();
             txtSpringLength_C7_1.Clear();
             txtRodLength_C7_1.Clear();
-            txtClampLength_C7_1.Clear();
+            txtClampLength2_C7_1.Clear();
 
             // 获取界面数据
             var EL1 = Convert.ToInt32(txtEL1_C7_1.Text);
@@ -368,6 +369,11 @@ namespace HASA
             var dt = SQLiteHelper.Read("HASA.db", sql);
             // 管夹长度
             var E = Convert.ToInt32(dt.Rows[0]["e"]);
+            // 指定管夹长度
+            if (cbxClampLength1_C7_1.Checked)
+            {
+                E = Convert.ToInt32(txtClampLength1_C7_1.Text);
+            }
             sql = $"SELECT * FROM c7_1 WHERE spring='{spring}'";
             dt = SQLiteHelper.Read("HASA.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
@@ -392,7 +398,7 @@ namespace HASA
             txtLugLength_C7_1.Text = F + string.Empty;
             txtSpringLength_C7_1.Text = H + string.Empty;
             txtRodLength_C7_1.Text = rodLength + string.Empty;
-            txtClampLength_C7_1.Text = E + string.Empty;
+            txtClampLength2_C7_1.Text = E + string.Empty;
 
             var type = rioBaseType_C7_1.Checked ? "I" : "II";
             Common.Copy2Clipboard($"C7-1\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength}" +
@@ -407,7 +413,6 @@ namespace HASA
             txtLugLength_C7_2.Clear();
             txtSpringLength_C7_2.Clear();
             txtRodLength_C7_2.Clear();
-            txtSteelHeight1_C7_2.Clear();
 
             var EL1 = Convert.ToInt32(txtEL1_C7_2.Text);
             var EL2 = Convert.ToInt32(txtEL2_C7_2.Text);
@@ -440,26 +445,7 @@ namespace HASA
             txtRod_C7_2.Text = rod.Replace("A16", "A15");
             txtLugLength_C7_2.Text = F + string.Empty;
             txtSpringLength_C7_2.Text = H + string.Empty;
-            txtSteelHeight1_C7_2.Text = txtSteelHeight_C7_2.Text;
             txtRodLength_C7_2.Text = Convert.ToInt32(rodLength) + string.Empty;
-        }
-
-        private void Btnut_Click(object sender, EventArgs e)
-        {
-            var d = cbxNutSpec.Text;
-            var count = Convert.ToInt32(txtNutCount.Text);
-            var n = 3;
-            if (rioDoubleStart.Checked)
-            {
-                n = 6;
-            }
-            var sql = $"SELECT * FROM nuts WHERE D='{d}'";
-            var dt = SQLiteHelper.Read("HASA.db", sql);
-            var m = Convert.ToDouble(dt.Rows[0]["m"]);
-            var P = Convert.ToDouble(dt.Rows[0]["P"]);
-            var outLength = count * m + n * P;
-            txtOutLength.Text = Convert.ToInt32(outLength) + string.Empty;
-
         }
 
         private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -528,9 +514,21 @@ namespace HASA
             cbxRod_B2_1.Enabled = chkRod_B2_1.Checked;
         }
 
+        private void CbxClampLength1_C7_1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtClampLength1_C7_1.Enabled = cbxClampLength1_C7_1.Checked;
+            rioBaseType_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
+            rioInsualationType1_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
+            rioInsualationType2_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
+        }
 
-
-       
+        private void tabMain_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && tabMain.SelectedTab == tabMain.TabPages[3])
+            {
+                //TODO
+            }
+        }
     }
 }
 
