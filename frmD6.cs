@@ -7,36 +7,30 @@ namespace HASA
 {
     public partial class FrmD6 : Form
     {
-        private int distance;
-        private int pipeLoad;
-        private int elevation;
-        private int od;
-        private int insulation;
-
-        public FrmD6()
-        {
-            //InitializeComponent();
-        }
+        private int _armLength;
+        private int _totaLoad;
+        private int _elevation;
+        private int _od;
+        private int _insulation;
 
         /// <summary>
-        /// 
+        /// 重载构造函数
         /// </summary>
-        /// <param name="pipeLoad">单位KN</param>
-        /// <param name="distance">单位mm</param>
+        /// <param name="totaLoad">单位KN</param>
+        /// <param name="armLength">单位mm</param>
         /// <param name="elevation">单位mm</param>
-        public FrmD6(int pipeLoad, int distance, int elevation, int od, int insulation)
+        /// <param name="od">单位mm</param>
+        /// <param name="insulation">单位mm</param>
+        public FrmD6(int totaLoad, int armLength, int elevation, int od, int insulation)
         {
-            this.distance = distance;
-            this.pipeLoad = pipeLoad;
-            this.elevation = elevation;
-            this.od = od;
-            this.insulation = insulation;
+            _armLength = armLength;
+            _totaLoad = totaLoad;
+            _elevation = elevation;
+            _od = od;
+            _insulation = insulation;
 
             InitializeComponent();
-        }
 
-        private void FrmD6_Load(object sender, EventArgs e)
-        {
             #region 手动加
             //var lvi = new ListViewItem
             //{
@@ -129,14 +123,14 @@ namespace HASA
             //lvi.SubItems.Add("60");
             //lstD1.Items.Add(lvi);
             #endregion
-            var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "侧焊", "端焊" });
-            if (ret == DialogResult.OK)
+            var weldingType = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "侧焊", "端焊" });
+            if (DialogResult.OK == weldingType)
             {
-                Common.DataTableToListview(lstCantilever, D6I());
+                Common.DataTable2Listview(lstCantilever, D6I());
             }
             else
             {
-                Common.DataTableToListview(lstCantilever, D6II());
+                Common.DataTable2Listview(lstCantilever, D6II());
             }
         }
 
@@ -148,67 +142,69 @@ namespace HASA
         private DataTable D6I()
         {
             var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d6 WHERE type='I'");
-            var colName = DetermineColumn(distance);
+            var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > pipeLoad
+                        where row.Field<double>(columName) > _totaLoad
                         select row;
-            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", columName });
 
-            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D6\tI\t\t\t{elevation}\t\t{len}" +
+            var beamLength = Common.Round2Ten(_armLength + _od / 2 + _insulation + 200 + 150);
+            Common.Copy2Clipboard($"D6\tI\t\t\t{_elevation}\t\t{beamLength}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
         }
 
         /// <summary>
-        /// 侧焊单悬臂
+        /// 端焊单悬臂
         /// </summary>
         /// <returns></returns>
         private DataTable D6II()
         {
             var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d6 WHERE type='II'");
-            var colName = DetermineColumn(distance);
+            var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > pipeLoad
+                        where row.Field<double>(columName) > _totaLoad
                         select row;
 
-            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", columName });
 
-            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D6\tII\t\t\t{elevation}\t\t{len}" +
+            var beamLength = Common.Round2Ten(_armLength + _od / 2 + _insulation + 200);
+            Common.Copy2Clipboard($"D6\tII\t\t\t{_elevation}\t\t{beamLength}" +
                 $"\t\t\t\t\t\t\t1\t\t\t{table.Rows[0]["steel"]}\t\t\t\t\t\t1");
 
             return table;
         }
+
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private static string DetermineColumn(double distance)
+        // 获取列名
+        private static string GetColumName(double armLength)
         {
-            string column = string.Empty;
+            string columName = string.Empty;
 
-            if (distance <= 250)
+            if (armLength <= 250)
             {
-                column = "L≤250";
+                columName = "L≤250";
             }
-            else if (distance > 250 && distance <= 500)
+            else if (armLength > 250 && armLength <= 500)
             {
-                column = "L≤500";
+                columName = "L≤500";
             }
-            else if (distance > 500 && distance <= 750)
+            else if (armLength > 500 && armLength <= 750)
             {
-                column = "L≤750";
+                columName = "L≤750";
             }
-            else if (distance > 750 && distance <= 1000)
+            else if (armLength > 750 && armLength <= 1000)
             {
-                column = "L≤1000";
+                columName = "L≤1000";
             }
 
-            return column;
+            return columName;
         }
     }
 }

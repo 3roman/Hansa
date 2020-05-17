@@ -73,7 +73,6 @@
             this.Name = "FrmCantilever";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Shelf";
-            this.Load += new System.EventHandler(this.FrmD6_Load);
             this.ResumeLayout(false);
 
         }

@@ -33,7 +33,7 @@ namespace HASA
             Clipboard.SetData(DataFormats.Text, context);
         }
 
-        public static void DataTableToListview(ListView lv, DataTable dt)
+        public static void DataTable2Listview(ListView lv, DataTable dt)
         {
             if (null != dt)
             {
@@ -68,7 +68,7 @@ namespace HASA
         {
             var number = Convert.ToInt32(num);
 
-            return (number / 10 + 1) * 10;
+            return (number / 10 ) * 10;
         }
     }
 }

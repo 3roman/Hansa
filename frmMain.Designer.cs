@@ -90,20 +90,20 @@
             this.txtInsulation_D19 = new System.Windows.Forms.TextBox();
             this.txtOD_D19 = new System.Windows.Forms.TextBox();
             this.txtElevation_D19 = new System.Windows.Forms.TextBox();
-            this.txtLength_D19 = new System.Windows.Forms.TextBox();
+            this.txtArmLength_D19 = new System.Windows.Forms.TextBox();
             this.txtInsulation_D6 = new System.Windows.Forms.TextBox();
             this.txtOD_D6 = new System.Windows.Forms.TextBox();
             this.txtElevation_D6 = new System.Windows.Forms.TextBox();
-            this.txtLength_D6 = new System.Windows.Forms.TextBox();
+            this.txtArmLength_D6 = new System.Windows.Forms.TextBox();
             this.txtInsulation2 = new System.Windows.Forms.TextBox();
             this.txtInsulation1 = new System.Windows.Forms.TextBox();
-            this.txtTload2 = new System.Windows.Forms.TextBox();
-            this.txtCload2 = new System.Windows.Forms.TextBox();
-            this.txtSpan2 = new System.Windows.Forms.TextBox();
+            this.txtTotaLoad2 = new System.Windows.Forms.TextBox();
+            this.txtConcentratedLoad2 = new System.Windows.Forms.TextBox();
+            this.txtPipeSpan2 = new System.Windows.Forms.TextBox();
             this.txtPipeWall2 = new System.Windows.Forms.TextBox();
-            this.txtTload1 = new System.Windows.Forms.TextBox();
-            this.txtCload1 = new System.Windows.Forms.TextBox();
-            this.txtSpan1 = new System.Windows.Forms.TextBox();
+            this.txtTotaLoad1 = new System.Windows.Forms.TextBox();
+            this.txtConcentratedLoad1 = new System.Windows.Forms.TextBox();
+            this.txtPipeSpan1 = new System.Windows.Forms.TextBox();
             this.txtPipeWall1 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -893,20 +893,20 @@
             this.pageBracket.Controls.Add(this.txtInsulation_D19);
             this.pageBracket.Controls.Add(this.txtOD_D19);
             this.pageBracket.Controls.Add(this.txtElevation_D19);
-            this.pageBracket.Controls.Add(this.txtLength_D19);
+            this.pageBracket.Controls.Add(this.txtArmLength_D19);
             this.pageBracket.Controls.Add(this.txtInsulation_D6);
             this.pageBracket.Controls.Add(this.txtOD_D6);
             this.pageBracket.Controls.Add(this.txtElevation_D6);
-            this.pageBracket.Controls.Add(this.txtLength_D6);
+            this.pageBracket.Controls.Add(this.txtArmLength_D6);
             this.pageBracket.Controls.Add(this.txtInsulation2);
             this.pageBracket.Controls.Add(this.txtInsulation1);
-            this.pageBracket.Controls.Add(this.txtTload2);
-            this.pageBracket.Controls.Add(this.txtCload2);
-            this.pageBracket.Controls.Add(this.txtSpan2);
+            this.pageBracket.Controls.Add(this.txtTotaLoad2);
+            this.pageBracket.Controls.Add(this.txtConcentratedLoad2);
+            this.pageBracket.Controls.Add(this.txtPipeSpan2);
             this.pageBracket.Controls.Add(this.txtPipeWall2);
-            this.pageBracket.Controls.Add(this.txtTload1);
-            this.pageBracket.Controls.Add(this.txtCload1);
-            this.pageBracket.Controls.Add(this.txtSpan1);
+            this.pageBracket.Controls.Add(this.txtTotaLoad1);
+            this.pageBracket.Controls.Add(this.txtConcentratedLoad1);
+            this.pageBracket.Controls.Add(this.txtPipeSpan1);
             this.pageBracket.Controls.Add(this.txtPipeWall1);
             this.pageBracket.Controls.Add(this.label14);
             this.pageBracket.Controls.Add(this.label17);
@@ -949,6 +949,7 @@
             // 
             // txtInsulation_D19
             // 
+            this.txtInsulation_D19.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtInsulation_D19.Location = new System.Drawing.Point(516, 237);
             this.txtInsulation_D19.Name = "txtInsulation_D19";
             this.txtInsulation_D19.Size = new System.Drawing.Size(83, 21);
@@ -958,6 +959,7 @@
             // 
             // txtOD_D19
             // 
+            this.txtOD_D19.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtOD_D19.Location = new System.Drawing.Point(516, 186);
             this.txtOD_D19.Name = "txtOD_D19";
             this.txtOD_D19.Size = new System.Drawing.Size(83, 21);
@@ -967,6 +969,7 @@
             // 
             // txtElevation_D19
             // 
+            this.txtElevation_D19.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtElevation_D19.Location = new System.Drawing.Point(516, 288);
             this.txtElevation_D19.Name = "txtElevation_D19";
             this.txtElevation_D19.Size = new System.Drawing.Size(83, 21);
@@ -976,15 +979,17 @@
             // 
             // txtLength_D19
             // 
-            this.txtLength_D19.Location = new System.Drawing.Point(516, 135);
-            this.txtLength_D19.Name = "txtLength_D19";
-            this.txtLength_D19.Size = new System.Drawing.Size(83, 21);
-            this.txtLength_D19.TabIndex = 12;
-            this.txtLength_D19.Text = "0";
-            this.txtLength_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtArmLength_D19.ForeColor = System.Drawing.Color.Blue;
+            this.txtArmLength_D19.Location = new System.Drawing.Point(516, 135);
+            this.txtArmLength_D19.Name = "txtLength_D19";
+            this.txtArmLength_D19.Size = new System.Drawing.Size(83, 21);
+            this.txtArmLength_D19.TabIndex = 12;
+            this.txtArmLength_D19.Text = "0";
+            this.txtArmLength_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtInsulation_D6
             // 
+            this.txtInsulation_D6.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtInsulation_D6.Location = new System.Drawing.Point(210, 237);
             this.txtInsulation_D6.Name = "txtInsulation_D6";
             this.txtInsulation_D6.Size = new System.Drawing.Size(83, 21);
@@ -994,6 +999,7 @@
             // 
             // txtOD_D6
             // 
+            this.txtOD_D6.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtOD_D6.Location = new System.Drawing.Point(210, 186);
             this.txtOD_D6.Name = "txtOD_D6";
             this.txtOD_D6.Size = new System.Drawing.Size(83, 21);
@@ -1003,6 +1009,7 @@
             // 
             // txtElevation_D6
             // 
+            this.txtElevation_D6.ForeColor = System.Drawing.SystemColors.GrayText;
             this.txtElevation_D6.Location = new System.Drawing.Point(210, 288);
             this.txtElevation_D6.Name = "txtElevation_D6";
             this.txtElevation_D6.Size = new System.Drawing.Size(83, 21);
@@ -1012,17 +1019,18 @@
             // 
             // txtLength_D6
             // 
-            this.txtLength_D6.Location = new System.Drawing.Point(210, 135);
-            this.txtLength_D6.Name = "txtLength_D6";
-            this.txtLength_D6.Size = new System.Drawing.Size(83, 21);
-            this.txtLength_D6.TabIndex = 7;
-            this.txtLength_D6.Text = "0";
-            this.txtLength_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtArmLength_D6.ForeColor = System.Drawing.Color.Blue;
+            this.txtArmLength_D6.Location = new System.Drawing.Point(210, 135);
+            this.txtArmLength_D6.Name = "txtLength_D6";
+            this.txtArmLength_D6.Size = new System.Drawing.Size(83, 21);
+            this.txtArmLength_D6.TabIndex = 7;
+            this.txtArmLength_D6.Text = "0";
+            this.txtArmLength_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtInsulation2
             // 
             this.txtInsulation2.Enabled = false;
-            this.txtInsulation2.Location = new System.Drawing.Point(312, 66);
+            this.txtInsulation2.Location = new System.Drawing.Point(210, 66);
             this.txtInsulation2.Name = "txtInsulation2";
             this.txtInsulation2.Size = new System.Drawing.Size(83, 21);
             this.txtInsulation2.TabIndex = 9;
@@ -1031,42 +1039,43 @@
             // 
             // txtInsulation1
             // 
-            this.txtInsulation1.Location = new System.Drawing.Point(312, 36);
+            this.txtInsulation1.ForeColor = System.Drawing.Color.Blue;
+            this.txtInsulation1.Location = new System.Drawing.Point(210, 36);
             this.txtInsulation1.Name = "txtInsulation1";
             this.txtInsulation1.Size = new System.Drawing.Size(83, 21);
-            this.txtInsulation1.TabIndex = 3;
+            this.txtInsulation1.TabIndex = 2;
             this.txtInsulation1.Text = "0";
             this.txtInsulation1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtTload2
+            // txtTotalLoad2
             // 
-            this.txtTload2.Enabled = false;
-            this.txtTload2.Location = new System.Drawing.Point(516, 66);
-            this.txtTload2.Name = "txtTload2";
-            this.txtTload2.Size = new System.Drawing.Size(83, 21);
-            this.txtTload2.TabIndex = 11;
-            this.txtTload2.Text = "0";
-            this.txtTload2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTotaLoad2.Enabled = false;
+            this.txtTotaLoad2.Location = new System.Drawing.Point(516, 66);
+            this.txtTotaLoad2.Name = "txtTotalLoad2";
+            this.txtTotaLoad2.Size = new System.Drawing.Size(83, 21);
+            this.txtTotaLoad2.TabIndex = 11;
+            this.txtTotaLoad2.Text = "0";
+            this.txtTotaLoad2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtCload2
+            // txtConcentratedLoad2
             // 
-            this.txtCload2.Enabled = false;
-            this.txtCload2.Location = new System.Drawing.Point(414, 66);
-            this.txtCload2.Name = "txtCload2";
-            this.txtCload2.Size = new System.Drawing.Size(83, 21);
-            this.txtCload2.TabIndex = 10;
-            this.txtCload2.Text = "0";
-            this.txtCload2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtConcentratedLoad2.Enabled = false;
+            this.txtConcentratedLoad2.Location = new System.Drawing.Point(414, 66);
+            this.txtConcentratedLoad2.Name = "txtConcentratedLoad2";
+            this.txtConcentratedLoad2.Size = new System.Drawing.Size(83, 21);
+            this.txtConcentratedLoad2.TabIndex = 10;
+            this.txtConcentratedLoad2.Text = "0";
+            this.txtConcentratedLoad2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtSpan2
+            // txtPipeSpan2
             // 
-            this.txtSpan2.Enabled = false;
-            this.txtSpan2.Location = new System.Drawing.Point(210, 66);
-            this.txtSpan2.Name = "txtSpan2";
-            this.txtSpan2.Size = new System.Drawing.Size(83, 21);
-            this.txtSpan2.TabIndex = 8;
-            this.txtSpan2.Text = "0";
-            this.txtSpan2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPipeSpan2.Enabled = false;
+            this.txtPipeSpan2.Location = new System.Drawing.Point(312, 66);
+            this.txtPipeSpan2.Name = "txtPipeSpan2";
+            this.txtPipeSpan2.Size = new System.Drawing.Size(83, 21);
+            this.txtPipeSpan2.TabIndex = 8;
+            this.txtPipeSpan2.Text = "0";
+            this.txtPipeSpan2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPipeWall2
             // 
@@ -1078,35 +1087,40 @@
             this.txtPipeWall2.Text = "0";
             this.txtPipeWall2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtTload1
+            // txtTotalLoad1
             // 
-            this.txtTload1.Location = new System.Drawing.Point(516, 35);
-            this.txtTload1.Name = "txtTload1";
-            this.txtTload1.Size = new System.Drawing.Size(83, 21);
-            this.txtTload1.TabIndex = 5;
-            this.txtTload1.Text = "0";
-            this.txtTload1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTotaLoad1.ForeColor = System.Drawing.Color.Blue;
+            this.txtTotaLoad1.Location = new System.Drawing.Point(516, 35);
+            this.txtTotaLoad1.Name = "txtTotalLoad1";
+            this.txtTotaLoad1.Size = new System.Drawing.Size(83, 21);
+            this.txtTotaLoad1.TabIndex = 5;
+            this.txtTotaLoad1.Text = "0";
+            this.txtTotaLoad1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtCload1
+            // txtConcentratedLoad1
             // 
-            this.txtCload1.Location = new System.Drawing.Point(414, 36);
-            this.txtCload1.Name = "txtCload1";
-            this.txtCload1.Size = new System.Drawing.Size(83, 21);
-            this.txtCload1.TabIndex = 4;
-            this.txtCload1.Text = "0";
-            this.txtCload1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtConcentratedLoad1.ForeColor = System.Drawing.Color.Blue;
+            this.txtConcentratedLoad1.Location = new System.Drawing.Point(414, 36);
+            this.txtConcentratedLoad1.Name = "txtConcentratedLoad1";
+            this.txtConcentratedLoad1.Size = new System.Drawing.Size(83, 21);
+            this.txtConcentratedLoad1.TabIndex = 4;
+            this.txtConcentratedLoad1.Text = "0";
+            this.txtConcentratedLoad1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtSpan1
+            // txtPipeSpan1
             // 
-            this.txtSpan1.Location = new System.Drawing.Point(210, 36);
-            this.txtSpan1.Name = "txtSpan1";
-            this.txtSpan1.Size = new System.Drawing.Size(83, 21);
-            this.txtSpan1.TabIndex = 2;
-            this.txtSpan1.Text = "0";
-            this.txtSpan1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPipeSpan1.CausesValidation = false;
+            this.txtPipeSpan1.ForeColor = System.Drawing.Color.Blue;
+            this.txtPipeSpan1.Location = new System.Drawing.Point(312, 36);
+            this.txtPipeSpan1.Name = "txtPipeSpan1";
+            this.txtPipeSpan1.Size = new System.Drawing.Size(83, 21);
+            this.txtPipeSpan1.TabIndex = 3;
+            this.txtPipeSpan1.Text = "0";
+            this.txtPipeSpan1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPipeWall1
             // 
+            this.txtPipeWall1.ForeColor = System.Drawing.Color.Blue;
             this.txtPipeWall1.Location = new System.Drawing.Point(108, 36);
             this.txtPipeWall1.Name = "txtPipeWall1";
             this.txtPipeWall1.Size = new System.Drawing.Size(83, 21);
@@ -1238,9 +1252,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(315, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
+            this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 24;
-            this.label6.Text = "保温厚度(mm)";
+            this.label6.Text = "支架跨距(m)";
             // 
             // btnTotalLoad
             // 
@@ -1256,6 +1270,8 @@
             // 
             // cbxDN2
             // 
+            this.cbxDN2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxDN2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxDN2.Enabled = false;
             this.cbxDN2.FormattingEnabled = true;
             this.cbxDN2.Items.AddRange(new object[] {
@@ -1292,6 +1308,9 @@
             // 
             // cbxDN1
             // 
+            this.cbxDN1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxDN1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxDN1.ForeColor = System.Drawing.Color.Blue;
             this.cbxDN1.FormattingEnabled = true;
             this.cbxDN1.Items.AddRange(new object[] {
             "10",
@@ -1348,9 +1367,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(216, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 12);
+            this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 2;
-            this.label3.Text = "支架跨距(m)";
+            this.label3.Text = "保温厚度(mm)";
             // 
             // label2
             // 
@@ -1428,7 +1447,7 @@
             this.cbxClampLength1_C7_1.Size = new System.Drawing.Size(96, 16);
             this.cbxClampLength1_C7_1.TabIndex = 52;
             this.cbxClampLength1_C7_1.TabStop = false;
-            this.cbxClampLength1_C7_1.Text = "给定管夹高度";
+            this.cbxClampLength1_C7_1.Text = "管夹高度(mm)";
             this.cbxClampLength1_C7_1.UseVisualStyleBackColor = true;
             this.cbxClampLength1_C7_1.CheckedChanged += new System.EventHandler(this.CbxClampLength1_C7_1_CheckedChanged);
             // 
@@ -1511,6 +1530,7 @@
             this.rioTempA_C7_1.Name = "rioTempA_C7_1";
             this.rioTempA_C7_1.Size = new System.Drawing.Size(65, 16);
             this.rioTempA_C7_1.TabIndex = 2;
+            this.rioTempA_C7_1.TabStop = true;
             this.rioTempA_C7_1.Text = "≤540℃";
             this.rioTempA_C7_1.UseVisualStyleBackColor = true;
             // 
@@ -1717,6 +1737,7 @@
             this.rioMetricPipe_C7_1.Name = "rioMetricPipe_C7_1";
             this.rioMetricPipe_C7_1.Size = new System.Drawing.Size(59, 16);
             this.rioMetricPipe_C7_1.TabIndex = 0;
+            this.rioMetricPipe_C7_1.TabStop = true;
             this.rioMetricPipe_C7_1.Text = "公制管";
             this.rioMetricPipe_C7_1.UseVisualStyleBackColor = true;
             // 
@@ -1751,6 +1772,7 @@
             this.rioInsualationType1_C7_1.Name = "rioInsualationType1_C7_1";
             this.rioInsualationType1_C7_1.Size = new System.Drawing.Size(59, 16);
             this.rioInsualationType1_C7_1.TabIndex = 1;
+            this.rioInsualationType1_C7_1.TabStop = true;
             this.rioInsualationType1_C7_1.Text = "保温型";
             this.rioInsualationType1_C7_1.UseVisualStyleBackColor = true;
             // 
@@ -1944,7 +1966,7 @@
             // txtSteelHeight_C7_2
             // 
             this.txtSteelHeight_C7_2.ForeColor = System.Drawing.Color.Blue;
-            this.txtSteelHeight_C7_2.Location = new System.Drawing.Point(421, 84);
+            this.txtSteelHeight_C7_2.Location = new System.Drawing.Point(431, 84);
             this.txtSteelHeight_C7_2.Name = "txtSteelHeight_C7_2";
             this.txtSteelHeight_C7_2.Size = new System.Drawing.Size(92, 21);
             this.txtSteelHeight_C7_2.TabIndex = 2;
@@ -1955,9 +1977,9 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(350, 88);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(53, 12);
+            this.label28.Size = new System.Drawing.Size(77, 12);
             this.label28.TabIndex = 67;
-            this.label28.Text = "型钢高度";
+            this.label28.Text = "型钢高度(mm)";
             // 
             // txtSpringLength_C7_2
             // 
@@ -2191,7 +2213,7 @@
             "JHC391",
             "JHC491",
             "JHC591"});
-            this.cbxSpring_C7_2.Location = new System.Drawing.Point(421, 121);
+            this.cbxSpring_C7_2.Location = new System.Drawing.Point(431, 121);
             this.cbxSpring_C7_2.Name = "cbxSpring_C7_2";
             this.cbxSpring_C7_2.Size = new System.Drawing.Size(92, 20);
             this.cbxSpring_C7_2.TabIndex = 3;
@@ -2199,7 +2221,7 @@
             // txtEL2_C7_2
             // 
             this.txtEL2_C7_2.ForeColor = System.Drawing.Color.Blue;
-            this.txtEL2_C7_2.Location = new System.Drawing.Point(421, 47);
+            this.txtEL2_C7_2.Location = new System.Drawing.Point(431, 47);
             this.txtEL2_C7_2.Name = "txtEL2_C7_2";
             this.txtEL2_C7_2.Size = new System.Drawing.Size(92, 21);
             this.txtEL2_C7_2.TabIndex = 1;
@@ -2208,7 +2230,7 @@
             // txtEL1_C7_2
             // 
             this.txtEL1_C7_2.ForeColor = System.Drawing.Color.Blue;
-            this.txtEL1_C7_2.Location = new System.Drawing.Point(421, 10);
+            this.txtEL1_C7_2.Location = new System.Drawing.Point(431, 10);
             this.txtEL1_C7_2.Name = "txtEL1_C7_2";
             this.txtEL1_C7_2.Size = new System.Drawing.Size(92, 21);
             this.txtEL1_C7_2.TabIndex = 0;
@@ -2346,20 +2368,20 @@
         private System.Windows.Forms.TextBox txtInsulation_D19;
         private System.Windows.Forms.TextBox txtOD_D19;
         private System.Windows.Forms.TextBox txtElevation_D19;
-        private System.Windows.Forms.TextBox txtLength_D19;
+        private System.Windows.Forms.TextBox txtArmLength_D19;
         private System.Windows.Forms.TextBox txtInsulation_D6;
         private System.Windows.Forms.TextBox txtOD_D6;
         private System.Windows.Forms.TextBox txtElevation_D6;
-        private System.Windows.Forms.TextBox txtLength_D6;
+        private System.Windows.Forms.TextBox txtArmLength_D6;
         private System.Windows.Forms.TextBox txtInsulation2;
         private System.Windows.Forms.TextBox txtInsulation1;
-        private System.Windows.Forms.TextBox txtTload2;
-        private System.Windows.Forms.TextBox txtCload2;
-        private System.Windows.Forms.TextBox txtSpan2;
+        private System.Windows.Forms.TextBox txtTotaLoad2;
+        private System.Windows.Forms.TextBox txtConcentratedLoad2;
+        private System.Windows.Forms.TextBox txtPipeSpan2;
         private System.Windows.Forms.TextBox txtPipeWall2;
-        private System.Windows.Forms.TextBox txtTload1;
-        private System.Windows.Forms.TextBox txtCload1;
-        private System.Windows.Forms.TextBox txtSpan1;
+        private System.Windows.Forms.TextBox txtTotaLoad1;
+        private System.Windows.Forms.TextBox txtConcentratedLoad1;
+        private System.Windows.Forms.TextBox txtPipeSpan1;
         private System.Windows.Forms.TextBox txtPipeWall1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;

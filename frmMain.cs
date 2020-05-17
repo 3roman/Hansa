@@ -16,89 +16,97 @@ namespace HASA
 
         private void BtnTotalLoad_Click(object sender, EventArgs e)
         {
-            #region convert control value to number
+            #region 获取输入
             int dn1 = Convert.ToInt32(cbxDN1.Text);
             int dn2 = Convert.ToInt32(cbxDN2.Text);
-            double pipeWall1 = Convert.ToDouble(txtPipeWall1.Text);
-            double pipeWall2 = Convert.ToDouble(txtPipeWall2.Text);
-            double span1 = Convert.ToDouble(txtSpan1.Text);
-            double span2 = Convert.ToDouble(txtSpan2.Text);
+            double wallThickness1 = Convert.ToDouble(txtPipeWall1.Text);
+            double wallThickness2 = Convert.ToDouble(txtPipeWall2.Text);
+            double pipeSpan1 = Convert.ToDouble(txtPipeSpan1.Text);
+            double pipeSpan2 = Convert.ToDouble(txtPipeSpan2.Text);
             double insulation1 = Convert.ToDouble(txtInsulation1.Text);
             double insulation2 = Convert.ToDouble(txtInsulation2.Text);
-            double cload1 = Convert.ToDouble(txtCload1.Text);
-            double cload2 = Convert.ToDouble(txtCload2.Text);
+            double concentratedLoad1 = Convert.ToDouble(txtConcentratedLoad1.Text);
+            double concentratedLoad2 = Convert.ToDouble(txtConcentratedLoad2.Text);
             #endregion
 
-            #region pipeweight
+            #region 计算管道重量
             int do1 = DN2DO[dn1];
             int do2 = DN2DO[dn2];
-            var pipeWeight1 = Common.CalculatePipeWeight(do1, pipeWall1);
-            var pipeWeight2 = Common.CalculatePipeWeight(do2, pipeWall2);
+            var pipeWeight1 = Common.CalculatePipeWeight(do1, wallThickness1);
+            var pipeWeight2 = Common.CalculatePipeWeight(do2, wallThickness2);
             #endregion
 
-            #region water weight
-            var waterWeight1 = Common.CalculateWaterWeight(do1, pipeWall1);
-            var waterWeight2 = Common.CalculateWaterWeight(do2, pipeWall2);
+            #region 计算充水重
+            var waterWeight1 = Common.CalculateWaterWeight(do1, wallThickness1);
+            var waterWeight2 = Common.CalculateWaterWeight(do2, wallThickness2);
             #endregion
 
-            #region insulation weight
+            #region 计算保温重
             var insulationWeight1 = Common.CalculateInsulationWeight(do1, insulation1);
             var insulationWeight2 = Common.CalculateInsulationWeight(do2, insulation2);
             #endregion
 
-            #region total weight
-            var tload1 = (pipeWeight1 + waterWeight1 + insulationWeight1) * span1 + cload1;
-            var tload2 = (pipeWeight2 + waterWeight2 + insulationWeight2) * span2 + cload2;
+            #region 计算保温重
+            var totaLoad1 = (pipeWeight1 + waterWeight1 + insulationWeight1) * pipeSpan1 + concentratedLoad1;
+            var totaLoad2 = (pipeWeight2 + waterWeight2 + insulationWeight2) * pipeSpan2 + concentratedLoad2;
             #endregion
 
-            txtTload1.Text = (int)tload1 + string.Empty;
-            txtTload2.Text = (int)tload2 + string.Empty;
+            #region 更新界面
+            txtTotaLoad1.Text = (int)totaLoad1 + string.Empty;
+            txtTotaLoad2.Text = (int)totaLoad2 + string.Empty;
+            #endregion
         }
 
         private void BtnD6_Click(object sender, EventArgs e)
         {
-            var p1 = Convert.ToInt32(txtTload1.Text) * 10 / 1000;
-            var length = Convert.ToInt32(txtLength_D6.Text);
+            #region 获取输入
+            var totalLoad = Convert.ToInt32(txtTotaLoad1.Text) * 10 / 1000 + Convert.ToInt32(txtTotaLoad2.Text) * 10 / 1000;
+            var armLength = Convert.ToInt32(txtArmLength_D6.Text);
             var elevation = Convert.ToInt32(txtElevation_D6.Text);
             var od = Convert.ToInt32(txtOD_D6.Text);
             var insulation = Convert.ToInt32(txtInsulation_D6.Text);
+            #endregion
 
-            if (p1 <= 0)
+            #region 检查输入
+            if (totalLoad <= 0)
             {
                 MessageBox.Show("必须输入总荷载", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (length <= 0)
+            if (armLength <= 0)
             {
                 MessageBox.Show("必须输入距离", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            #endregion
 
-            var dlg = new FrmD6(p1, length, elevation, od, insulation);
-            dlg.ShowDialog();
+            new FrmD6(totalLoad, armLength, elevation, od, insulation).ShowDialog();
         }
 
         private void BtnD19_Click(object sender, EventArgs e)
         {
-            var p1 = Convert.ToInt32(txtTload1.Text) * 10 / 1000;
-            var length = Convert.ToInt32(txtLength_D19.Text);
+            #region 获取输入
+            var totaLoad = Convert.ToInt32(txtTotaLoad1.Text) * 10 / 1000 + Convert.ToInt32(txtTotaLoad2.Text) * 10 / 1000;
+            var armLength = Convert.ToInt32(txtArmLength_D19.Text);
             var elevation = Convert.ToInt32(txtElevation_D19.Text);
             var od = Convert.ToInt32(txtOD_D19.Text);
             var insulation = Convert.ToInt32(txtInsulation_D19.Text);
+            #endregion
 
-            if (p1 <= 0)
+            #region 检查输入
+            if (totaLoad <= 0)
             {
                 MessageBox.Show("必须输入总荷载", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (length <= 0)
+            if (armLength <= 0)
             {
                 MessageBox.Show("必须输入距离", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            #endregion
 
-            var dlg = new FrmD19(p1, length, elevation, od, insulation);
-            dlg.ShowDialog();
+            new FrmD19(totaLoad, armLength, elevation, od, insulation).ShowDialog();
         }
 
         private void BtnB1_1_Click(object sender, EventArgs e)
@@ -402,7 +410,7 @@ namespace HASA
 
             var type = rioBaseType_C7_1.Checked ? "I" : "II";
             Common.Copy2Clipboard($"C7-1\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength}" +
-                $"\t\t\t\t{E}\t{F}\t{H}\t1\t\t\t{lug}\t{rod}\t{clamp}\t{spring}\t\t\t1,1,1,1");
+                $"\t\t\t\t{E}\t{F}\t{H}\t1\t\t\t{lug}\t{spring}\t{rod}\t{clamp}\t\t\t1,1,1,1");
         }
 
         private void BtnC8_Click(object sender, EventArgs e)
@@ -418,7 +426,7 @@ namespace HASA
             var EL2 = Convert.ToInt32(txtEL2_C7_2.Text);
             var steelHeight = Convert.ToInt32(txtSteelHeight_C7_2.Text);
             var spring = cbxSpring_C7_2.Text;
-           
+
             var sql = $"SELECT * FROM c7_1 WHERE spring='{spring}'";
             var dt = SQLiteHelper.Read("HASA.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);

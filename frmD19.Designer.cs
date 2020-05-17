@@ -73,7 +73,6 @@
             this.Name = "FrmShelf";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmD1";
-            this.Load += new System.EventHandler(this.FrmD19_Load);
             this.ResumeLayout(false);
 
         }

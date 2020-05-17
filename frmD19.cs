@@ -6,47 +6,41 @@ namespace HASA
 {
     public partial class FrmD19 : Form
     {
-        private int distance;
-        private int pipeLoad;
-        private int elevation;
-        private int od;
-        private int insulation;
-
-        public FrmD19()
-        {
-            //InitializeComponent();
-        }
+        private int _armLength;
+        private int _totaLoad;
+        private int _elevation;
+        private int _od;
+        private int _insulation;
 
         /// <summary>
-        /// 
+        /// 重载构造函数
         /// </summary>
-        /// <param name="pipeLoad">单位KN</param>
-        /// <param name="distance">单位mm</param>
+        /// <param name="totaLoad">单位KN</param>
+        /// <param name="armLength">单位mm</param>
         /// <param name="elevation">单位mm</param>
-        public FrmD19(int pipeLoad, int distance, int elevation, int od, int insulation)
+        /// <param name="od">单位mm</param>
+        /// <param name="insulation">单位mm</param>
+        public FrmD19(int totaLoad, int armLength, int elevation, int od, int insulation)
         {
-            this.distance = distance;
-            this.pipeLoad = pipeLoad;
-            this.elevation = elevation;
-            this.od = od;
-            this.insulation = insulation;
+            _armLength = armLength;
+            _totaLoad = totaLoad;
+            _elevation = elevation;
+            _od = od;
+            _insulation = insulation;
 
             InitializeComponent();
-        }
 
-        private void FrmD19_Load(object sender, EventArgs e)
-        {
             var ret = MessageBoxEx.Show("选择与结构件焊接型式", "选择型式", MessageBoxButtons.OKCancel, new string[] { "侧焊", "端焊" });
             if (ret == DialogResult.OK)
             {
-                Common.DataTableToListview(lstShelf, D19I());
+                Common.DataTable2Listview(lstShelf, D19I());
             }
             else
             {
-                Common.DataTableToListview(lstShelf, D19II());
+                Common.DataTable2Listview(lstShelf, D19II());
             }
         }
-
+      
         /// <summary>
         /// 侧焊三角撑
         /// </summary>
@@ -54,7 +48,7 @@ namespace HASA
         /// <param name="e"></param>
         private DataTable D19I()
         {
-            var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d19 WHERE type='I'");
+            #region 手动增加数据
             //// 创建列
             //dt.Columns.Add("适用型钢", typeof(string));
             //dt.Columns.Add("L≤500", typeof(double));
@@ -69,18 +63,19 @@ namespace HASA
             //dt.Rows.Add("H150×150(∠125×10) ", 62, 43, 32, 26, 22, 0, 0);
             //dt.Rows.Add("H200×200(∠160×12) ", 120, 90, 68, 55, 46, 40, 35);
             //dt.Rows.Add("H250×250(∠200×14) ", 220, 159, 120, 100, 84, 73, 62);
-
-            var colName = DetermineColumn(distance);
+            #endregion
+            var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d19 WHERE type='I'");
+            var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > pipeLoad
+                        where row.Field<double>(columName) > _totaLoad
                         select row;
-            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", columName });
 
             var temp = table.Rows[0]["steel"].ToString().Split(new char[]{'(', ')'});
 
-            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D19\tI\t\t\t{elevation}\t\t{len}" +
-                $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
+            var beamLength = Common.Round2Ten(_armLength + _od / 2 + _insulation + 200 + 150);
+            Common.Copy2Clipboard($"D19\tI\t\t\t{_elevation}\t\t{beamLength}" +
+                $"\t{_armLength}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;
         }
@@ -92,17 +87,17 @@ namespace HASA
         private DataTable D19II()
         {
             var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d19 WHERE type='II'");
-            var colName = DetermineColumn(distance);
+            var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
-                        where row.Field<double>(colName) > pipeLoad
+                        where row.Field<double>(columName) > _totaLoad
                         select row;
-            var table = query.AsDataView().ToTable(true, new string[] { "steel", colName });
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", columName });
 
             var temp = table.Rows[0]["steel"].ToString().Split(new char[] { '(', ')' });
 
-            var len = Common.Round2Ten(distance + od / 2 + insulation + 180);
-            Common.Copy2Clipboard($"D19\tII\t\t\t{elevation}\t\t{len}" +
-                $"\t{distance}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
+            var beamLength = Common.Round2Ten(_armLength + _od / 2 + _insulation + 200);
+            Common.Copy2Clipboard($"D19\tII\t\t\t{_elevation}\t\t{beamLength}" +
+                $"\t{_armLength}\t\t\t\t\t\t1\t\t\t{temp[0]}\t{temp[1]}\t\t\t\t\t1,1");
 
             return table;
         }
@@ -112,7 +107,7 @@ namespace HASA
             Close();
         }
 
-        private static string DetermineColumn(double distance)
+        private static string GetColumName(double distance)
         {
             string column = string.Empty;
 
