@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace HASA
+namespace Hansa
 {
     public partial class FrmD6 : Form
     {
@@ -141,7 +141,7 @@ namespace HASA
         /// <param name="e"></param>
         private DataTable D6I()
         {
-            var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d6 WHERE type='I'");
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d6 WHERE type='I'");
             var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
                         where row.Field<double>(columName) > _totaLoad
@@ -161,7 +161,7 @@ namespace HASA
         /// <returns></returns>
         private DataTable D6II()
         {
-            var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d6 WHERE type='II'");
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d6 WHERE type='II'");
             var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
                         where row.Field<double>(columName) > _totaLoad

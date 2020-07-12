@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
-namespace HASA
+namespace Hansa
 {
     public partial class FrmMain : Form
     {
@@ -167,7 +166,7 @@ namespace HASA
             }
 
             // 指定管径
-            var dt = SQLiteHelper.Read("HASA.db", sql);
+            var dt = SQLiteHelper.Read("Hansa.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
             var clamp = Convert.ToString(dt.Rows[0]["clamp"]);
             var E = Convert.ToInt32(dt.Rows[0]["e"]);
@@ -184,7 +183,7 @@ namespace HASA
             if (chkCheckLoad_B1_1.Checked && givenLoad > load)
             {
                 sql = sql.Substring(0, 26) + $"load > {givenLoad} LIMIT 0,1";
-                dt = SQLiteHelper.Read("HASA.db", sql);
+                dt = SQLiteHelper.Read("Hansa.db", sql);
                 if (0 == dt.Rows.Count)
                 {
                     MessageBox.Show("管道荷载过大，无法自动选型!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -192,7 +191,7 @@ namespace HASA
                 }
                 rod = Convert.ToString(dt.Rows[0]["rod"]);
             }
-
+            // M10~M20螺母高度与规格误差在4mm范围内
             var rodLength = EL1 - EL2 - E + Convert.ToInt32(rod.Substring(4, 2)) * 2.5;
             txtClamp_B1_1.Text = clamp;
             txtRod_B1_1.Text = rod;
@@ -262,7 +261,7 @@ namespace HASA
             }
 
             // 指定管径
-            var dt = SQLiteHelper.Read("HASA.db", sql);
+            var dt = SQLiteHelper.Read("Hansa.db", sql);
             var lug = Convert.ToString(dt.Rows[0]["lug"]);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
             var clamp = Convert.ToString(dt.Rows[0]["clamp"]);
@@ -274,7 +273,7 @@ namespace HASA
             if (chkRod_B2_1.Checked)
             {
                 sql = sql.Substring(0, 26) + $"rod='{cbxRod_B2_1.Text}'";
-                dt = SQLiteHelper.Read("HASA.db", sql);
+                dt = SQLiteHelper.Read("Hansa.db", sql);
                 rod = Convert.ToString(dt.Rows[0]["rod"]);
                 lug = Convert.ToString(dt.Rows[0]["lug"]);
                 F = Convert.ToInt32(dt.Rows[0]["f"]);
@@ -285,7 +284,7 @@ namespace HASA
             if (chkCheckLoad_B2_1.Checked && givenLoad > load)
             {
                 sql = sql.Substring(0, 26) + $"load > {givenLoad} LIMIT 0,1";
-                dt = SQLiteHelper.Read("HASA.db", sql);
+                dt = SQLiteHelper.Read("Hansa.db", sql);
                 if (0 == dt.Rows.Count)
                 {
                     MessageBox.Show("管道荷载过大，无法自动选型!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -296,7 +295,7 @@ namespace HASA
                 F = Convert.ToInt32(dt.Rows[0]["f"]);
             }
 
-            var rodLength = EL1 - EL2 - E - F + Convert.ToInt32(rod.Substring(4, 2)) * 1.5;
+            var rodLength = EL1 - EL2 - E - F;
             txtClamp_B2_1.Text = clamp;
             txtRod_B2_1.Text = rod;
             txtLug_B2_1.Text = lug;
@@ -374,7 +373,7 @@ namespace HASA
 
             // 指定管径
             var sql = $"SELECT * FROM {clampTable} WHERE clamp='{clamp}'";
-            var dt = SQLiteHelper.Read("HASA.db", sql);
+            var dt = SQLiteHelper.Read("Hansa.db", sql);
             // 管夹长度
             var E = Convert.ToInt32(dt.Rows[0]["e"]);
             // 指定管夹长度
@@ -383,7 +382,7 @@ namespace HASA
                 E = Convert.ToInt32(txtClampLength1_C7_1.Text);
             }
             sql = $"SELECT * FROM c7_1 WHERE spring='{spring}'";
-            dt = SQLiteHelper.Read("HASA.db", sql);
+            dt = SQLiteHelper.Read("Hansa.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
             var lug = Convert.ToString(dt.Rows[0]["lug"]);
             var nut = Convert.ToString(dt.Rows[0]["d"]);
@@ -394,7 +393,7 @@ namespace HASA
             var H = Convert.ToInt32(dt.Rows[0]["h"]);
             // 伸入花篮螺母长度
             sql = $"SELECT * FROM orchid_bolt WHERE D='{nut}'";
-            dt = SQLiteHelper.Read("HASA.db", sql);
+            dt = SQLiteHelper.Read("Hansa.db", sql);
             var outLength = Convert.ToInt32(dt.Rows[0]["L"]) / 2 - Convert.ToInt32(dt.Rows[0]["h"]) / 2;
             // 计算吊杆长度
             var rodLength = EL1 - EL2 - E - F - H + outLength;
@@ -428,7 +427,7 @@ namespace HASA
             var spring = cbxSpring_C7_2.Text;
 
             var sql = $"SELECT * FROM c7_1 WHERE spring='{spring}'";
-            var dt = SQLiteHelper.Read("HASA.db", sql);
+            var dt = SQLiteHelper.Read("Hansa.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
             var lug = Convert.ToString(dt.Rows[0]["lug"]);
             var d = Convert.ToString(dt.Rows[0]["d"]);
@@ -437,12 +436,12 @@ namespace HASA
 
             // 伸入花篮螺母长度
             sql = $"SELECT * FROM orchid_bolt WHERE D='{d}'";
-            dt = SQLiteHelper.Read("HASA.db", sql);
+            dt = SQLiteHelper.Read("Hansa.db", sql);
             var outLength1 = Convert.ToInt32(dt.Rows[0]["L"]) / 2 - Convert.ToInt32(dt.Rows[0]["h"]) / 2;
 
             // 下端外伸长度
             sql = $"SELECT * FROM nuts WHERE D='{d}'";
-            dt = SQLiteHelper.Read("HASA.db", sql);
+            dt = SQLiteHelper.Read("Hansa.db", sql);
             var outLength2 = Convert.ToDouble(dt.Rows[0]["m"]);
             outLength2 = Convert.ToInt32(outLength2 * 3);
 

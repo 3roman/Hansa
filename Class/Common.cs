@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 
-namespace HASA
+namespace Hansa
 {
     internal static class Common
     {

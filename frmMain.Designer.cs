@@ -1,4 +1,4 @@
-﻿namespace HASA
+﻿namespace Hansa
 {
     partial class FrmMain
     {
@@ -977,11 +977,11 @@
             this.txtElevation_D19.Text = "0";
             this.txtElevation_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtLength_D19
+            // txtArmLength_D19
             // 
             this.txtArmLength_D19.ForeColor = System.Drawing.Color.Blue;
             this.txtArmLength_D19.Location = new System.Drawing.Point(516, 135);
-            this.txtArmLength_D19.Name = "txtLength_D19";
+            this.txtArmLength_D19.Name = "txtArmLength_D19";
             this.txtArmLength_D19.Size = new System.Drawing.Size(83, 21);
             this.txtArmLength_D19.TabIndex = 12;
             this.txtArmLength_D19.Text = "0";
@@ -1017,11 +1017,11 @@
             this.txtElevation_D6.Text = "0";
             this.txtElevation_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtLength_D6
+            // txtArmLength_D6
             // 
             this.txtArmLength_D6.ForeColor = System.Drawing.Color.Blue;
             this.txtArmLength_D6.Location = new System.Drawing.Point(210, 135);
-            this.txtArmLength_D6.Name = "txtLength_D6";
+            this.txtArmLength_D6.Name = "txtArmLength_D6";
             this.txtArmLength_D6.Size = new System.Drawing.Size(83, 21);
             this.txtArmLength_D6.TabIndex = 7;
             this.txtArmLength_D6.Text = "0";
@@ -1047,11 +1047,11 @@
             this.txtInsulation1.Text = "0";
             this.txtInsulation1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtTotalLoad2
+            // txtTotaLoad2
             // 
             this.txtTotaLoad2.Enabled = false;
             this.txtTotaLoad2.Location = new System.Drawing.Point(516, 66);
-            this.txtTotaLoad2.Name = "txtTotalLoad2";
+            this.txtTotaLoad2.Name = "txtTotaLoad2";
             this.txtTotaLoad2.Size = new System.Drawing.Size(83, 21);
             this.txtTotaLoad2.TabIndex = 11;
             this.txtTotaLoad2.Text = "0";
@@ -1087,11 +1087,11 @@
             this.txtPipeWall2.Text = "0";
             this.txtPipeWall2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtTotalLoad1
+            // txtTotaLoad1
             // 
             this.txtTotaLoad1.ForeColor = System.Drawing.Color.Blue;
             this.txtTotaLoad1.Location = new System.Drawing.Point(516, 35);
-            this.txtTotaLoad1.Name = "txtTotalLoad1";
+            this.txtTotaLoad1.Name = "txtTotaLoad1";
             this.txtTotaLoad1.Size = new System.Drawing.Size(83, 21);
             this.txtTotaLoad1.TabIndex = 5;
             this.txtTotaLoad1.Text = "0";
@@ -2290,7 +2290,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "支吊架设计辅助软件 V1.0";
+            this.Text = "支吊架设计辅助软件 20200713";
             this.pageB1_1.ResumeLayout(false);
             this.pageB1_1.PerformLayout();
             this.grpTempRange_B1_1.ResumeLayout(false);

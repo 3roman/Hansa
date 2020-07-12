@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 
-namespace HASA
+namespace Hansa
 {
     public partial class FrmD19 : Form
     {
@@ -64,7 +64,7 @@ namespace HASA
             //dt.Rows.Add("H200×200(∠160×12) ", 120, 90, 68, 55, 46, 40, 35);
             //dt.Rows.Add("H250×250(∠200×14) ", 220, 159, 120, 100, 84, 73, 62);
             #endregion
-            var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d19 WHERE type='I'");
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d19 WHERE type='I'");
             var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
                         where row.Field<double>(columName) > _totaLoad
@@ -86,7 +86,7 @@ namespace HASA
         /// <returns></returns>
         private DataTable D19II()
         {
-            var dt = SQLiteHelper.Read("HASA.db", "SELECT * FROM d19 WHERE type='II'");
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d19 WHERE type='II'");
             var columName = GetColumName(_armLength);
             var query = from row in dt.AsEnumerable()
                         where row.Field<double>(columName) > _totaLoad
