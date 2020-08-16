@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstShelf = new System.Windows.Forms.ListView();
+            this.lstD19 = new System.Windows.Forms.ListView();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lstShelf
+            // lstD19
             // 
-            this.lstShelf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstShelf.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lstShelf.GridLines = true;
-            this.lstShelf.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lstShelf.Location = new System.Drawing.Point(0, 0);
-            this.lstShelf.MultiSelect = false;
-            this.lstShelf.Name = "lstShelf";
-            this.lstShelf.Scrollable = false;
-            this.lstShelf.Size = new System.Drawing.Size(508, 194);
-            this.lstShelf.TabIndex = 0;
-            this.lstShelf.TabStop = false;
-            this.lstShelf.UseCompatibleStateImageBehavior = false;
-            this.lstShelf.View = System.Windows.Forms.View.Details;
+            this.lstD19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstD19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lstD19.GridLines = true;
+            this.lstD19.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lstD19.HideSelection = false;
+            this.lstD19.Location = new System.Drawing.Point(0, 0);
+            this.lstD19.MultiSelect = false;
+            this.lstD19.Name = "lstD19";
+            this.lstD19.Scrollable = false;
+            this.lstD19.Size = new System.Drawing.Size(508, 194);
+            this.lstD19.TabIndex = 0;
+            this.lstD19.TabStop = false;
+            this.lstD19.UseCompatibleStateImageBehavior = false;
+            this.lstD19.View = System.Windows.Forms.View.Details;
             // 
             // btnClose
             // 
@@ -59,18 +60,18 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // FrmShelf
+            // FrmD19
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(508, 172);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lstShelf);
+            this.Controls.Add(this.lstD19);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmShelf";
+            this.Name = "FrmD19";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmD1";
             this.ResumeLayout(false);
@@ -79,7 +80,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lstShelf;
+        private System.Windows.Forms.ListView lstD19;
         private System.Windows.Forms.Button btnClose;
     }
 }

@@ -1,111 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using Hansa.Model;
+using Hansa.Utility;
 
 namespace Hansa
 {
     public partial class FrmMain : Form
     {
-        private readonly Dictionary<int, int> DN2DO = new Dictionary<int, int>() { { 0, 0 }, { 10, 18 }, { 15, 22 }, { 20, 27 }, { 25, 34 }, { 32, 43 }, { 40, 49 }, { 50, 61 }, { 65, 76 }, { 80, 89 }, { 100, 115 }, { 125, 142 }, { 150, 169 }, { 200, 220 }, { 250, 273 }, { 300, 325 }, { 350, 377 }, { 400, 426 }, { 450, 480 }, { 500, 530 }, { 550, 559 }, { 600, 630 }, { 650, 660 }, { 700, 720 }, { 750, 762 }, { 800, 820 } };
-
         public FrmMain()
         {
             InitializeComponent();
         }
 
-        private void BtnTotalLoad_Click(object sender, EventArgs e)
-        {
-            #region 获取输入
-            int dn1 = Convert.ToInt32(cbxDN1.Text);
-            int dn2 = Convert.ToInt32(cbxDN2.Text);
-            double wallThickness1 = Convert.ToDouble(txtPipeWall1.Text);
-            double wallThickness2 = Convert.ToDouble(txtPipeWall2.Text);
-            double pipeSpan1 = Convert.ToDouble(txtPipeSpan1.Text);
-            double pipeSpan2 = Convert.ToDouble(txtPipeSpan2.Text);
-            double insulation1 = Convert.ToDouble(txtInsulation1.Text);
-            double insulation2 = Convert.ToDouble(txtInsulation2.Text);
-            double concentratedLoad1 = Convert.ToDouble(txtConcentratedLoad1.Text);
-            double concentratedLoad2 = Convert.ToDouble(txtConcentratedLoad2.Text);
-            #endregion
-
-            #region 计算管道重量
-            int do1 = DN2DO[dn1];
-            int do2 = DN2DO[dn2];
-            var pipeWeight1 = Common.CalculatePipeWeight(do1, wallThickness1);
-            var pipeWeight2 = Common.CalculatePipeWeight(do2, wallThickness2);
-            #endregion
-
-            #region 计算充水重
-            var waterWeight1 = Common.CalculateWaterWeight(do1, wallThickness1);
-            var waterWeight2 = Common.CalculateWaterWeight(do2, wallThickness2);
-            #endregion
-
-            #region 计算保温重
-            var insulationWeight1 = Common.CalculateInsulationWeight(do1, insulation1);
-            var insulationWeight2 = Common.CalculateInsulationWeight(do2, insulation2);
-            #endregion
-
-            #region 计算保温重
-            var totaLoad1 = (pipeWeight1 + waterWeight1 + insulationWeight1) * pipeSpan1 + concentratedLoad1;
-            var totaLoad2 = (pipeWeight2 + waterWeight2 + insulationWeight2) * pipeSpan2 + concentratedLoad2;
-            #endregion
-
-            #region 更新界面
-            txtTotaLoad1.Text = (int)totaLoad1 + string.Empty;
-            txtTotaLoad2.Text = (int)totaLoad2 + string.Empty;
-            #endregion
-        }
-
         private void BtnD6_Click(object sender, EventArgs e)
         {
-            #region 获取输入
-            var totalLoad = Convert.ToInt32(txtTotaLoad1.Text) * 10 / 1000 + Convert.ToInt32(txtTotaLoad2.Text) * 10 / 1000;
-            var armLength = Convert.ToInt32(txtArmLength_D6.Text);
-            var elevation = Convert.ToInt32(txtElevation_D6.Text);
-            var od = Convert.ToInt32(txtOD_D6.Text);
-            var insulation = Convert.ToInt32(txtInsulation_D6.Text);
-            #endregion
-
-            #region 检查输入
-            if (totalLoad <= 0)
+            var bracket = new Bracket();
+            int.TryParse(txtLoad_D6.Text, out bracket.Load);
+            bracket.Load /= 100; // kg→kN
+            int.TryParse(txtArmLength_D6.Text, out bracket.ArmLength);
+            int.TryParse(txtOD_D6.Text, out bracket.OD);
+            int.TryParse(txtElevation_D6.Text, out bracket.Elevation);
+            bracket.EndWelding = rioEndWelding_D6.Checked;
+            if (bracket.Load <= 0 || bracket.ArmLength <= 0)
             {
-                MessageBox.Show("必须输入总荷载", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (armLength <= 0)
-            {
-                MessageBox.Show("必须输入距离", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            #endregion
-
-            new FrmD6(totalLoad, armLength, elevation, od, insulation).ShowDialog();
+            new FrmD6(bracket).ShowDialog();
         }
 
         private void BtnD19_Click(object sender, EventArgs e)
         {
-            #region 获取输入
-            var totaLoad = Convert.ToInt32(txtTotaLoad1.Text) * 10 / 1000 + Convert.ToInt32(txtTotaLoad2.Text) * 10 / 1000;
-            var armLength = Convert.ToInt32(txtArmLength_D19.Text);
-            var elevation = Convert.ToInt32(txtElevation_D19.Text);
-            var od = Convert.ToInt32(txtOD_D19.Text);
-            var insulation = Convert.ToInt32(txtInsulation_D19.Text);
-            #endregion
-
-            #region 检查输入
-            if (totaLoad <= 0)
+            var bracket = new Bracket();
+            int.TryParse(txtLoad_D19.Text, out bracket.Load);
+            bracket.Load /= 100;  // kg→kN
+            int.TryParse(txtArmLength_D19.Text, out bracket.ArmLength);
+            int.TryParse(txtOD_D19.Text, out bracket.OD);
+            int.TryParse(txtElevation_D19.Text, out bracket.Elevation);
+            bracket.EndWelding = rioEndWelding_D19.Checked;
+            if (bracket.Load <= 0 || bracket.ArmLength <= 0)
             {
-                MessageBox.Show("必须输入总荷载", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (armLength <= 0)
-            {
-                MessageBox.Show("必须输入距离", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            #endregion
-
-            new FrmD19(totaLoad, armLength, elevation, od, insulation).ShowDialog();
+            new FrmD19(bracket).ShowDialog();
         }
 
         private void BtnB1_1_Click(object sender, EventArgs e)

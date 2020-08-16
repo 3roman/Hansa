@@ -3,21 +3,20 @@ using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
 
-namespace Hansa
+namespace Hansa.Utility
 {
     internal static class SQLiteHelper
     {
         public static DataTable Read(string database, string sql)
         {
             DataTable dt = null;
-            SQLiteDataAdapter adapter = null;
             SQLiteConnection conn = null;
-            DataSet ds = new DataSet();
+            var ds = new DataSet();
 
             try
             {
                 conn = new SQLiteConnection($"Data Source={database}");
-                adapter = new SQLiteDataAdapter(sql, conn);
+                var adapter = new SQLiteDataAdapter(sql, conn);
                 adapter.Fill(ds);
                 dt = ds.Tables[0];
             }
@@ -27,7 +26,7 @@ namespace Hansa
             }
             finally
             {
-                if (ConnectionState.Open == conn.State )
+                if (conn != null && ConnectionState.Open == conn.State )
                 {
                     conn.Close();
                 }

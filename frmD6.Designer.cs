@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstCantilever = new System.Windows.Forms.ListView();
+            this.lstD6 = new System.Windows.Forms.ListView();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lstCantilever
+            // lstD6
             // 
-            this.lstCantilever.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstCantilever.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lstCantilever.GridLines = true;
-            this.lstCantilever.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lstCantilever.Location = new System.Drawing.Point(0, 0);
-            this.lstCantilever.MultiSelect = false;
-            this.lstCantilever.Name = "lstCantilever";
-            this.lstCantilever.Scrollable = false;
-            this.lstCantilever.Size = new System.Drawing.Size(313, 194);
-            this.lstCantilever.TabIndex = 0;
-            this.lstCantilever.TabStop = false;
-            this.lstCantilever.UseCompatibleStateImageBehavior = false;
-            this.lstCantilever.View = System.Windows.Forms.View.Details;
+            this.lstD6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstD6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lstD6.GridLines = true;
+            this.lstD6.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lstD6.HideSelection = false;
+            this.lstD6.Location = new System.Drawing.Point(0, 0);
+            this.lstD6.MultiSelect = false;
+            this.lstD6.Name = "lstD6";
+            this.lstD6.Scrollable = false;
+            this.lstD6.Size = new System.Drawing.Size(313, 194);
+            this.lstD6.TabIndex = 0;
+            this.lstD6.TabStop = false;
+            this.lstD6.UseCompatibleStateImageBehavior = false;
+            this.lstD6.View = System.Windows.Forms.View.Details;
             // 
             // btnClose
             // 
@@ -59,18 +60,18 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // FrmCantilever
+            // FrmD6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(313, 172);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lstCantilever);
+            this.Controls.Add(this.lstD6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmCantilever";
+            this.Name = "FrmD6";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Shelf";
             this.ResumeLayout(false);
@@ -79,7 +80,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lstCantilever;
+        private System.Windows.Forms.ListView lstD6;
         private System.Windows.Forms.Button btnClose;
     }
 }
