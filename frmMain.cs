@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
-using Hansa.Model;
 using Hansa.Utility;
 
 namespace Hansa
 {
+
     public partial class FrmMain : Form
     {
         public FrmMain()
@@ -12,36 +13,147 @@ namespace Hansa
             InitializeComponent();
         }
 
+        #region 功能代码
         private void BtnD6_Click(object sender, EventArgs e)
         {
+            lstD6.Items.Clear();
             var bracket = new Bracket();
             int.TryParse(txtLoad_D6.Text, out bracket.Load);
-            bracket.Load /= 100; // kg→kN
+            bracket.Load = bracket.Load * 10 / 1000; // kg→kN
             int.TryParse(txtArmLength_D6.Text, out bracket.ArmLength);
-            int.TryParse(txtOD_D6.Text, out bracket.OD);
-            int.TryParse(txtElevation_D6.Text, out bracket.Elevation);
-            bracket.EndWelding = rioEndWelding_D6.Checked;
             if (bracket.Load <= 0 || bracket.ArmLength <= 0)
             {
                 return;
             }
-            new FrmD6(bracket).ShowDialog();
+            if (rioEndWelding_D6.Checked)
+            {
+                Common.DataTable2Listview(lstD6, D6_EndWelding(bracket));
+            }
+            else
+            {
+                Common.DataTable2Listview(lstD6, D6_SideWelding(bracket));
+            }
+
+        }
+
+        private DataTable D6_SideWelding(Bracket bracket)
+        {
+            var columName = LocateColumnD6(bracket.ArmLength);
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d6 WHERE type='I'");
+            var query = dt.AsEnumerable().Where(t => t.Field<double>(columName) > bracket.Load);
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", columName });
+
+            return table;
+        }
+
+        private DataTable D6_EndWelding(Bracket bracket)
+        {
+            var columName = LocateColumnD6(bracket.ArmLength);
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d6 WHERE type='II'");
+            var query = dt.AsEnumerable().Where(t => t.Field<double>(columName) > bracket.Load);
+            var table = query.AsDataView().ToTable(true, new string[] { "steel", columName });
+
+            return table;
+        }
+
+        private static string LocateColumnD6(double armLength)
+        {
+            var column = string.Empty;
+
+            if (armLength <= 250)
+            {
+                column = "L≤250";
+            }
+            else if (armLength > 250 && armLength <= 500)
+            {
+                column = "L≤500";
+            }
+            else if (armLength > 500 && armLength <= 750)
+            {
+                column = "L≤750";
+            }
+            else if (armLength > 750 && armLength <= 1000)
+            {
+                column = "L≤1000";
+            }
+
+            return column;
         }
 
         private void BtnD19_Click(object sender, EventArgs e)
         {
+            lstD19.Items.Clear();
             var bracket = new Bracket();
             int.TryParse(txtLoad_D19.Text, out bracket.Load);
-            bracket.Load /= 100;  // kg→kN
+            bracket.Load = bracket.Load * 10 / 1000; // kg→kN
             int.TryParse(txtArmLength_D19.Text, out bracket.ArmLength);
-            int.TryParse(txtOD_D19.Text, out bracket.OD);
-            int.TryParse(txtElevation_D19.Text, out bracket.Elevation);
-            bracket.EndWelding = rioEndWelding_D19.Checked;
             if (bracket.Load <= 0 || bracket.ArmLength <= 0)
             {
                 return;
             }
-            new FrmD19(bracket).ShowDialog();
+            if (rioEndWelding_D19.Checked)
+            {
+                Common.DataTable2Listview(lstD19, D19_EndWelding(bracket));
+            }
+            else
+            {
+                Common.DataTable2Listview(lstD19, D19_SideWelding(bracket));
+            }
+
+        }
+
+        private DataTable D19_SideWelding(Bracket bracket)
+        {
+            var columName = LocateColumnD19(bracket.ArmLength);
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d19 WHERE type='I'");
+            var query = dt.AsEnumerable().Where(t => t.Field<double>(columName) > bracket.Load);
+            var table = query.AsDataView().ToTable(true, "steel", columName);
+            return table;
+        }
+
+        private DataTable D19_EndWelding(Bracket bracket)
+        {
+            var columName = LocateColumnD19(bracket.ArmLength);
+            var dt = SQLiteHelper.Read("Hansa.db", "SELECT * FROM d19 WHERE type='II'");
+            var query = dt.AsEnumerable().Where(t => t.Field<double>(columName) > bracket.Load);
+            var table = query.AsDataView().ToTable(true, "steel", columName);
+            return table;
+        }
+
+        private static string LocateColumnD19(double armLength)
+        {
+            var column = string.Empty;
+
+            if (armLength <= 500)
+            {
+                column = "L≤500";
+            }
+            else if (armLength > 500 && armLength <= 750)
+            {
+                column = "L≤750";
+            }
+            else if (armLength > 750 && armLength <= 1000)
+            {
+                column = "L≤1000";
+            }
+            else if (armLength > 1000 && armLength <= 1250)
+            {
+                column = "L≤1250";
+            }
+            else if (armLength > 1250 && armLength <= 1500)
+            {
+                column = "L≤1500";
+            }
+            else if (armLength > 1500 && armLength <= 1750)
+            {
+                column = "L≤1750";
+            }
+            else if (armLength > 1750 && armLength <= 2000)
+            {
+                column = "L≤2000";
+            }
+
+            return column;
         }
 
         private void BtnB1_1_Click(object sender, EventArgs e)
@@ -129,6 +241,12 @@ namespace Hansa
             }
             // M10~M20螺母高度与规格误差在4mm范围内
             var rodLength = EL1 - EL2 - E + Convert.ToInt32(rod.Substring(4, 2)) * 2.5;
+            if (rodLength <= 50)
+            {
+                MessageBox.Show("空间不够，无法安装!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
             txtClamp_B1_1.Text = clamp;
             txtRod_B1_1.Text = rod;
             txtRodLength_B1_1.Text = Convert.ToString(rodLength);
@@ -232,6 +350,11 @@ namespace Hansa
             }
 
             var rodLength = EL1 - EL2 - E - F;
+            if (rodLength <= 50)
+            {
+                MessageBox.Show("空间不够，无法安装!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             txtClamp_B2_1.Text = clamp;
             txtRod_B2_1.Text = rod;
             txtLug_B2_1.Text = lug;
@@ -241,7 +364,6 @@ namespace Hansa
             Common.Copy2Clipboard($"B2-1\t{type}\t\t\t{EL1}\t{EL2}\t{rodLength}" +
                 $"\t\t\t\t{E}\t{F}\t\t1\t\t\t{lug}\t{rod}\t{clamp}\t\t\t\t1,1,1");
         }
-
 
         private void BtnC7_1_Click(object sender, EventArgs e)
         {
@@ -333,6 +455,12 @@ namespace Hansa
             var outLength = Convert.ToInt32(dt.Rows[0]["L"]) / 2 - Convert.ToInt32(dt.Rows[0]["h"]) / 2;
             // 计算吊杆长度
             var rodLength = EL1 - EL2 - E - F - H + outLength;
+            if (rodLength <= 50)
+            {
+                MessageBox.Show("空间不够，无法安装!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // 更新界面
             txtLug_C7_1.Text = lug;
             txtSpring_C7_1.Text = spring;
@@ -348,7 +476,7 @@ namespace Hansa
                 $"\t\t\t\t{E}\t{F}\t{H}\t1\t\t\t{lug}\t{spring}\t{rod}\t{clamp}\t\t\t1,1,1,1");
         }
 
-        private void BtnC8_Click(object sender, EventArgs e)
+        private void BtnC7_2Click(object sender, EventArgs e)
         {
             txtLug_C7_2.Clear();
             txtSpring_C7_2.Clear();
@@ -391,30 +519,129 @@ namespace Hansa
             txtRodLength_C7_2.Text = Convert.ToInt32(rodLength) + string.Empty;
         }
 
+        private void BtnC11_Click(object sender, EventArgs e)
+        {
+            var DN = cbxDN_C11.Text;
+            var spring = cbxSpring_C11.Text;
+            var EL1 = Convert.ToInt32(txtEL1_C11.Text);
+            var space = Convert.ToInt32(txtSpace_C11.Text);
+            var steelHeight = Convert.ToInt32(txtSteelHeight_C11.Text);
+
+            var sql = $"SELECT * FROM c11 WHERE spring='{spring}'";
+            var dt = SQLiteHelper.Read("Hansa.db", sql);
+            var springHeight = Convert.ToInt32(dt.Rows[0]["l"]); // 弹簧高度
+            var basePlate = Convert.ToInt32(dt.Rows[0]["a"]); // 弹簧直径
+
+            // 获取管夹长度
+            // 判断用哪个管夹表
+            string clampTable = string.Empty;
+            string clamp = string.Empty;
+            // 基准型
+            if (rioBaseType_C11.Checked && !rioBritishPipe_C11.Checked)
+            {
+                clampTable = "a5_1";
+                clamp = $"A5-1({DN})";
+
+            }
+            else if (rioBaseType_C11.Checked && rioBritishPipe_C11.Checked)
+            {
+                clampTable = "a5_2";
+                clamp = $"A5-2({DN})";
+            }
+            // 保温型
+            else if (rioInsualationType1_C11.Checked && !rioBritishPipe_C11.Checked)
+            {
+                clampTable = "a7_1";
+                clamp = $"A7-1({DN})";
+            }
+            else if (rioInsualationType1_C11.Checked && rioBritishPipe_C11.Checked)
+            {
+                clampTable = "a7_2";
+                clamp = $"A7-2({DN})";
+            }
+            // 隔热型
+            else if (rioInsualationType2_C11.Checked)
+            {
+                if (rioTempA_C11.Checked)
+                {
+                    clampTable = "da";
+                    clamp = $"DA-DN{DN}";
+                }
+                if (rioTempB_C11.Checked)
+                {
+                    clampTable = "db";
+                    clamp = $"DB-DN{DN}";
+                }
+                if (rioTempC_C11.Checked)
+                {
+                    clampTable = "dc";
+                    clamp = $"DC-DN{DN}";
+                }
+            }
+            // 指定管径
+            sql = $"SELECT * FROM {clampTable} WHERE clamp='{clamp}'";
+            dt = SQLiteHelper.Read("Hansa.db", sql);
+            // 管夹长度
+            var clampLength = Convert.ToInt32(dt.Rows[0]["e"]);
+            // 指定管夹长度
+            if (cbxClampLength1_C11.Checked)
+            {
+                clampLength = Convert.ToInt32(txtClampLength1_C11.Text);
+            }
+
+            var rodLength = EL1 + clampLength + space + steelHeight + springHeight + 60;
+            var EL2 = EL1 + rodLength + space + steelHeight;
+
+
+            // 计算吊杆长度
+            //var rodLength = EL1 - EL2 - E - F - H + outLength;
+            //if (rodLength <= 50)
+            //{
+            //    MessageBox.Show("空间不够，无法安装!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+
+            //}
+
+            txtSpringHeight_C11.Text = springHeight + string.Empty;
+            txtbasePlate_C11.Text = basePlate + string.Empty;
+            txtEL2_C11.Text = EL2 + string.Empty;
+            txtClampLength2_C11.Text = clampLength + string.Empty;
+            txtRodLength_C11.Text = rodLength + string.Empty;
+
+
+        }
+        #endregion
         private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
             var tab = sender as TabControl;
             switch (tab.SelectedIndex)
             {
                 case 0:
-                    AcceptButton = null;
+                    AcceptButton = btnD6;
+                    txtLoad_D6.Focus();
+                    txtLoad_D6.SelectAll();
                     break;
                 case 1:
+                    AcceptButton = btnD19;
+                    txtLoad_D19.Focus();
+                    txtLoad_D19.SelectAll();
+                    break;
+                case 2:
                     AcceptButton = BtnB1_1;
                     txtEL1_B1_1.Focus();
                     txtEL1_B1_1.SelectAll();
                     break;
-                case 2:
+                case 3:
                     AcceptButton = BtnB2_1;
                     txtEL1_B2_1.Focus();
                     txtEL1_B2_1.SelectAll();
                     break;
-                case 3:
+                case 4:
                     AcceptButton = BtnC7_1;
                     txtEL1_C7_1.Focus();
                     txtEL1_C7_1.SelectAll();
                     break;
-                case 4:
+                case 5:
                     AcceptButton = BtnC7_2;
                     txtEL1_C7_2.Focus();
                     txtEL1_C7_2.SelectAll();
@@ -464,14 +691,15 @@ namespace Hansa
             rioInsualationType1_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
             rioInsualationType2_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
         }
+    }
 
-        private void tabMain_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right && tabMain.SelectedTab == tabMain.TabPages[3])
-            {
-                //TODO
-            }
-        }
+    public class Bracket
+    {
+        public int Load; // kN
+        public int ArmLength; // mm
+        public int OD; // mm
+        public int Elevation;// mm
+        public bool EndWelding;
     }
 }
 
