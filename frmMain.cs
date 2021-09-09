@@ -434,11 +434,6 @@ namespace Hansa
             var dt = SQLiteHelper.Read("Hansa.db", sql);
             // 管夹长度
             var E = Convert.ToInt32(dt.Rows[0]["e"]);
-            // 指定管夹长度
-            if (cbxClampLength1_C7_1.Checked)
-            {
-                E = Convert.ToInt32(txtClampLength1_C7_1.Text);
-            }
             sql = $"SELECT * FROM c7_1 WHERE spring='{spring}'";
             dt = SQLiteHelper.Read("Hansa.db", sql);
             var rod = Convert.ToString(dt.Rows[0]["rod"]);
@@ -521,19 +516,24 @@ namespace Hansa
 
         private void BtnC11_Click(object sender, EventArgs e)
         {
-            var DN = cbxDN_C11.Text;
-            var spring = cbxSpring_C11.Text;
+            txtSpringHeight_C11.Text = string.Empty;
+            txtbasePlate_C11.Text = string.Empty;
+            txtEL2_C11.Text = string.Empty;
+            txtClampLength2_C11.Text = string.Empty;
+            txtRodLength_C11.Text = string.Empty;
+
             var EL1 = Convert.ToInt32(txtEL1_C11.Text);
+            var DN = cbxDN_C11.Text;
             var space = Convert.ToInt32(txtSpace_C11.Text);
             var steelHeight = Convert.ToInt32(txtSteelHeight_C11.Text);
+            var spring = cbxSpring_C11.Text;
 
             var sql = $"SELECT * FROM c11 WHERE spring='{spring}'";
             var dt = SQLiteHelper.Read("Hansa.db", sql);
             var springHeight = Convert.ToInt32(dt.Rows[0]["l"]); // 弹簧高度
-            var basePlate = Convert.ToInt32(dt.Rows[0]["a"]); // 弹簧直径
+            var basePlateSize = Convert.ToInt32(dt.Rows[0]["a"]); // 地板尺寸
 
             // 获取管夹长度
-            // 判断用哪个管夹表
             string clampTable = string.Empty;
             string clamp = string.Empty;
             // 基准型
@@ -583,32 +583,23 @@ namespace Hansa
             dt = SQLiteHelper.Read("Hansa.db", sql);
             // 管夹长度
             var clampLength = Convert.ToInt32(dt.Rows[0]["e"]);
-            // 指定管夹长度
-            if (cbxClampLength1_C11.Checked)
-            {
-                clampLength = Convert.ToInt32(txtClampLength1_C11.Text);
-            }
-
-            var rodLength = EL1 + clampLength + space + steelHeight + springHeight + 60;
-            var EL2 = EL1 + rodLength + space + steelHeight;
-
+            // 吊杆长度
+            var rodLength =   space + steelHeight + springHeight + 70;
+            var EL2 = EL1 + clampLength + space + steelHeight;
 
             // 计算吊杆长度
-            //var rodLength = EL1 - EL2 - E - F - H + outLength;
-            //if (rodLength <= 50)
-            //{
-            //    MessageBox.Show("空间不够，无法安装!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
+            if (rodLength <= 50)
+            {
+                MessageBox.Show("空间不够，无法安装!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
 
-            //}
+            }
 
             txtSpringHeight_C11.Text = springHeight + string.Empty;
-            txtbasePlate_C11.Text = basePlate + string.Empty;
+            txtbasePlate_C11.Text = basePlateSize + string.Empty;
             txtEL2_C11.Text = EL2 + string.Empty;
             txtClampLength2_C11.Text = clampLength + string.Empty;
             txtRodLength_C11.Text = rodLength + string.Empty;
-
-
         }
         #endregion
         private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
@@ -617,61 +608,51 @@ namespace Hansa
             switch (tab.SelectedIndex)
             {
                 case 0:
-                    AcceptButton = btnD6;
+                    AcceptButton = BTND6;
                     txtLoad_D6.Focus();
                     txtLoad_D6.SelectAll();
                     break;
                 case 1:
-                    AcceptButton = btnD19;
+                    AcceptButton = BTND19;
                     txtLoad_D19.Focus();
                     txtLoad_D19.SelectAll();
                     break;
                 case 2:
-                    AcceptButton = BtnB1_1;
+                    AcceptButton = BTNB1_1;
                     txtEL1_B1_1.Focus();
                     txtEL1_B1_1.SelectAll();
                     break;
                 case 3:
-                    AcceptButton = BtnB2_1;
+                    AcceptButton = BTNB2_1;
                     txtEL1_B2_1.Focus();
                     txtEL1_B2_1.SelectAll();
                     break;
                 case 4:
-                    AcceptButton = BtnC7_1;
+                    AcceptButton = BTNC7_1;
                     txtEL1_C7_1.Focus();
                     txtEL1_C7_1.SelectAll();
                     break;
                 case 5:
-                    AcceptButton = BtnC7_2;
+                    AcceptButton = BTNC7_2;
                     txtEL1_C7_2.Focus();
                     txtEL1_C7_2.SelectAll();
                     break;
+                case 6:
+                    AcceptButton = BTNC11;
+                    txtEL1_C11.Focus();
+                    txtEL1_C11.SelectAll();
+                    break;
             }
-        }
-
-        private void RioInsualationType2_B1_1_CheckedChanged(object sender, EventArgs e)
-        {
-            grpTempRange_B1_1.Enabled = rioInsualationType2_B1_1.Checked;
-        }
-
-        private void RioInsualationType2_B2_1_CheckedChanged(object sender, EventArgs e)
-        {
-            grpTempRange_B2_1.Enabled = rioInsualationType2_B2_1.Checked;
-        }
-
-        private void RioInsualationType2_C7_1_CheckedChanged(object sender, EventArgs e)
-        {
-            grpTempRange_C7_1.Enabled = rioInsualationType2_C7_1.Checked;
-        }
-
-        private void ChkRod_B1_1_CheckedChanged(object sender, EventArgs e)
-        {
-            cbxRod_B1_1.Enabled = chkRod_B1_1.Checked;
         }
 
         private void ChkCheckLoad_B1_1_CheckedChanged(object sender, EventArgs e)
         {
             txtCheckLoad_B1_1.Enabled = chkCheckLoad_B1_1.Checked;
+        }
+
+        private void ChkRod_B1_1_CheckedChanged(object sender, EventArgs e)
+        {
+            cbxRod_B1_1.Enabled = chkRod_B1_1.Checked;
         }
 
         private void ChkCheckLoad_B2_1_CheckedChanged(object sender, EventArgs e)
@@ -683,23 +664,12 @@ namespace Hansa
         {
             cbxRod_B2_1.Enabled = chkRod_B2_1.Checked;
         }
-
-        private void CbxClampLength1_C7_1_CheckedChanged(object sender, EventArgs e)
-        {
-            txtClampLength1_C7_1.Enabled = cbxClampLength1_C7_1.Checked;
-            rioBaseType_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
-            rioInsualationType1_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
-            rioInsualationType2_C7_1.Enabled = !cbxClampLength1_C7_1.Checked;
-        }
     }
 
-    public class Bracket
+    struct Bracket
     {
         public int Load; // kN
         public int ArmLength; // mm
-        public int OD; // mm
-        public int Elevation;// mm
-        public bool EndWelding;
     }
 }
 

@@ -46,12 +46,10 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label27 = new System.Windows.Forms.Label();
             this.cbxSpring_C7_2 = new System.Windows.Forms.ComboBox();
-            this.BtnC7_2 = new System.Windows.Forms.Button();
+            this.BTNC7_2 = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.pageC7_1 = new System.Windows.Forms.TabPage();
-            this.cbxClampLength1_C7_1 = new System.Windows.Forms.CheckBox();
-            this.txtClampLength1_C7_1 = new System.Windows.Forms.TextBox();
             this.txtLugLength_C7_1 = new System.Windows.Forms.TextBox();
             this.txtSpringLength_C7_1 = new System.Windows.Forms.TextBox();
             this.txtClampLength2_C7_1 = new System.Windows.Forms.TextBox();
@@ -78,7 +76,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.cbxDN_C7_1 = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.BtnC7_1 = new System.Windows.Forms.Button();
+            this.BTNC7_1 = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.pageB2_1 = new System.Windows.Forms.TabPage();
@@ -106,7 +104,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.cbxDN_B2_1 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.BtnB2_1 = new System.Windows.Forms.Button();
+            this.BTNB2_1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pageB1_1 = new System.Windows.Forms.TabPage();
@@ -133,7 +131,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.cbxDN_B1_1 = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.BtnB1_1 = new System.Windows.Forms.Button();
+            this.BTNB1_1 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.pageD6 = new System.Windows.Forms.TabPage();
@@ -145,7 +143,7 @@
             this.txtArmLength_D6 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnD6 = new System.Windows.Forms.Button();
+            this.BTND6 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageD19 = new System.Windows.Forms.TabPage();
@@ -157,11 +155,9 @@
             this.txtArmLength_D19 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnD19 = new System.Windows.Forms.Button();
+            this.BTND19 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pageC11 = new System.Windows.Forms.TabPage();
-            this.cbxClampLength1_C11 = new System.Windows.Forms.CheckBox();
-            this.txtClampLength1_C11 = new System.Windows.Forms.TextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.rioTempA_C11 = new System.Windows.Forms.RadioButton();
             this.rioTempB_C11 = new System.Windows.Forms.RadioButton();
@@ -187,7 +183,7 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxSpring_C11 = new System.Windows.Forms.ComboBox();
-            this.btnC11 = new System.Windows.Forms.Button();
+            this.BTNC11 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -251,7 +247,7 @@
             this.pageC7_2.Controls.Add(this.pictureBox6);
             this.pageC7_2.Controls.Add(this.label27);
             this.pageC7_2.Controls.Add(this.cbxSpring_C7_2);
-            this.pageC7_2.Controls.Add(this.BtnC7_2);
+            this.pageC7_2.Controls.Add(this.BTNC7_2);
             this.pageC7_2.Controls.Add(this.label29);
             this.pageC7_2.Controls.Add(this.label30);
             this.pageC7_2.Location = new System.Drawing.Point(4, 22);
@@ -535,15 +531,15 @@
             this.cbxSpring_C7_2.Size = new System.Drawing.Size(92, 20);
             this.cbxSpring_C7_2.TabIndex = 3;
             // 
-            // BtnC7_2
+            // BTNC7_2
             // 
-            this.BtnC7_2.Location = new System.Drawing.Point(524, 321);
-            this.BtnC7_2.Name = "BtnC7_2";
-            this.BtnC7_2.Size = new System.Drawing.Size(81, 23);
-            this.BtnC7_2.TabIndex = 49;
-            this.BtnC7_2.Text = "选型计算";
-            this.BtnC7_2.UseVisualStyleBackColor = true;
-            this.BtnC7_2.Click += new System.EventHandler(this.BtnC7_2Click);
+            this.BTNC7_2.Location = new System.Drawing.Point(524, 321);
+            this.BTNC7_2.Name = "BTNC7_2";
+            this.BTNC7_2.Size = new System.Drawing.Size(81, 23);
+            this.BTNC7_2.TabIndex = 49;
+            this.BTNC7_2.Text = "选型计算";
+            this.BTNC7_2.UseVisualStyleBackColor = true;
+            this.BTNC7_2.Click += new System.EventHandler(this.BtnC7_2Click);
             // 
             // label29
             // 
@@ -565,8 +561,6 @@
             // 
             // pageC7_1
             // 
-            this.pageC7_1.Controls.Add(this.cbxClampLength1_C7_1);
-            this.pageC7_1.Controls.Add(this.txtClampLength1_C7_1);
             this.pageC7_1.Controls.Add(this.txtLugLength_C7_1);
             this.pageC7_1.Controls.Add(this.txtSpringLength_C7_1);
             this.pageC7_1.Controls.Add(this.txtClampLength2_C7_1);
@@ -585,7 +579,7 @@
             this.pageC7_1.Controls.Add(this.pictureBox5);
             this.pageC7_1.Controls.Add(this.cbxDN_C7_1);
             this.pageC7_1.Controls.Add(this.label23);
-            this.pageC7_1.Controls.Add(this.BtnC7_1);
+            this.pageC7_1.Controls.Add(this.BTNC7_1);
             this.pageC7_1.Controls.Add(this.label24);
             this.pageC7_1.Controls.Add(this.label25);
             this.pageC7_1.Location = new System.Drawing.Point(4, 22);
@@ -595,28 +589,6 @@
             this.pageC7_1.TabIndex = 5;
             this.pageC7_1.Text = "单耳弹簧吊";
             this.pageC7_1.UseVisualStyleBackColor = true;
-            // 
-            // cbxClampLength1_C7_1
-            // 
-            this.cbxClampLength1_C7_1.AutoSize = true;
-            this.cbxClampLength1_C7_1.Location = new System.Drawing.Point(262, 150);
-            this.cbxClampLength1_C7_1.Name = "cbxClampLength1_C7_1";
-            this.cbxClampLength1_C7_1.Size = new System.Drawing.Size(96, 16);
-            this.cbxClampLength1_C7_1.TabIndex = 52;
-            this.cbxClampLength1_C7_1.TabStop = false;
-            this.cbxClampLength1_C7_1.Text = "管夹高度(mm)";
-            this.cbxClampLength1_C7_1.UseVisualStyleBackColor = true;
-            this.cbxClampLength1_C7_1.CheckedChanged += new System.EventHandler(this.CbxClampLength1_C7_1_CheckedChanged);
-            // 
-            // txtClampLength1_C7_1
-            // 
-            this.txtClampLength1_C7_1.Enabled = false;
-            this.txtClampLength1_C7_1.ForeColor = System.Drawing.Color.Blue;
-            this.txtClampLength1_C7_1.Location = new System.Drawing.Point(370, 148);
-            this.txtClampLength1_C7_1.Name = "txtClampLength1_C7_1";
-            this.txtClampLength1_C7_1.Size = new System.Drawing.Size(92, 21);
-            this.txtClampLength1_C7_1.TabIndex = 4;
-            this.txtClampLength1_C7_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtLugLength_C7_1
             // 
@@ -737,13 +709,13 @@
             this.grpTempRange_C7_1.Controls.Add(this.rioTempA_C7_1);
             this.grpTempRange_C7_1.Controls.Add(this.rioTempB_C7_1);
             this.grpTempRange_C7_1.Controls.Add(this.rioTempC_C7_1);
-            this.grpTempRange_C7_1.Enabled = false;
-            this.grpTempRange_C7_1.Location = new System.Drawing.Point(262, 237);
+            this.grpTempRange_C7_1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.grpTempRange_C7_1.Location = new System.Drawing.Point(262, 201);
             this.grpTempRange_C7_1.Name = "grpTempRange_C7_1";
             this.grpTempRange_C7_1.Size = new System.Drawing.Size(200, 50);
             this.grpTempRange_C7_1.TabIndex = 45;
             this.grpTempRange_C7_1.TabStop = false;
-            this.grpTempRange_C7_1.Text = "温度范围";
+            this.grpTempRange_C7_1.Text = "适用于隔热型";
             // 
             // rioTempA_C7_1
             // 
@@ -935,7 +907,8 @@
             // 
             this.groupBox5.Controls.Add(this.rioBritishPipe_C7_1);
             this.groupBox5.Controls.Add(this.rioMetricPipe_C7_1);
-            this.groupBox5.Location = new System.Drawing.Point(262, 293);
+            this.groupBox5.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.groupBox5.Location = new System.Drawing.Point(262, 257);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 50);
             this.groupBox5.TabIndex = 40;
@@ -969,7 +942,7 @@
             this.groupBox6.Controls.Add(this.rioInsualationType2_C7_1);
             this.groupBox6.Controls.Add(this.rioInsualationType1_C7_1);
             this.groupBox6.Controls.Add(this.rioBaseType_C7_1);
-            this.groupBox6.Location = new System.Drawing.Point(262, 180);
+            this.groupBox6.Location = new System.Drawing.Point(262, 144);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(200, 50);
             this.groupBox6.TabIndex = 39;
@@ -985,7 +958,6 @@
             this.rioInsualationType2_C7_1.TabIndex = 2;
             this.rioInsualationType2_C7_1.Text = "隔热型";
             this.rioInsualationType2_C7_1.UseVisualStyleBackColor = true;
-            this.rioInsualationType2_C7_1.CheckedChanged += new System.EventHandler(this.RioInsualationType2_C7_1_CheckedChanged);
             // 
             // rioInsualationType1_C7_1
             // 
@@ -1066,15 +1038,15 @@
             this.label23.TabIndex = 33;
             this.label23.Text = "公称直径";
             // 
-            // BtnC7_1
+            // BTNC7_1
             // 
-            this.BtnC7_1.Location = new System.Drawing.Point(526, 320);
-            this.BtnC7_1.Name = "BtnC7_1";
-            this.BtnC7_1.Size = new System.Drawing.Size(81, 23);
-            this.BtnC7_1.TabIndex = 5;
-            this.BtnC7_1.Text = "选型计算";
-            this.BtnC7_1.UseVisualStyleBackColor = true;
-            this.BtnC7_1.Click += new System.EventHandler(this.BtnC7_1_Click);
+            this.BTNC7_1.Location = new System.Drawing.Point(526, 320);
+            this.BTNC7_1.Name = "BTNC7_1";
+            this.BTNC7_1.Size = new System.Drawing.Size(81, 23);
+            this.BTNC7_1.TabIndex = 5;
+            this.BTNC7_1.Text = "选型计算";
+            this.BTNC7_1.UseVisualStyleBackColor = true;
+            this.BTNC7_1.Click += new System.EventHandler(this.BtnC7_1_Click);
             // 
             // label24
             // 
@@ -1112,7 +1084,7 @@
             this.pageB2_1.Controls.Add(this.pictureBox3);
             this.pageB2_1.Controls.Add(this.cbxDN_B2_1);
             this.pageB2_1.Controls.Add(this.label12);
-            this.pageB2_1.Controls.Add(this.BtnB2_1);
+            this.pageB2_1.Controls.Add(this.BTNB2_1);
             this.pageB2_1.Controls.Add(this.label10);
             this.pageB2_1.Controls.Add(this.label9);
             this.pageB2_1.Location = new System.Drawing.Point(4, 22);
@@ -1128,13 +1100,13 @@
             this.grpTempRange_B2_1.Controls.Add(this.rioTempA_B2_1);
             this.grpTempRange_B2_1.Controls.Add(this.rioTempB_B2_1);
             this.grpTempRange_B2_1.Controls.Add(this.rioTempC_B2_1);
-            this.grpTempRange_B2_1.Enabled = false;
+            this.grpTempRange_B2_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.grpTempRange_B2_1.Location = new System.Drawing.Point(262, 233);
             this.grpTempRange_B2_1.Name = "grpTempRange_B2_1";
             this.grpTempRange_B2_1.Size = new System.Drawing.Size(200, 50);
             this.grpTempRange_B2_1.TabIndex = 20;
             this.grpTempRange_B2_1.TabStop = false;
-            this.grpTempRange_B2_1.Text = "温度范围";
+            this.grpTempRange_B2_1.Text = "适用于隔热型";
             // 
             // rioTempA_B2_1
             // 
@@ -1171,6 +1143,7 @@
             // cbxRod_B2_1
             // 
             this.cbxRod_B2_1.Enabled = false;
+            this.cbxRod_B2_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.cbxRod_B2_1.FormattingEnabled = true;
             this.cbxRod_B2_1.Items.AddRange(new object[] {
             "A16(10)",
@@ -1187,6 +1160,7 @@
             // chkRod_B2_1
             // 
             this.chkRod_B2_1.AutoSize = true;
+            this.chkRod_B2_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.chkRod_B2_1.Location = new System.Drawing.Point(262, 109);
             this.chkRod_B2_1.Name = "chkRod_B2_1";
             this.chkRod_B2_1.Size = new System.Drawing.Size(72, 16);
@@ -1198,6 +1172,7 @@
             // chkCheckLoad_B2_1
             // 
             this.chkCheckLoad_B2_1.AutoSize = true;
+            this.chkCheckLoad_B2_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.chkCheckLoad_B2_1.Location = new System.Drawing.Point(262, 144);
             this.chkCheckLoad_B2_1.Name = "chkCheckLoad_B2_1";
             this.chkCheckLoad_B2_1.Size = new System.Drawing.Size(90, 16);
@@ -1210,6 +1185,7 @@
             // 
             this.groupBox2.Controls.Add(this.rioBritishPipe_B2_1);
             this.groupBox2.Controls.Add(this.rioMetricPipe_B2_1);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.groupBox2.Location = new System.Drawing.Point(262, 294);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 50);
@@ -1260,7 +1236,6 @@
             this.rioInsualationType2_B2_1.TabIndex = 2;
             this.rioInsualationType2_B2_1.Text = "隔热型";
             this.rioInsualationType2_B2_1.UseVisualStyleBackColor = true;
-            this.rioInsualationType2_B2_1.CheckedChanged += new System.EventHandler(this.RioInsualationType2_B2_1_CheckedChanged);
             // 
             // rioInsualationType1_B2_1
             // 
@@ -1335,6 +1310,7 @@
             // txtCheckLoad_B2_1
             // 
             this.txtCheckLoad_B2_1.Enabled = false;
+            this.txtCheckLoad_B2_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtCheckLoad_B2_1.Location = new System.Drawing.Point(370, 142);
             this.txtCheckLoad_B2_1.Name = "txtCheckLoad_B2_1";
             this.txtCheckLoad_B2_1.Size = new System.Drawing.Size(92, 21);
@@ -1412,15 +1388,15 @@
             this.label12.TabIndex = 10;
             this.label12.Text = "公称直径";
             // 
-            // BtnB2_1
+            // BTNB2_1
             // 
-            this.BtnB2_1.Location = new System.Drawing.Point(524, 321);
-            this.BtnB2_1.Name = "BtnB2_1";
-            this.BtnB2_1.Size = new System.Drawing.Size(81, 23);
-            this.BtnB2_1.TabIndex = 6;
-            this.BtnB2_1.Text = "选型计算";
-            this.BtnB2_1.UseVisualStyleBackColor = true;
-            this.BtnB2_1.Click += new System.EventHandler(this.BtnB2_1_Click);
+            this.BTNB2_1.Location = new System.Drawing.Point(524, 321);
+            this.BTNB2_1.Name = "BTNB2_1";
+            this.BTNB2_1.Size = new System.Drawing.Size(81, 23);
+            this.BTNB2_1.TabIndex = 6;
+            this.BTNB2_1.Text = "选型计算";
+            this.BTNB2_1.UseVisualStyleBackColor = true;
+            this.BTNB2_1.Click += new System.EventHandler(this.BtnB2_1_Click);
             // 
             // label10
             // 
@@ -1457,7 +1433,7 @@
             this.pageB1_1.Controls.Add(this.pictureBox4);
             this.pageB1_1.Controls.Add(this.cbxDN_B1_1);
             this.pageB1_1.Controls.Add(this.label20);
-            this.pageB1_1.Controls.Add(this.BtnB1_1);
+            this.pageB1_1.Controls.Add(this.BTNB1_1);
             this.pageB1_1.Controls.Add(this.label21);
             this.pageB1_1.Controls.Add(this.label22);
             this.pageB1_1.Location = new System.Drawing.Point(4, 22);
@@ -1474,6 +1450,7 @@
             this.grpTempRange_B1_1.Controls.Add(this.rioTempB_B1_1);
             this.grpTempRange_B1_1.Controls.Add(this.rioTempC_B1_1);
             this.grpTempRange_B1_1.Enabled = false;
+            this.grpTempRange_B1_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.grpTempRange_B1_1.Location = new System.Drawing.Point(262, 227);
             this.grpTempRange_B1_1.Name = "grpTempRange_B1_1";
             this.grpTempRange_B1_1.Size = new System.Drawing.Size(200, 50);
@@ -1520,6 +1497,7 @@
             // cbxRod_B1_1
             // 
             this.cbxRod_B1_1.Enabled = false;
+            this.cbxRod_B1_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.cbxRod_B1_1.FormattingEnabled = true;
             this.cbxRod_B1_1.Items.AddRange(new object[] {
             "A16(10)",
@@ -1536,6 +1514,7 @@
             // chkRod_B1_1
             // 
             this.chkRod_B1_1.AutoSize = true;
+            this.chkRod_B1_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.chkRod_B1_1.Location = new System.Drawing.Point(262, 103);
             this.chkRod_B1_1.Name = "chkRod_B1_1";
             this.chkRod_B1_1.Size = new System.Drawing.Size(72, 16);
@@ -1547,6 +1526,7 @@
             // chkCheckLoad_B1_1
             // 
             this.chkCheckLoad_B1_1.AutoSize = true;
+            this.chkCheckLoad_B1_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.chkCheckLoad_B1_1.Location = new System.Drawing.Point(262, 136);
             this.chkCheckLoad_B1_1.Name = "chkCheckLoad_B1_1";
             this.chkCheckLoad_B1_1.Size = new System.Drawing.Size(90, 16);
@@ -1559,6 +1539,7 @@
             // 
             this.groupBox3.Controls.Add(this.rioBritishPipe_B1_1);
             this.groupBox3.Controls.Add(this.rioMetricPipe_B1_1);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.groupBox3.Location = new System.Drawing.Point(262, 289);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 50);
@@ -1609,7 +1590,6 @@
             this.rioInsualationType2_B1_1.TabIndex = 2;
             this.rioInsualationType2_B1_1.Text = "隔热型";
             this.rioInsualationType2_B1_1.UseVisualStyleBackColor = true;
-            this.rioInsualationType2_B1_1.CheckedChanged += new System.EventHandler(this.RioInsualationType2_B1_1_CheckedChanged);
             // 
             // rioInsualationType1_B1_1
             // 
@@ -1672,6 +1652,7 @@
             // txtCheckLoad_B1_1
             // 
             this.txtCheckLoad_B1_1.Enabled = false;
+            this.txtCheckLoad_B1_1.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtCheckLoad_B1_1.Location = new System.Drawing.Point(370, 134);
             this.txtCheckLoad_B1_1.Name = "txtCheckLoad_B1_1";
             this.txtCheckLoad_B1_1.Size = new System.Drawing.Size(92, 21);
@@ -1750,15 +1731,15 @@
             this.label20.TabIndex = 10;
             this.label20.Text = "公称直径";
             // 
-            // BtnB1_1
+            // BTNB1_1
             // 
-            this.BtnB1_1.Location = new System.Drawing.Point(526, 316);
-            this.BtnB1_1.Name = "BtnB1_1";
-            this.BtnB1_1.Size = new System.Drawing.Size(81, 23);
-            this.BtnB1_1.TabIndex = 6;
-            this.BtnB1_1.Text = "选型计算";
-            this.BtnB1_1.UseVisualStyleBackColor = true;
-            this.BtnB1_1.Click += new System.EventHandler(this.BtnB1_1_Click);
+            this.BTNB1_1.Location = new System.Drawing.Point(526, 316);
+            this.BTNB1_1.Name = "BTNB1_1";
+            this.BTNB1_1.Size = new System.Drawing.Size(81, 23);
+            this.BTNB1_1.TabIndex = 6;
+            this.BTNB1_1.Text = "选型计算";
+            this.BTNB1_1.UseVisualStyleBackColor = true;
+            this.BTNB1_1.Click += new System.EventHandler(this.BtnB1_1_Click);
             // 
             // label21
             // 
@@ -1786,7 +1767,7 @@
             this.pageD6.Controls.Add(this.txtArmLength_D6);
             this.pageD6.Controls.Add(this.label16);
             this.pageD6.Controls.Add(this.label7);
-            this.pageD6.Controls.Add(this.btnD6);
+            this.pageD6.Controls.Add(this.BTND6);
             this.pageD6.Controls.Add(this.pictureBox1);
             this.pageD6.Location = new System.Drawing.Point(4, 22);
             this.pageD6.Name = "pageD6";
@@ -1879,15 +1860,15 @@
             this.label7.TabIndex = 54;
             this.label7.Text = "距离(mm)";
             // 
-            // btnD6
+            // BTND6
             // 
-            this.btnD6.Location = new System.Drawing.Point(343, 317);
-            this.btnD6.Name = "btnD6";
-            this.btnD6.Size = new System.Drawing.Size(262, 23);
-            this.btnD6.TabIndex = 11;
-            this.btnD6.Text = "选型计算";
-            this.btnD6.UseVisualStyleBackColor = true;
-            this.btnD6.Click += new System.EventHandler(this.BtnD6_Click);
+            this.BTND6.Location = new System.Drawing.Point(343, 317);
+            this.BTND6.Name = "BTND6";
+            this.BTND6.Size = new System.Drawing.Size(262, 23);
+            this.BTND6.TabIndex = 11;
+            this.BTND6.Text = "选型计算";
+            this.BTND6.UseVisualStyleBackColor = true;
+            this.BTND6.Click += new System.EventHandler(this.BtnD6_Click);
             // 
             // pictureBox1
             // 
@@ -1926,7 +1907,7 @@
             this.pageD19.Controls.Add(this.txtArmLength_D19);
             this.pageD19.Controls.Add(this.label3);
             this.pageD19.Controls.Add(this.label14);
-            this.pageD19.Controls.Add(this.btnD19);
+            this.pageD19.Controls.Add(this.BTND19);
             this.pageD19.Controls.Add(this.pictureBox2);
             this.pageD19.Location = new System.Drawing.Point(4, 22);
             this.pageD19.Name = "pageD19";
@@ -2018,15 +1999,15 @@
             this.label14.TabIndex = 74;
             this.label14.Text = "距离(mm)";
             // 
-            // btnD19
+            // BTND19
             // 
-            this.btnD19.Location = new System.Drawing.Point(344, 315);
-            this.btnD19.Name = "btnD19";
-            this.btnD19.Size = new System.Drawing.Size(262, 23);
-            this.btnD19.TabIndex = 72;
-            this.btnD19.Text = "选型计算";
-            this.btnD19.UseVisualStyleBackColor = true;
-            this.btnD19.Click += new System.EventHandler(this.BtnD19_Click);
+            this.BTND19.Location = new System.Drawing.Point(344, 315);
+            this.BTND19.Name = "BTND19";
+            this.BTND19.Size = new System.Drawing.Size(262, 23);
+            this.BTND19.TabIndex = 72;
+            this.BTND19.Text = "选型计算";
+            this.BTND19.UseVisualStyleBackColor = true;
+            this.BTND19.Click += new System.EventHandler(this.BtnD19_Click);
             // 
             // pictureBox2
             // 
@@ -2041,8 +2022,6 @@
             // 
             // pageC11
             // 
-            this.pageC11.Controls.Add(this.cbxClampLength1_C11);
-            this.pageC11.Controls.Add(this.txtClampLength1_C11);
             this.pageC11.Controls.Add(this.groupBox9);
             this.pageC11.Controls.Add(this.groupBox10);
             this.pageC11.Controls.Add(this.groupBox11);
@@ -2060,7 +2039,7 @@
             this.pageC11.Controls.Add(this.pictureBox7);
             this.pageC11.Controls.Add(this.label2);
             this.pageC11.Controls.Add(this.cbxSpring_C11);
-            this.pageC11.Controls.Add(this.btnC11);
+            this.pageC11.Controls.Add(this.BTNC11);
             this.pageC11.Controls.Add(this.label4);
             this.pageC11.Controls.Add(this.label5);
             this.pageC11.Location = new System.Drawing.Point(4, 22);
@@ -2070,39 +2049,18 @@
             this.pageC11.Text = "门型座簧";
             this.pageC11.UseVisualStyleBackColor = true;
             // 
-            // cbxClampLength1_C11
-            // 
-            this.cbxClampLength1_C11.AutoSize = true;
-            this.cbxClampLength1_C11.Location = new System.Drawing.Point(351, 139);
-            this.cbxClampLength1_C11.Name = "cbxClampLength1_C11";
-            this.cbxClampLength1_C11.Size = new System.Drawing.Size(96, 16);
-            this.cbxClampLength1_C11.TabIndex = 95;
-            this.cbxClampLength1_C11.TabStop = false;
-            this.cbxClampLength1_C11.Text = "管夹高度(mm)";
-            this.cbxClampLength1_C11.UseVisualStyleBackColor = true;
-            // 
-            // txtClampLength1_C11
-            // 
-            this.txtClampLength1_C11.Enabled = false;
-            this.txtClampLength1_C11.ForeColor = System.Drawing.Color.Blue;
-            this.txtClampLength1_C11.Location = new System.Drawing.Point(453, 137);
-            this.txtClampLength1_C11.Name = "txtClampLength1_C11";
-            this.txtClampLength1_C11.Size = new System.Drawing.Size(92, 21);
-            this.txtClampLength1_C11.TabIndex = 5;
-            this.txtClampLength1_C11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.rioTempA_C11);
             this.groupBox9.Controls.Add(this.rioTempB_C11);
             this.groupBox9.Controls.Add(this.rioTempC_C11);
-            this.groupBox9.Enabled = false;
+            this.groupBox9.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.groupBox9.Location = new System.Drawing.Point(345, 216);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(200, 50);
             this.groupBox9.TabIndex = 94;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "温度范围";
+            this.groupBox9.Text = "适用于隔热型";
             // 
             // rioTempA_C11
             // 
@@ -2140,7 +2098,8 @@
             // 
             this.groupBox10.Controls.Add(this.rioBritishPipe_C11);
             this.groupBox10.Controls.Add(this.rioMetricPipe_C11);
-            this.groupBox10.Location = new System.Drawing.Point(345, 272);
+            this.groupBox10.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.groupBox10.Location = new System.Drawing.Point(345, 274);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(200, 50);
             this.groupBox10.TabIndex = 93;
@@ -2174,7 +2133,7 @@
             this.groupBox11.Controls.Add(this.rioInsualationType2_C11);
             this.groupBox11.Controls.Add(this.rioInsualationType1_C11);
             this.groupBox11.Controls.Add(this.rioBaseType_C11);
-            this.groupBox11.Location = new System.Drawing.Point(345, 162);
+            this.groupBox11.Location = new System.Drawing.Point(345, 160);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(200, 50);
             this.groupBox11.TabIndex = 92;
@@ -2245,7 +2204,7 @@
             "700",
             "750",
             "800"});
-            this.cbxDN_C11.Location = new System.Drawing.Point(453, 35);
+            this.cbxDN_C11.Location = new System.Drawing.Point(453, 40);
             this.cbxDN_C11.Name = "cbxDN_C11";
             this.cbxDN_C11.Size = new System.Drawing.Size(92, 20);
             this.cbxDN_C11.TabIndex = 1;
@@ -2253,7 +2212,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(351, 39);
+            this.label6.Location = new System.Drawing.Point(351, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 90;
@@ -2274,7 +2233,7 @@
             // txtSteelHeight_C11
             // 
             this.txtSteelHeight_C11.ForeColor = System.Drawing.Color.Blue;
-            this.txtSteelHeight_C11.Location = new System.Drawing.Point(453, 85);
+            this.txtSteelHeight_C11.Location = new System.Drawing.Point(453, 100);
             this.txtSteelHeight_C11.Name = "txtSteelHeight_C11";
             this.txtSteelHeight_C11.Size = new System.Drawing.Size(92, 21);
             this.txtSteelHeight_C11.TabIndex = 3;
@@ -2283,7 +2242,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(351, 89);
+            this.label1.Location = new System.Drawing.Point(351, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 87;
@@ -2340,7 +2299,7 @@
             // txtSpace_C11
             // 
             this.txtSpace_C11.ForeColor = System.Drawing.Color.Blue;
-            this.txtSpace_C11.Location = new System.Drawing.Point(453, 60);
+            this.txtSpace_C11.Location = new System.Drawing.Point(453, 70);
             this.txtSpace_C11.Name = "txtSpace_C11";
             this.txtSpace_C11.Size = new System.Drawing.Size(92, 21);
             this.txtSpace_C11.TabIndex = 2;
@@ -2369,7 +2328,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(351, 114);
+            this.label2.Location = new System.Drawing.Point(351, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 78;
@@ -2482,25 +2441,25 @@
             "TD120D22",
             "TD120D23",
             "TD120D24"});
-            this.cbxSpring_C11.Location = new System.Drawing.Point(453, 110);
+            this.cbxSpring_C11.Location = new System.Drawing.Point(453, 130);
             this.cbxSpring_C11.Name = "cbxSpring_C11";
             this.cbxSpring_C11.Size = new System.Drawing.Size(92, 20);
             this.cbxSpring_C11.TabIndex = 4;
             // 
-            // btnC11
+            // BTNC11
             // 
-            this.btnC11.Location = new System.Drawing.Point(528, 326);
-            this.btnC11.Name = "btnC11";
-            this.btnC11.Size = new System.Drawing.Size(81, 23);
-            this.btnC11.TabIndex = 72;
-            this.btnC11.Text = "选型计算";
-            this.btnC11.UseVisualStyleBackColor = true;
-            this.btnC11.Click += new System.EventHandler(this.BtnC11_Click);
+            this.BTNC11.Location = new System.Drawing.Point(530, 328);
+            this.BTNC11.Name = "BTNC11";
+            this.BTNC11.Size = new System.Drawing.Size(81, 23);
+            this.BTNC11.TabIndex = 72;
+            this.BTNC11.Text = "选型计算";
+            this.BTNC11.UseVisualStyleBackColor = true;
+            this.BTNC11.Click += new System.EventHandler(this.BtnC11_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(351, 64);
+            this.label4.Location = new System.Drawing.Point(351, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 74;
@@ -2517,7 +2476,7 @@
             // 
             // FrmMain
             // 
-            this.AcceptButton = this.btnD6;
+            this.AcceptButton = this.BTND6;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
@@ -2597,8 +2556,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TabPage pageC7_1;
-        private System.Windows.Forms.CheckBox cbxClampLength1_C7_1;
-        private System.Windows.Forms.TextBox txtClampLength1_C7_1;
         private System.Windows.Forms.TextBox txtLugLength_C7_1;
         private System.Windows.Forms.TextBox txtSpringLength_C7_1;
         private System.Windows.Forms.TextBox txtClampLength2_C7_1;
@@ -2625,7 +2582,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.ComboBox cbxDN_C7_1;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button BtnC7_1;
+        private System.Windows.Forms.Button BTNC7_1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TabPage pageB2_1;
@@ -2653,7 +2610,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.ComboBox cbxDN_B2_1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button BtnB2_1;
+        private System.Windows.Forms.Button BTNB2_1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage pageB1_1;
@@ -2680,13 +2637,13 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.ComboBox cbxDN_B1_1;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button BtnB1_1;
+        private System.Windows.Forms.Button BTNB1_1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TabPage pageD6;
         private System.Windows.Forms.TextBox txtArmLength_D6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnD6;
+        private System.Windows.Forms.Button BTND6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tabMain;
         private System.Windows.Forms.TabPage pageD19;
@@ -2705,7 +2662,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ComboBox cbxSpring_C7_2;
-        private System.Windows.Forms.Button BtnC7_2;
+        private System.Windows.Forms.Button BTNC7_2;
         private System.Windows.Forms.ListView lstD19;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.RadioButton rioEndWelding_D19;
@@ -2714,7 +2671,7 @@
         private System.Windows.Forms.TextBox txtArmLength_D19;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnD19;
+        private System.Windows.Forms.Button BTND19;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TabPage pageC11;
         private System.Windows.Forms.TextBox txtRodLength_C11;
@@ -2724,7 +2681,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxSpring_C11;
-        private System.Windows.Forms.Button btnC11;
+        private System.Windows.Forms.Button BTNC11;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtEL2_C11;
@@ -2734,8 +2691,6 @@
         private System.Windows.Forms.TextBox txtbasePlate_C11;
         private System.Windows.Forms.ComboBox cbxDN_C11;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox cbxClampLength1_C11;
-        private System.Windows.Forms.TextBox txtClampLength1_C11;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.RadioButton rioTempA_C11;
         private System.Windows.Forms.RadioButton rioTempB_C11;
