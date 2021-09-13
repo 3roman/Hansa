@@ -677,7 +677,7 @@ namespace Hansa
             var dt = SQLiteHelper.Read("Hansa.db", sql);
             txtSpringHeight.Text = dt.Rows[0]["height"] + string.Empty;
             txtDiameter.Text = dt.Rows[0]["diameter"] + string.Empty;
-
+            txtPlateSize.Text = dt.Rows[0]["size"] + string.Empty;
         }
     }
 

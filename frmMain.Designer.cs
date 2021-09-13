@@ -184,13 +184,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pageMisc = new System.Windows.Forms.TabPage();
-            this.chkTopMost = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cbxSpringModel = new System.Windows.Forms.ComboBox();
-            this.txtSpringHeight = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDiameter = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSpringHeight = new System.Windows.Forms.TextBox();
+            this.cbxSpringModel = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.chkTopMost = new System.Windows.Forms.CheckBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtPlateSize = new System.Windows.Forms.TextBox();
             this.pageC7_2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pageC7_1.SuspendLayout();
@@ -2467,6 +2469,8 @@
             // 
             // pageMisc
             // 
+            this.pageMisc.Controls.Add(this.label15);
+            this.pageMisc.Controls.Add(this.txtPlateSize);
             this.pageMisc.Controls.Add(this.label13);
             this.pageMisc.Controls.Add(this.txtDiameter);
             this.pageMisc.Controls.Add(this.label11);
@@ -2481,27 +2485,37 @@
             this.pageMisc.Text = "杂项";
             this.pageMisc.UseVisualStyleBackColor = true;
             // 
-            // chkTopMost
+            // label13
             // 
-            this.chkTopMost.AutoSize = true;
-            this.chkTopMost.Checked = true;
-            this.chkTopMost.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkTopMost.Location = new System.Drawing.Point(8, 18);
-            this.chkTopMost.Name = "chkTopMost";
-            this.chkTopMost.Size = new System.Drawing.Size(72, 16);
-            this.chkTopMost.TabIndex = 1;
-            this.chkTopMost.Text = "窗口置顶";
-            this.chkTopMost.UseVisualStyleBackColor = true;
-            this.chkTopMost.CheckedChanged += new System.EventHandler(this.chkTopMost_CheckedChanged);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(436, 94);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "筒体直径";
             // 
-            // label8
+            // txtDiameter
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(436, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "弹簧型号";
+            this.txtDiameter.Location = new System.Drawing.Point(495, 90);
+            this.txtDiameter.Name = "txtDiameter";
+            this.txtDiameter.Size = new System.Drawing.Size(100, 21);
+            this.txtDiameter.TabIndex = 6;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(436, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "弹簧高度";
+            // 
+            // txtSpringHeight
+            // 
+            this.txtSpringHeight.Location = new System.Drawing.Point(495, 54);
+            this.txtSpringHeight.Name = "txtSpringHeight";
+            this.txtSpringHeight.Size = new System.Drawing.Size(100, 21);
+            this.txtSpringHeight.TabIndex = 4;
             // 
             // cbxSpringModel
             // 
@@ -2614,37 +2628,43 @@
             this.cbxSpringModel.TabIndex = 3;
             this.cbxSpringModel.SelectedIndexChanged += new System.EventHandler(this.cbxSpringModel_SelectedIndexChanged);
             // 
-            // txtSpringHeight
+            // label8
             // 
-            this.txtSpringHeight.Location = new System.Drawing.Point(495, 54);
-            this.txtSpringHeight.Name = "txtSpringHeight";
-            this.txtSpringHeight.Size = new System.Drawing.Size(100, 21);
-            this.txtSpringHeight.TabIndex = 4;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(436, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "弹簧型号";
             // 
-            // label11
+            // chkTopMost
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(436, 58);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "弹簧高度";
+            this.chkTopMost.AutoSize = true;
+            this.chkTopMost.Checked = true;
+            this.chkTopMost.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTopMost.Location = new System.Drawing.Point(8, 18);
+            this.chkTopMost.Name = "chkTopMost";
+            this.chkTopMost.Size = new System.Drawing.Size(72, 16);
+            this.chkTopMost.TabIndex = 1;
+            this.chkTopMost.Text = "窗口置顶";
+            this.chkTopMost.UseVisualStyleBackColor = true;
+            this.chkTopMost.CheckedChanged += new System.EventHandler(this.chkTopMost_CheckedChanged);
             // 
-            // label13
+            // label15
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(436, 94);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 12);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "筒体直径";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(436, 131);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 12);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "底板尺寸";
             // 
-            // txtDiameter
+            // txtPlateSize
             // 
-            this.txtDiameter.Location = new System.Drawing.Point(495, 90);
-            this.txtDiameter.Name = "txtDiameter";
-            this.txtDiameter.Size = new System.Drawing.Size(100, 21);
-            this.txtDiameter.TabIndex = 6;
+            this.txtPlateSize.Location = new System.Drawing.Point(495, 127);
+            this.txtPlateSize.Name = "txtPlateSize";
+            this.txtPlateSize.Size = new System.Drawing.Size(100, 21);
+            this.txtPlateSize.TabIndex = 8;
             // 
             // FrmMain
             // 
@@ -2881,6 +2901,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtDiameter;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtPlateSize;
     }
 }
 
