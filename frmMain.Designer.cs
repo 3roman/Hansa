@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.mnuC7_1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pageC7_2 = new System.Windows.Forms.TabPage();
             this.txtSteelHeight_C7_2 = new System.Windows.Forms.TextBox();
             this.txtSpringLength_C7_2 = new System.Windows.Forms.TextBox();
@@ -186,8 +183,14 @@
             this.BTNC11 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.mnuC7_1.SuspendLayout();
+            this.pageMisc = new System.Windows.Forms.TabPage();
+            this.chkTopMost = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbxSpringModel = new System.Windows.Forms.ComboBox();
+            this.txtSpringHeight = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtDiameter = new System.Windows.Forms.TextBox();
             this.pageC7_2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.pageC7_1.SuspendLayout();
@@ -217,20 +220,8 @@
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.pageMisc.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // mnuC7_1
-            // 
-            this.mnuC7_1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.mnuC7_1.Name = "mnuC7_1";
-            this.mnuC7_1.Size = new System.Drawing.Size(112, 26);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(111, 22);
-            this.toolStripMenuItem2.Text = "11111";
             // 
             // pageC7_2
             // 
@@ -390,6 +381,7 @@
             // 
             this.cbxSpring_C7_2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxSpring_C7_2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxSpring_C7_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSpring_C7_2.ForeColor = System.Drawing.Color.Blue;
             this.cbxSpring_C7_2.FormattingEnabled = true;
             this.cbxSpring_C7_2.Items.AddRange(new object[] {
@@ -762,6 +754,7 @@
             // 
             this.cbxSpring_C7_1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxSpring_C7_1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxSpring_C7_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSpring_C7_1.ForeColor = System.Drawing.Color.Blue;
             this.cbxSpring_C7_1.FormattingEnabled = true;
             this.cbxSpring_C7_1.Items.AddRange(new object[] {
@@ -1829,7 +1822,6 @@
             this.txtLoad_D6.TabIndex = 0;
             this.txtLoad_D6.Text = "0";
             this.txtLoad_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtLoad_D6, "kg");
             // 
             // txtArmLength_D6
             // 
@@ -1840,7 +1832,6 @@
             this.txtArmLength_D6.TabIndex = 1;
             this.txtArmLength_D6.Text = "0";
             this.txtArmLength_D6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtArmLength_D6, "mm");
             // 
             // label16
             // 
@@ -1890,6 +1881,7 @@
             this.tabMain.Controls.Add(this.pageC7_1);
             this.tabMain.Controls.Add(this.pageC7_2);
             this.tabMain.Controls.Add(this.pageC11);
+            this.tabMain.Controls.Add(this.pageMisc);
             this.tabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
@@ -1968,7 +1960,6 @@
             this.txtLoad_D19.TabIndex = 68;
             this.txtLoad_D19.Text = "0";
             this.txtLoad_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtLoad_D19, "kg");
             // 
             // txtArmLength_D19
             // 
@@ -1979,7 +1970,6 @@
             this.txtArmLength_D19.TabIndex = 69;
             this.txtArmLength_D19.Text = "0";
             this.txtArmLength_D19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip1.SetToolTip(this.txtArmLength_D19, "mm");
             // 
             // label3
             // 
@@ -2338,6 +2328,7 @@
             // 
             this.cbxSpring_C11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbxSpring_C11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxSpring_C11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSpring_C11.ForeColor = System.Drawing.Color.Blue;
             this.cbxSpring_C11.FormattingEnabled = true;
             this.cbxSpring_C11.Items.AddRange(new object[] {
@@ -2474,6 +2465,187 @@
             this.label5.TabIndex = 73;
             this.label5.Text = "EL.I(mm)";
             // 
+            // pageMisc
+            // 
+            this.pageMisc.Controls.Add(this.label13);
+            this.pageMisc.Controls.Add(this.txtDiameter);
+            this.pageMisc.Controls.Add(this.label11);
+            this.pageMisc.Controls.Add(this.txtSpringHeight);
+            this.pageMisc.Controls.Add(this.cbxSpringModel);
+            this.pageMisc.Controls.Add(this.label8);
+            this.pageMisc.Controls.Add(this.chkTopMost);
+            this.pageMisc.Location = new System.Drawing.Point(4, 22);
+            this.pageMisc.Name = "pageMisc";
+            this.pageMisc.Size = new System.Drawing.Size(613, 353);
+            this.pageMisc.TabIndex = 9;
+            this.pageMisc.Text = "杂项";
+            this.pageMisc.UseVisualStyleBackColor = true;
+            // 
+            // chkTopMost
+            // 
+            this.chkTopMost.AutoSize = true;
+            this.chkTopMost.Checked = true;
+            this.chkTopMost.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTopMost.Location = new System.Drawing.Point(8, 18);
+            this.chkTopMost.Name = "chkTopMost";
+            this.chkTopMost.Size = new System.Drawing.Size(72, 16);
+            this.chkTopMost.TabIndex = 1;
+            this.chkTopMost.Text = "窗口置顶";
+            this.chkTopMost.UseVisualStyleBackColor = true;
+            this.chkTopMost.CheckedChanged += new System.EventHandler(this.chkTopMost_CheckedChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(436, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "弹簧型号";
+            // 
+            // cbxSpringModel
+            // 
+            this.cbxSpringModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSpringModel.FormattingEnabled = true;
+            this.cbxSpringModel.Items.AddRange(new object[] {
+            "TD30F0",
+            "TD30F1",
+            "TD30F2",
+            "TD30F3",
+            "TD30F4",
+            "TD30F5",
+            "TD30F6",
+            "TD30F7",
+            "TD30F8",
+            "TD30F9",
+            "TD30F10",
+            "TD30F11",
+            "TD30F12",
+            "TD30F13",
+            "TD30F14",
+            "TD30F15",
+            "TD30F16",
+            "TD30F17",
+            "TD30F18",
+            "TD30F19",
+            "TD30F20",
+            "TD30F21",
+            "TD30F22",
+            "TD30F23",
+            "TD30F24",
+            "TD60F0",
+            "TD60F1",
+            "TD60F2",
+            "TD60F3",
+            "TD60F4",
+            "TD60F5",
+            "TD60F6",
+            "TD60F7",
+            "TD60F8",
+            "TD60F9",
+            "TD60F10",
+            "TD60F11",
+            "TD60F12",
+            "TD60F13",
+            "TD60F14",
+            "TD60F15",
+            "TD60F16",
+            "TD60F17",
+            "TD60F18",
+            "TD60F19",
+            "TD60F20",
+            "TD60F21",
+            "TD60F22",
+            "TD60F23",
+            "TD60F24",
+            "TD90F0",
+            "TD90F1",
+            "TD90F2",
+            "TD90F3",
+            "TD90F4",
+            "TD90F5",
+            "TD90F6",
+            "TD90F7",
+            "TD90F8",
+            "TD90F9",
+            "TD90F10",
+            "TD90F11",
+            "TD90F12",
+            "TD90F13",
+            "TD90F14",
+            "TD90F15",
+            "TD90F16",
+            "TD90F17",
+            "TD90F18",
+            "TD90F19",
+            "TD90F20",
+            "TD90F21",
+            "TD90F22",
+            "TD90F23",
+            "TD90F24",
+            "TD120F0",
+            "TD120F1",
+            "TD120F2",
+            "TD120F3",
+            "TD120F4",
+            "TD120F5",
+            "TD120F6",
+            "TD120F7",
+            "TD120F8",
+            "TD120F9",
+            "TD120F10",
+            "TD120F11",
+            "TD120F12",
+            "TD120F13",
+            "TD120F14",
+            "TD120F15",
+            "TD120F16",
+            "TD120F17",
+            "TD120F18",
+            "TD120F19",
+            "TD120F20",
+            "TD120F21",
+            "TD120F22",
+            "TD120F23",
+            "TD120F24"});
+            this.cbxSpringModel.Location = new System.Drawing.Point(495, 18);
+            this.cbxSpringModel.Name = "cbxSpringModel";
+            this.cbxSpringModel.Size = new System.Drawing.Size(100, 20);
+            this.cbxSpringModel.TabIndex = 3;
+            this.cbxSpringModel.SelectedIndexChanged += new System.EventHandler(this.cbxSpringModel_SelectedIndexChanged);
+            // 
+            // txtSpringHeight
+            // 
+            this.txtSpringHeight.Location = new System.Drawing.Point(495, 54);
+            this.txtSpringHeight.Name = "txtSpringHeight";
+            this.txtSpringHeight.Size = new System.Drawing.Size(100, 21);
+            this.txtSpringHeight.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(436, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "弹簧高度";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(436, 94);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(53, 12);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "筒体直径";
+            // 
+            // txtDiameter
+            // 
+            this.txtDiameter.Location = new System.Drawing.Point(495, 90);
+            this.txtDiameter.Name = "txtDiameter";
+            this.txtDiameter.Size = new System.Drawing.Size(100, 21);
+            this.txtDiameter.TabIndex = 6;
+            // 
             // FrmMain
             // 
             this.AcceptButton = this.BTND6;
@@ -2489,7 +2661,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "支吊架辅助设计软件 20210907";
-            this.mnuC7_1.ResumeLayout(false);
+            this.TopMost = true;
             this.pageC7_2.ResumeLayout(false);
             this.pageC7_2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -2540,13 +2712,13 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.pageMisc.ResumeLayout(false);
+            this.pageMisc.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ContextMenuStrip mnuC7_1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.TabPage pageC7_2;
         private System.Windows.Forms.TextBox txtSpring_C7_2;
         private System.Windows.Forms.TextBox txtRod_C7_2;
@@ -2649,7 +2821,6 @@
         private System.Windows.Forms.TabPage pageD19;
         private System.Windows.Forms.TextBox txtLoad_D6;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.RadioButton rioEndWelding_D6;
         private System.Windows.Forms.RadioButton rioSideWelding_D6;
@@ -2702,6 +2873,14 @@
         private System.Windows.Forms.RadioButton rioInsualationType2_C11;
         private System.Windows.Forms.RadioButton rioInsualationType1_C11;
         private System.Windows.Forms.RadioButton rioBaseType_C11;
+        private System.Windows.Forms.TabPage pageMisc;
+        private System.Windows.Forms.CheckBox chkTopMost;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtSpringHeight;
+        private System.Windows.Forms.ComboBox cbxSpringModel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtDiameter;
     }
 }
 

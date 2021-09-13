@@ -584,7 +584,7 @@ namespace Hansa
             // 管夹长度
             var clampLength = Convert.ToInt32(dt.Rows[0]["e"]);
             // 吊杆长度
-            var rodLength =   space + steelHeight + springHeight + 70;
+            var rodLength = space + steelHeight + springHeight + 70;
             var EL2 = EL1 + clampLength + space + steelHeight;
 
             // 计算吊杆长度
@@ -663,6 +663,21 @@ namespace Hansa
         private void ChkRod_B2_1_CheckedChanged(object sender, EventArgs e)
         {
             cbxRod_B2_1.Enabled = chkRod_B2_1.Checked;
+        }
+
+        private void chkTopMost_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = chkTopMost.Checked;
+        }
+
+        private void cbxSpringModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var model = cbxSpringModel.Text;
+            var sql = $"SELECT * FROM f_spring WHERE model='{model}'";
+            var dt = SQLiteHelper.Read("Hansa.db", sql);
+            txtSpringHeight.Text = dt.Rows[0]["height"] + string.Empty;
+            txtDiameter.Text = dt.Rows[0]["diameter"] + string.Empty;
+
         }
     }
 
